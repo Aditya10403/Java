@@ -1,8 +1,11 @@
 // https://leetcode.com/problems/richest-customer-wealth/
+// Richest customer Wealth problem.
 public class RichestCustomerWealth {
     public static void main(String[] args) {
-        int[][] accounts = {{1,2,3},{3,2,1}};
-        System.out.println(maximumWealth(accounts));
+        int[][] accounts = {{ 1, 2, 3}, { 3, 2, 1}};
+        System.out.println("Richest customer Wealth problem - ");
+        System.out.println("The maximum wealth accounts is = " + maximumWealth(accounts));
+        System.out.println("..End of Program..");
     }
     static int maximumWealth(int[][] accounts) {
         // person = rol
