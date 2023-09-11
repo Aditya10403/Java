@@ -23,15 +23,15 @@ public class Ceiling_FloorofNum{
         while (start <= end){
             int middle = start + (end - start) / 2;
             if (target > arr[arr.length - 1]) return -1;
-            if (target == arr[middle]) return middle;
-            if (target > arr[middle]){
-                start = middle + 1;
-            }
-            else{
+            if (target == arr[middle]) return arr[middle];
+            if (target < arr[middle]){
                 end = middle - 1;
             }
+            else{
+                start = middle + 1;
+            }
         }
-        return start; // answer will be at middle + 1
+        return arr[start]; // answer will be at middle + 1
     }
     // Find the greatest number <= target
     static int FloorNum(int[] arr,int target){
@@ -39,14 +39,14 @@ public class Ceiling_FloorofNum{
         int end = arr.length - 1;
         while (start <= end){
             int middle = start + (end - start) / 2;
-            if (target == arr[middle]) return middle;
-            if (target > arr[middle]){
-                start = middle + 1;
-            }
-            else{
+            if (target == arr[middle]) return arr[middle];
+            if (target < arr[middle]){
                 end = middle - 1;
             }
+            else{
+                start = middle + 1;
+            }
         }
-        return end; // answer will be at middle - 1
+        return arr[end]; // answer will be at middle - 1
     }
 }
