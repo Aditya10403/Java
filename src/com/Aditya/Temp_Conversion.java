@@ -1,3 +1,5 @@
+package com.Aditya;
+
 import java.util.Scanner;
 
 public class Temp_Conversion {

@@ -1,0 +1,48 @@
+//public class Search_in_MountainArr {
+//    public static void main(String[] args) {
+//        arr = {1, 2, 3, 4, 5, 3, 1};
+//        System.out.println(findInMountainArray(3,arr));
+//    }
+//    public int findInMountainArray(int target, com.Aditya.MountainArray mountainArr) {
+//        int peak = peakIndexInMountainArray(arr);
+//        int ans = orderAgnosticBS(arr, target,0,peak);
+//        if (ans != -1) return ans;
+//        return orderAgnosticBS(arr, target, peak + 1, arr.length - 1);
+//    }
+//    public int peakIndexInMountainArray(com.Aditya.MountainArray arr) {
+//        int start = 0;
+//        int end = arr.length() - 1;
+//        while (start < end){
+//            int mid = start + (end - start) / 2;
+//            if (arr.get(mid) > arr.get(mid + 1)){
+//                end = mid;
+//            }
+//            else {
+//                start = mid + 1;
+//            }
+//        }
+//        return start;
+//    }
+//    public int orderAgnosticBS(com.Aditya.MountainArray arr, int target, int start, int end){
+//        boolean isAsc = arr.get(start) < arr.get(end);
+//        while (start <= end){
+//            int middle = start + (end - start) / 2;
+//
+//            if (arr.get(middle) == target) return middle;
+//            if (isAsc) if (target > arr.get(middle)) {
+//                start = middle + 1;
+//            } else {
+//                end = middle - 1;
+//            }
+//            else {
+//                if (target < arr.get(middle)){
+//                    start = middle + 1;
+//                }
+//                else{
+//                    end = middle - 1;
+//                }
+//            }
+//        }
+//        return -1;
+//    }
+//}

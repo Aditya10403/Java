@@ -1,3 +1,5 @@
+package com.Aditya;
+
 public class InfiniteArray {
     public static void main(String[] args) {
         int[] nums = {3, 5, 7, 9, 10, 90,

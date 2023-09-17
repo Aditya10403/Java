@@ -1,3 +1,5 @@
+package com.Aditya;
+
 // https://leetcode.com/problems/richest-customer-wealth/
 // Richest customer Wealth problem.
 public class RichestCustomerWealth {
