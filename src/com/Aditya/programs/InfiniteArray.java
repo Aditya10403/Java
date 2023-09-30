@@ -1,4 +1,4 @@
-package com.Aditya;
+package com.Aditya.programs;
 
 public class InfiniteArray {
     public static void main(String[] args) {

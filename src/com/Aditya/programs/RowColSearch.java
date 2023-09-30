@@ -1,4 +1,4 @@
-package com.Aditya;
+package com.Aditya.programs;
 
 import java.util.Arrays;
 
@@ -12,7 +12,7 @@ public class RowColSearch {
     }
     static int[] BinarySearch_2d(int[][] matrix,int target){
         int row = 0;
-        int col = matrix.length - 1;
+        int col = matrix[0].length - 1;
         while (row < matrix.length && col >= 0){
             if (matrix[row][col] > target){
                 col--;

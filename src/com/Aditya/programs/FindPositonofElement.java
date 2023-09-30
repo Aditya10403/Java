@@ -1,4 +1,4 @@
-package com.Aditya;// https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+package com.Aditya.programs;// https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 // Find the first and last position of element in sorted array.
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package com.Aditya;
+package com.Aditya.programs;
 
 import java.util.ArrayList;
 import java.util.Scanner;
