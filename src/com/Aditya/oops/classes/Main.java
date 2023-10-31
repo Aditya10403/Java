@@ -48,7 +48,7 @@ class Customer {
         this.salary = salary;
     }
 
-    @Override
+//    @Override
     public boolean equals(Customer c){
         return !getEmail_id().equals(Customer.email_id);
     }
