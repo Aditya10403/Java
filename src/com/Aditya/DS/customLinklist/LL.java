@@ -1,4 +1,4 @@
-package com.Aditya.DS.CustomLinklist;
+package com.Aditya.DS.customLinklist;
 
 public class LL{
     private Node head;
