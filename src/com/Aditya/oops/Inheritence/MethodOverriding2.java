@@ -1,6 +1,5 @@
 package com.Aditya.oops.Inheritence;
 
-import javax.swing.*;
 
 class Person{
     String gender;
