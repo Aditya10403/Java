@@ -2,25 +2,25 @@ package com.Aditya.OOP.Classes;
 // Use factory method Design Pattern to create Mobile Gadgets(Mobile,Smart watch,Smart Goggles)
 
 abstract class Mobiles{
-    abstract void sound();
+    abstract void device();
 }
 class Mobile extends Mobiles{
     @Override
-    void sound() {
-        System.out.println("...la la la...");
+    void device() {
+        System.out.println("Mobile");
     }
 }
 class Smartwatch extends Mobiles{
     @Override
-    void sound(){
-        System.out.println("...Beep Beep..");
+    void device(){
+        System.out.println("Smartwatch");
     }
 }
 class SmartGoggles extends Mobiles{
 
     @Override
-    void sound() {
-        System.out.println("...No sound...");
+    void device() {
+        System.out.println("Smartgoggles");
     }
 }
 interface MobileFactory{
@@ -43,8 +43,8 @@ public class MobileGadgets {
         Mobiles mobile = factory.create("Mobile");
         Mobiles smartwatch = factory.create("Smartwatch");
         Mobiles smartgoggle = factory.create("SmartGoggles");
-        mobile.sound();
-        smartwatch.sound();
-        smartgoggle.sound();
+        mobile.device();
+        smartwatch.device();
+        smartgoggle.device();
     }
 }

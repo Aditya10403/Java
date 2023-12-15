@@ -17,6 +17,7 @@ class Animal{
     }
 }
 class Dogs extends Animal{
+    @Override
     void sound(){
         System.out.println("Barking...");
     }
