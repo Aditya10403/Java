@@ -1,4 +1,4 @@
-package com.Aditya.DataStructure;
+package com.Aditya.DataStructureAndAlgorithm.Sorting;
 
 import java.util.Arrays;
 
