@@ -22,13 +22,43 @@ public class DLL {
         head = node;
         size++;
     }
+
+    public void insertLast(int val){
+        Node node = new Node(val);
+        node.next = null;
+        if (head == null) {
+            insertFirst(val);
+            return;
+        }
+        Node tmp = head;
+        while (tmp.next != null) {
+            tmp = tmp.next;
+        }
+        tmp.next = node;
+        node.prev = tmp;
+    }
+
+
     public void Display(){
         Node temp = head;
+        System.out.println("Original :-");
         while (temp != null){
             System.out.print(temp.val + " -> ");
             temp = temp.next;
         }
         System.out.println("END");
+        System.out.println("Reverse :-");
+        Node i = head;
+        Node tail = null;
+        while (i != null){
+            tail = i;
+            i = i.next;
+        }
+        while (tail != null){
+            System.out.print(tail.val + " -> ");
+            tail = tail.prev;
+        }
+        System.out.print("START");
     }
 
     private class Node{

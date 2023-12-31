@@ -2,11 +2,12 @@ package com.Aditya.DataStructureAndAlgorithm.DataStructures.customLinklist;
 
 public class Main {
     public static void main(String[] args) {
-        DLL list = new DLL();
+        LL list = new LL();
+        list.insertLast(0);
         list.insertFirst(1);
         list.insertFirst(2);
-        list.insertFirst(3);
-        list.insertFirst(4);
+        list.insertLast(-1);
+        list.insertRec(88, 3);
         list.Display();
     }
 }
