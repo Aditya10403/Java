@@ -6,7 +6,7 @@ public class Reversal {
     public static void main(String[] args) {
 
     }
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
         ListNode() {}
@@ -14,7 +14,7 @@ public class Reversal {
             val = x;
             next = null;
         }
-        ListNode(int val, Sorting.ListNode next) { this.val = val; this.next = next; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
     // Recursion reverse
     private void reverse(ListNode node) {
