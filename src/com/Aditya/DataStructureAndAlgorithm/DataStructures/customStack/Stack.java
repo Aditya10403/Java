@@ -48,5 +48,4 @@ public class Stack {
     public boolean isEmpty() {
         return ptr == - 1;
     }
-
 }
