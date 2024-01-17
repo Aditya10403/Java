@@ -37,6 +37,6 @@ public class SubSequence {
         char ch = up.charAt(0);
         subseqAscii(p + ch, up.substring(1));
         subseqAscii(p, up.substring(1));
-        subseqAscii(p + (ch+0), up.substring(1));
+        subseqAscii(p + (ch + 0), up.substring(1));
     }
 }

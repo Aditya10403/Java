@@ -6,13 +6,26 @@ import java.util.List;
 
 public class Subset {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3};
+        int[] arr = {0};
         List<List<Integer>> ans = subset(arr);
         for (List<Integer> list : ans) {
             System.out.println(list);
         }
     }
-    static List<List<Integer>> subset(int[] arr) {
+    static List<List<Integer>> subset(int[] nums) {
+        List<List<Integer>> outer = new ArrayList<>();
+        outer.add(new ArrayList<>());
+        for (int num : nums) {
+            int n = outer.size();
+            for (int i = 0; i < n; i++) {
+                List<Integer> internal = new ArrayList<>(outer.get(i)); // copy of outer upto i.
+                internal.add(num);
+                outer.add(internal);
+            }
+        }
+        return outer;
+    }
+    static List<List<Integer>> subsetDup(int[] arr) {
         Arrays.sort(arr);
         List<List<Integer>> outer = new ArrayList<>();
         outer.add(new ArrayList<>());
@@ -34,6 +47,4 @@ public class Subset {
         }
         return outer;
     }
-    // Ignore Duplicate
-
 }
