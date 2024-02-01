@@ -2,6 +2,8 @@ package com.Aditya.DataStructureAndAlgorithm.DataStructures.Trees;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class DepthFirstSearch {
     public static void main(String[] args) {
@@ -141,4 +143,65 @@ public class DepthFirstSearch {
         node.right = buildTree(Arrays.copyOfRange(preorder, index+1, preorder.length), Arrays.copyOfRange(inorder, index+1, inorder.length));
         return node;
     }
+    // Encodes a tree to a single string.
+    public String serialize(TreeNode root) {
+        String s = "";
+        helperS(root, s);
+        return s;
+    }
+    void helperS(TreeNode node, String s) {
+        if (node == null) {
+            s += "null,";
+            return;
+        } s += String.valueOf(node.val) + ",";
+        helperS(node.left, s);
+        helperS(node.right, s);
+    }
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String string) {
+//        if (string.charAt(string.length()-1) == ",") {
+//            string = string.substring(0, string.length() - 1);
+//        }
+        string = Arrays.toString(string.split(","));
+        StringBuilder s = new StringBuilder(string);
+        s.reverse();
+        TreeNode node = helperD(s);
+        return node;
+    }
+    TreeNode helperD(StringBuilder s) {
+        String val = String.valueOf(s.deleteCharAt(s.length()-1));
+        if (val.charAt(0) == 'n') return null;
+        TreeNode node = new TreeNode(Integer.parseInt(val));
+        node.left = helperD(s);
+        node.right = helperD(s);
+        return node;
+    }
+    /*
+    public List<String> serialize(TreeNode root) {
+        List<String> list = new ArrayList<>();
+        helperS(root, list);
+        return list;
+    }
+    void helperS(TreeNode node, List<String> list) {
+        if (node == null) {
+            list.add("null");
+            return;
+        } list.add(String.valueOf(node.val));
+        helperS(node.left, list);
+        helperS(node.right, list);
+    }
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(List<String> list) {
+        Collections.reverse(list);
+        TreeNode node = helperD(list);
+        return node;
+    }
+    TreeNode helperD(List<String> list) {
+        String val = list.remove(list.size()-1);
+        if (val.charAt(0) == 'n') return null;
+        TreeNode node = new TreeNode(Integer.parseInt(val));
+        node.left = helperD(list);
+        node.right = helperD(list);
+        return node;
+    }*/
 }
