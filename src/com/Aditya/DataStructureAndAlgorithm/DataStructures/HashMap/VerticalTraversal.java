@@ -40,7 +40,15 @@ public class VerticalTraversal {
             }
         }
         for (int i = min; i <= max; i++) {
-            ans.add(map.get(i));
+            if (map.get(i).size() > 2) {
+                ArrayList<Integer> a = map.get(i);
+                int temp = a.get(1);
+                a.set(1, a.get(2));
+                a.set(2, temp);
+                ans.add(a);
+            } else {
+                ans.add(map.get(i));
+            }
         }
         return ans;
     }
