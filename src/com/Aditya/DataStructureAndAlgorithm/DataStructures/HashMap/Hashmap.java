@@ -3,6 +3,7 @@ package com.Aditya.DataStructureAndAlgorithm.DataStructures.HashMap;
 import javax.swing.text.html.parser.Entity;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Set;
 
 public class Hashmap {
     public static void main(String[] args) {
@@ -29,6 +30,24 @@ public class Hashmap {
         m.put("a","e");
         m.put("r","e");
         System.out.println(m.get("M"));
+    }
+    public int longestConsecutive(int[] nums) {
+        int n = nums.length;
+        if(n==0) return 0;
+        int longest = 1;
+        Set<Integer> set = new HashSet<>();
+        for (int it : set) {
+            if (!set.contains(it - 1)) {
+                int cnt = 1;
+                int x = it;
+                while (set.contains(x + 1)) {
+                    x = x + 1;
+                    cnt = cnt + 1;
+                }
+                longest = Math.max(longest, cnt);
+            }
+        }
+        return longest;
     }
 }
 class MapusingHash {
