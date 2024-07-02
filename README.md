@@ -441,6 +441,8 @@ public class TestInheritance {
 ```
 > Demonstrates `subclassing` and method `inheritance`
 
+![alt](/OIP%20(1).jpeg)
+
 ### `has-A` Relationship
 - Represents `composition` or `aggregation`.
 - Indicates that one class `contains a reference` to another class.
@@ -535,6 +537,77 @@ public class Window {
     // Window details
 }
 ```
+
+### Polmorphism
+Polymorphism is the ability of programming languages to present the same interface for different underlying data types. A polymorphic type is a type whose operations can also be applied to values of some other type. 
+
+`poly` - many & `morphism` - ways to represent
+![alt](/polymorphism.jpg.webp)
+
+There are two types of Polymorphism in Java: 
+
+**Compile-time polymorphism** ( Static binding ) – `Method Overloading`  \
+Methods of a class have the same name but differ in the `number`, `type`, or `order of parameters` or `return type` of method. Java determines which method will be called at `Compile time`.
+
+```java
+// Calculator Class
+public class Calculator {
+ 
+public int subtract(int a, int b)
+{
+   return a-b;
+}
+public double subtract( double a, double b)
+{
+ return a-b;
+}
+ 
+public static void main(String args[])
+{
+  Calculator calculator = new Calculator();
+  System.out.println("Difference of 150 and 12 is " +calculator.subtract(150,12));
+  System.out.println("Difference of 15.5 and 15.4 is " +calculator.subtract(15.50,15.40));
+}}
+```
+
+**Runtime polymorphism** ( Dynamic binding ) – `Method Overriding` \
+In a class hierarchy, when a method in a `subclass redefines` the `method body` of its's `superclass` with the `same` name, return type & list of arguments this situation is called `method overriding`.
+
+```java
+// Shape Class
+public class Shape {
+    public void getArea() {
+        System.out.println("Shape Area");
+    }  
+}
+```
+
+Rectangle class overrides getArea. \
+`Override annotation` is used to indicate to the compiler that the method is overridden. Readability of the code is improved using the annotation.
+
+```java
+// Rectangle class
+public class Rectangle extends Shape{
+    @Override
+    public void getArea() {
+        System.out.println("Rectangle Area");
+    } 
+    
+    public static void main(String args[]) {  
+        Shape shape = new Shape();
+        
+        shape.getArea();
+        
+        Rectangle rectangle = new Rectangle();  
+        
+        rectangle.getArea();  
+    }  
+}
+```
+
+**`Dynamic Method Dispatch`**
+Dynamic method dispatch is the mechanism by which a call to an `overridden method is resolved at runtime, rather than compile time. This is how Java implements runtime polymorphism. Java determines which version of that method to execute based on the type of the object 
+
 
 ### 3. What is Abstraction?
 >Abstraction is the process of separating ideas from specific instances and thus, developing classes in terms of their own functionality, instead of their implementation details. Java supports the creation and existence of abstract classes that expose interfaces, without including the actual implementation of all methods. The abstraction technique aims to separate the implementation details of a class from its behavior.
