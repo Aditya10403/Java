@@ -107,56 +107,57 @@ Object-Oriented Programming (OOP) includes:
 
 ### Classes And Objects
 
-A class is a `template` for an object, and an object is an `instance` of a class.
-A class creates a new data type that can be used to create objects.
+A class is a `template` for an object, and an object is an `instance` of a class. 
 
+A class creates a new data type that can be used to create objects. \
 When you declare an object of a class, you are creating an instance of that class.
 
 - a class is a **logical construct**
-- An object has **physical reality**. (That is, an object occupies space in memory.)
+- An object has **physical reality**. ( That is, an object occupies space in memory )
 
 Objects are characterized by three essential properties: state, identity, and behavior.
 - The `state` of an object is a `value` from its data type. 
 - The `identity` of an object `distinguishes` one object from another. It is useful to think of an object’s identity as the `place` where its value is stored in memory.
 - The `behavior` of an object is the `effect` of data-type operations.
 
-`Instance variable` are variables inside an Object.(s1.roll)
+**`Instance variable`** are variables inside an Object `( s1.roll )`
 
 ### How to access instance variable?
-Using dot `.` operator - links the name of the object with the name of an instance variable named as separator.
+Using dot `.` operator - which `links` the name of the object with the name of an instance variable named as `separator`.
 
 ### How to create an Object
-Using `new` keyword.
-The `new` keyword dynamically allocates ( that is, allocates at run time ) memory for an object & returns a reference to it.
+Using `new` keyword - it dynamically allocates ( that is, allocates at run time ) memory for an object & returns a reference to it.
 ```java
 Student s1; // declaration
 s1 = new Student(); // Allocation
 s1.roll;
 ```
 
->NOTE:
->Student student = new Student();
->lhs(reference i.e. student) is looked by compiler & rhs (object i.e. new Student()) is looked by jvm
+**Note:**
+>Student student = new Student(); \
+>`lhs` ( reference i.e. student ) is looked by `compiler` & `rhs` ( object i.e. new Student() ) is looked by `jvm`
 
 ### Constructors and keywords
 
-`this` - is always a reference to the object on which the method was invoked.
+`this` - is always a `reference` to the object on which the method was `invoked`. 
 
-`final` - A field can be declared as final. Doing so prevents its contents from being modified, making it, essentially, a constant.
+`final` - A field can be declared as final. Doing so `prevents` its contents from being` modified`, making it, essentially, a `constant`.
 
-// syntax -> 
+```java
 final int FILE_OPEN = 2;
+```
 
 `Constructor` is a `special function` that runs when we create an object and allocate some variables.
 
 
 ### Constructor Overloading
-- Student() -> defines what happens when object is created. Default data will come.
-- Student( args ) -> then the data sent will come.
+- `Student ( )` -> defines what happens when object is created. Default data will come.
+- `Student ( args )` -> here the data sent will come.
 
-- `Default Constructor`
+**`Default` Constructor**
 ```java
-Student s1 = new Student(); // new Student( ) is calling the Student( ) constructor.
+Student s1 = new Student(); 
+// new Student( ) is calling the Student( ) constructor.
 
 Student( ) {
     this.rno = 1;
@@ -164,9 +165,10 @@ Student( ) {
     this.marks = 85;
 }
 ```
-- `Parameterised Constructor`
+**`Parameterised` Constructor**
 ```java
-s1 = new Student(1, "Aditya", 85); // new Student(1, "Aditya", 85) is calling the Student( int rno, String name, float marks ) constructor.
+Student s1 = new Student(1, "Aditya", 85); 
+// new Student(1, "Aditya", 85) is calling the Student( int rno, String name, float marks ) constructor.
 
 Student( int rno, String name, float marks ) {
     this.rno = rno;
@@ -175,14 +177,14 @@ Student( int rno, String name, float marks ) {
 }
 ```
 
+To call constructor from another constructor
 ```java
-// To call constructor from another constructor
 Student( ) {
     this(1, "Aditya", 85);
 }
 ```
 
-Any class will have a default constructor, does not matter if we declare it in the class or not. *If we inherit a class, then the derived class must call its super class constructor*. It is done by default in derived class.
+Any class will have a `default` constructor, does not matter if we declare it in the class or not. *If we inherit a class, then the derived class must call its super class constructor*. It is done by `default` in derived class.
 
 ### Wrapper classes 
 Wrapper classes in Java are used to convert primitive data types into objects. Java provides wrapper classes for each of the primitive data types. For example, int has the corresponding wrapper class `Integer`, char has `Character`, and so on.
@@ -198,24 +200,23 @@ System.out.println(a + " " + b); // 10 20
 ### Packages
 Packages are containers for classes. They are used to keep the class name space compartmentalized.
 
-*The package is both a naming and a visibility control mechanism*
+*The package is both a `naming` and a `visibility control mechanism`*
 
 > The following statement creates a package called MyPackage: package MyPackage;
 
-When a package is imported, only those items within the package declared as public will be available to non-subclasses
+When a package is imported, only those items within the package declared as `public` will be available to `non-subclasses`
 in the importing code.
 
 ### Static
 When a member is declared `static`, it can be accessed before any objects of its class are created, and without reference to any object. 
 
-`main( )` is declared as static because it must be called before any objects exist.
-
 Static method in Java is a method which `belongs to` the `class` and `not` to the `object`.
+
+`main( )` is declared as static because it must be called before any objects exist.
 
 
 ```java
 public class Human {
-
     String message = "Hello World";
 
     public static void display(Human human){
@@ -230,19 +231,18 @@ public class Human {
 }
 ```
 
-- **Static Method**: 
+**Static Method**: 
   - Can only access static data.
-  - Cannot access non-static data (instance variables).
+  - Cannot access non-static data ( instance variables ).
   - Can call only other static methods.
-  - Cannot refer to "this" or "super" keywords.
+  - Cannot refer to `this` or `super` keywords.
   - Can be accessed directly by the class name without any object.
 
-- **Non-Static Member**:
+**Non-Static Member**:
   - Belongs to an instance of the class.
   - Cannot be accessed in a static context without an explicit object reference.
 
-If you need to do computation in order to initialize your static variables,
-you can declare a static block that gets executed exactly once, when the class is first loaded.
+`static block` that gets executed exactly once, when the class is first loaded.
 
 ```java
 // Demonstrate static variables, methods, and blocks.
@@ -263,16 +263,278 @@ class UseStatic {
     }
 }
 ```
+Output
+```terminal
+Static block initialized
+x = 42 
+a = 3 
+b = 12 
+```
 
-As soon as the UseStatic class is loaded, all of the static statements are run. First, a is set to 3,
-then the static block executes, which prints a message and then initializes b to a*4 or 12. Then main( ) is called, which calls math( ), passing 42 to x. The three println( ) statements refer to the two static variables a and b,
-as well as to the local variable x.
+- **Only nested classes can be static.**
+- **Static inner classes can have static variables.**
+- **You cannot override inherited static methods.**
+  - Overriding in Java is resolved at run-time.
+  - Static methods are resolved at compile time.
+- **Static interface methods are not inherited** by implementing classes or sub-interfaces.
 
-Here is the output of the program:
-Static block initialized. 
-x = 42
-a = 3
-b = 12
+## Example Code
+
+```java
+public class Static {
+
+    // class Test  // ERROR
+    static class Test {
+        String name;
+
+        public Test(String name) {
+            this.name = name;
+        }
+    }
+    public static void main(String[] args) {
+        Test a = new Test("Ram");
+        Test b = new Test("Krishna");
+
+        System.out.println(a.name); // Ram
+        System.out.println(b.name); // Krishna
+    }
+}
+```
+
+`Static Nested Classes`: Declaring a member type `C` as static within a `non-inner` class `T` means `C` is not an `inner class` and has no instance of `T`.
+
+`Instance Independence`: `Test` does not have an instance of `Static`, and vice versa. Both can have instances of each other.
+
+### Singleton Class
+**Singleton Pattern** ensures a class has only one instance and provides a global point of access to it. 
+- Useful for scenarios where a single instance is sufficient to coordinate actions across the system.
+
+
+```java
+public class Singleton {
+    private static Singleton instance;
+
+    // Private constructor to prevent instantiation
+    private Singleton() {}
+
+    // Public method to provide access to the instance
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+
+    public void showMessage() {
+        System.out.println("Hello, this is a Singleton instance!");
+    }
+
+    public static void main(String[] args) {
+        // Get the only object available
+        Singleton singleInstance = Singleton.getInstance();
+
+        // Show the message
+        singleInstance.showMessage();
+    }
+}
+```
+`Private Constructor`: Prevents the instantiation of the class from other classes.
+
+`Static Method (getInstance)`: Returns the single instance, creating it if necessary.
+
+`Global Access`: Ensures only one instance of the class exists, providing a single point of access.
+
+### Inheritance
+Inheritance provides an object with the ability to access the fields and methods of another class.The one whose properties are inherited is called the `Super class` and who is inheriting the property is called the `Sub class`. \
+Inheritance provides reusability of code and can be used to add additional features to an existing class, without modifying it.
+
+To inherit a class, you simply incorporate the definition of one class into another by using the `extends` keyword.
+
+```java
+class subclass-name extends superclass-name { 
+	// body of class
+}
+```
+
+```java
+SUPERCLASS ref = new SUBCLASS();    
+// HERE ref can only access methods which are available in SUPERCLASS
+```
+
+*It is important to understand that it is the type of the `reference variable` and `not` the type of the `object` that it refers to that determines what members can be accessed*
+
+### super
+Whenever a `subclass` needs to `refer` to its `immediate superclass`, it can do so by use of the keyword `super.`
+
+**Two General Forms**:
+  1. Calling the superclass' constructor.
+  2. Accessing a member of the superclass hidden by a subclass member.
+
+>*It cannot access those members of the superclass
+that have been declared as private*
+>*Every object has their super i.e the `Object Class`*
+
+```java
+class Box {
+     private double width;
+     private double height;
+     private double depth;
+
+     // construct clone of an object
+
+     Box(Box ob) { // pass object to constructor
+       width = ob.width;
+       height = ob.height;
+       depth = ob.depth;
+     }
+}
+
+class BoxWeight extends Box {
+     double weight; // weight of box
+
+     // construct clone of an object
+
+     BoxWeight(BoxWeight ob) { // pass object to constructor
+        super(ob);
+        weight = ob.weight;
+     }
+}
+```
+
+>`super()` always refers to the constructor in the closest superclass.
+
+### Types of Inheritace
+
+1. **Single Inheritance** - A class inherits from one superclass.
+2. **Multilevel Inheritance** - A class inherits from another class, which in turn inherits from another class.
+3. **Hierarchical Inheritance** - Multiple classes inherit from a single superclass.
+4. **Multiple Inheritance** - A class inherits from more than one class. Java does not support this directly due to the "diamond problem". ( Can be achieved using interfaces )
+5. **Hybrid Inheritance** - Combination of two or more types of inheritance. Java does not support this directly. ( Can be achieved using interfaces )
+![alt](/OIP.jpeg)
+
+### `is-A` Relationship
+- Represents `inheritance` or `implementation`.
+- defines a `hierarchical connection` between a parent class (superclass) and a child class (subclass)
+- Indicates that one class is a subtype of another class or interface.
+- **Example**: A `Dog` is a `Animal`.
+
+```java
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("The dog barks.");
+    }
+}
+
+public class TestInheritance {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();  // Inherited from Animal
+        dog.bark(); // Defined in Dog
+    }
+}
+```
+> Demonstrates `subclassing` and method `inheritance`
+
+### `has-A` Relationship
+- Represents `composition` or `aggregation`.
+- Indicates that one class `contains a reference` to another class.
+- It represents a `whole/part` relationship where the containing class is made up of one or more instances of the referenced class.
+- **Example**: A `Car` has an `Engine`.
+
+```java
+class Engine {
+    void start() {
+        System.out.println("Engine starts.");
+    }
+}
+
+class Car {
+    private Engine engine;
+
+    Car() {
+        engine = new Engine();
+    }
+
+    void startCar() {
+        engine.start();
+        System.out.println("Car starts.");
+    }
+}
+
+public class TestComposition {
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.startCar();
+    }
+}
+```
+> Demonstrates `object references` and `whole/part` relationships.
+
+### What is an `association`?
+Association represents the ability of one instance to send a message to another instance. This is typically implemented using a pointer or reference instance variable, a method argument, or a local variable.
+
+### Example:
+```java
+public class Driver {
+    private Car car;  // Driver has a Car (association)
+}
+ 
+public class Car {
+    private String model;
+    private String make;
+}
+```
+
+### What is `aggregation`?
+Aggregation is a special form of `association` that represents a `whole/part` relationship. In aggregation, parts can exist independently of the whole.
+
+```java
+public class Person {
+    private Address address;  // Person has an Address (aggregation)
+}
+ 
+public class Address {
+    private String city;
+    private String state;
+    private String country;
+    private String line1;
+    private String line2;
+}
+```
+
+### What is `composition`?
+Composition is a `stronger form` of `aggregation` where the `lifetime` of the **parts** is `controlled` by the **whole**. The parts cannot exist independently of the whole. This control may be direct or transitive. That is, the ‘whole’ may take direct responsibility for creating or destroying the ‘part’, or it may accept an already created part, and later pass it on to some other whole that assumes responsibility for it.
+
+```java
+public class Car {
+    private Tire[] tires;      // Car has Tires (composition)
+    private Door[] doors;      // Car has Doors (composition)
+    private Steering steering; // Car has Steering (composition)
+    private Window[] windows;  // Car has Windows (composition)
+}
+ 
+public class Tire {
+    // Tire details
+}
+   
+public class Door {
+    // Door details
+}
+ 
+public class Steering {
+    // Steering details
+}
+ 
+public class Window {
+    // Window details
+}
+```
 
 ### 3. What is Abstraction?
 >Abstraction is the process of separating ideas from specific instances and thus, developing classes in terms of their own functionality, instead of their implementation details. Java supports the creation and existence of abstract classes that expose interfaces, without including the actual implementation of all methods. The abstraction technique aims to separate the implementation details of a class from its behavior.
