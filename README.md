@@ -22,50 +22,23 @@ To start developing in Java, follow these steps:
 3. **Choose an Integrated Development Environment (IDE)**: Popular IDEs for Java development include [IntelliJ IDEA](https://www.jetbrains.com/idea/), [Eclipse](https://www.eclipse.org/), and [NetBeans](https://netbeans.apache.org/).
 4. **Write Your First Java Program**: Create a simple "Hello, World!" program to verify your setup.
 
-## Core Java Concepts
-Core Java refers to the standard edition of Java (Java SE) and consists of the basic features of the Java programming language.
+### What is Java?
+Java is a computer programming language that is concurrent, class-based, and object-oriented. The advantages of object-oriented software development are shown below:
 
-## Table Of Contents
-- [A. Object Oriented Programming (OOP)](#a-object-oriented-programming-oop)
-- [B. General Questions about Java](#b-general-questions-about-java)
-- [C. Java Threads](#c-java-threads)
-- [D. Java Collections](#d-java-collections)
-- [E. Garbage Collectors](#e-garbage-collectors)
-- [F. Exception Handling](#f-exception-handling)
-- [G. Java Applets](#g-java-applets)
-- [H. Swing](#h-swing)
-- [I. JDBC](#i-jdbc)
-- [J. Remote Method Invocation (RMI)](#j-remote-method-invocation-rmi)
-- [K. Servlets](#k-servlets)
-- [L. JSP](#l-jsp)
+- Modular development of code, which leads to easy maintenance and modification.
+- Reusability of code.
+- Improved reliability and flexibility of code.
+- Increased understanding of code.
 
-## <a name="a-object-oriented-programming-oop">A. Object Oriented Programming (OOP)</a>
-
-### 1. What is Java?
-Java is a computer programming language that is concurrent, class-based, and object-oriented. The advantages of object-oriented software development include:
->- Modular development of code, which leads to easy maintenance and modification.
->- Reusability of code.
->- Improved reliability and flexibility of code.
->- Increased understanding of code.
-
-### 2. What are the concepts of OOP?
-Object-Oriented Programming (OOP) includes:
->- Abstraction
->- Encapsulation
->- Polymorphism
->- Inheritance
->- Predefined types must be objects
->- User-defined types must be objects
->- Operations must be performed by sending messages to objects
-
-### 3. Mention some features of Java
+### Features of Java
 Some of the features which play an important role in the popularity of Java are as follows:
-> - Object-Oriented
-> - Platform independent
-> - High Performance
-> - Multithreaded
-> - Portable
-> - Secure
+
+- Object-Oriented
+- Platform independent
+- High Performance
+- Multithreaded
+- Portable
+- Secure
 
 Sample code in Java:
 
@@ -77,10 +50,231 @@ public class FirstProgram{
 }
 ```
 
-## 4. Is Java 100% Object-oriented?
+## Core Java Concepts
+Core Java refers to the standard edition of Java (Java SE) and consists of the basic features of the Java programming language.
+
+## Table Of Contents
+- [A. How java Code Executes](#how-java-code-executes)
+- [B. Object Oriented Programming (OOP)](#b-general-questions-about-java)
+- [C. Java Threads](#c-java-threads)
+- [D. Java Collections](#d-java-collections)
+- [E. Garbage Collectors](#e-garbage-collectors)
+- [F. Exception Handling](#f-exception-handling)
+- [G. Java Applets](#g-java-applets)
+- [H. Swing](#h-swing)
+- [I. JDBC](#i-jdbc)
+- [J. Remote Method Invocation (RMI)](#j-remote-method-invocation-rmi)
+- [K. Servlets](#k-servlets)
+- [L. JSP](#l-jsp)
+
+
+## <a name="how-java-code-executes">How java Code Executes</a>
+
+![alt](/Java%20Intro.png)
+
+### Arrays in Java
+![alt](/1D_arrays.png)
+
+### 2D Arrays in Java
+![alt](/2D_arrays.png)
+
+### ArrayList in Java
+![alt](/arraylist.png)
+
+### Functoin calls
+![alt](/function%20calls%20internal%20working.png)
+
+### Time Complexity
+![alt](/basics_of_time_complexity.png)
+![alt](/big_O.png)
+
+
+
+## <a name="b-object-oriented-programming-oop">B. Object Oriented Programming (OOP)</a>
+
+### What are the concepts of OOP?
+Object-Oriented Programming (OOP) includes:
+>- Abstraction
+>- Encapsulation
+>- Polymorphism
+>- Inheritance
+>- Predefined types must be objects
+>- User-defined types must be objects
+>- Operations must be performed by sending messages to objects
+
+### Is Java 100% Object-oriented?
 >Not 100%. Java does not satisfy all the OOP conditions because it uses eight primitive data types (Boolean, byte, char, int, float, double, long, short) which are not objects.
 
-## 5. What is Abstraction?
+### Classes And Objects
+
+A class is a `template` for an object, and an object is an `instance` of a class.
+A class creates a new data type that can be used to create objects.
+
+When you declare an object of a class, you are creating an instance of that class.
+
+- a class is a **logical construct**
+- An object has **physical reality**. (That is, an object occupies space in memory.)
+
+Objects are characterized by three essential properties: state, identity, and behavior.
+- The `state` of an object is a `value` from its data type. 
+- The `identity` of an object `distinguishes` one object from another. It is useful to think of an object’s identity as the `place` where its value is stored in memory.
+- The `behavior` of an object is the `effect` of data-type operations.
+
+`Instance variable` are variables inside an Object.(s1.roll)
+
+### How to access instance variable?
+Using dot `.` operator - links the name of the object with the name of an instance variable named as separator.
+
+### How to create an Object
+Using `new` keyword.
+The `new` keyword dynamically allocates ( that is, allocates at run time ) memory for an object & returns a reference to it.
+```java
+Student s1; // declaration
+s1 = new Student(); // Allocation
+s1.roll;
+```
+
+>NOTE:
+>Student student = new Student();
+>lhs(reference i.e. student) is looked by compiler & rhs (object i.e. new Student()) is looked by jvm
+
+### Constructors and keywords
+
+`this` - is always a reference to the object on which the method was invoked.
+
+`final` - A field can be declared as final. Doing so prevents its contents from being modified, making it, essentially, a constant.
+
+// syntax -> 
+final int FILE_OPEN = 2;
+
+`Constructor` is a `special function` that runs when we create an object and allocate some variables.
+
+
+### Constructor Overloading
+- Student() -> defines what happens when object is created. Default data will come.
+- Student( args ) -> then the data sent will come.
+
+- `Default Constructor`
+```java
+Student s1 = new Student(); // new Student( ) is calling the Student( ) constructor.
+
+Student( ) {
+    this.rno = 1;
+    this.name = "Aditya";
+    this.marks = 85;
+}
+```
+- `Parameterised Constructor`
+```java
+s1 = new Student(1, "Aditya", 85); // new Student(1, "Aditya", 85) is calling the Student( int rno, String name, float marks ) constructor.
+
+Student( int rno, String name, float marks ) {
+    this.rno = rno;
+    this.name = name;
+    this.marks = mark;
+}
+```
+
+```java
+// To call constructor from another constructor
+Student( ) {
+    this(1, "Aditya", 85);
+}
+```
+
+Any class will have a default constructor, does not matter if we declare it in the class or not. *If we inherit a class, then the derived class must call its super class constructor*. It is done by default in derived class.
+
+### Wrapper classes 
+Wrapper classes in Java are used to convert primitive data types into objects. Java provides wrapper classes for each of the primitive data types. For example, int has the corresponding wrapper class `Integer`, char has `Character`, and so on.
+
+```java
+Integer a = 10;
+Integer b = 20;
+swap(a, b);
+System.out.println(a + " " + b); // 10 20
+// will not swap as Integers are final
+```
+
+### Packages
+Packages are containers for classes. They are used to keep the class name space compartmentalized.
+
+*The package is both a naming and a visibility control mechanism*
+
+> The following statement creates a package called MyPackage: package MyPackage;
+
+When a package is imported, only those items within the package declared as public will be available to non-subclasses
+in the importing code.
+
+### Static
+When a member is declared `static`, it can be accessed before any objects of its class are created, and without reference to any object. 
+
+`main( )` is declared as static because it must be called before any objects exist.
+
+Static method in Java is a method which `belongs to` the `class` and `not` to the `object`.
+
+
+```java
+public class Human {
+
+    String message = "Hello World";
+
+    public static void display(Human human){
+        System.out.println(human.message);
+    }
+
+    public static void main(String[] args) {
+        Human a = new Human();
+        a.message = "Aditya's message";
+        Human.display(a);
+    }
+}
+```
+
+- **Static Method**: 
+  - Can only access static data.
+  - Cannot access non-static data (instance variables).
+  - Can call only other static methods.
+  - Cannot refer to "this" or "super" keywords.
+  - Can be accessed directly by the class name without any object.
+
+- **Non-Static Member**:
+  - Belongs to an instance of the class.
+  - Cannot be accessed in a static context without an explicit object reference.
+
+If you need to do computation in order to initialize your static variables,
+you can declare a static block that gets executed exactly once, when the class is first loaded.
+
+```java
+// Demonstrate static variables, methods, and blocks.
+class UseStatic {
+    static int a = 3;
+    static int b;
+    static void math(int x) {
+        System.out.println("x = " + x);
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+    }
+    static {
+        System.out.println("Static block initialized.");
+        b = a * 4;
+    }
+    public static void main(String args[]) {
+        math(42);
+    }
+}
+```
+
+As soon as the UseStatic class is loaded, all of the static statements are run. First, a is set to 3,
+then the static block executes, which prints a message and then initializes b to a*4 or 12. Then main( ) is called, which calls math( ), passing 42 to x. The three println( ) statements refer to the two static variables a and b,
+as well as to the local variable x.
+
+Here is the output of the program:
+Static block initialized. 
+x = 42
+a = 3
+b = 12
+
+### 3. What is Abstraction?
 >Abstraction is the process of separating ideas from specific instances and thus, developing classes in terms of their own functionality, instead of their implementation details. Java supports the creation and existence of abstract classes that expose interfaces, without including the actual implementation of all methods. The abstraction technique aims to separate the implementation details of a class from its behavior.
 
 `Abstract Class Person`
@@ -115,7 +309,7 @@ public class Employee extends Person {
 }
 ```
 
-## 6. What is Encapsulation?
+### 6. What is Encapsulation?
 >
 > Encapsulation provides objects with the ability to hide their internal characteristics and behavior. Each object provides a number of methods, which can be accessed by other objects and change its internal data. In Java, there are three access modifiers: public, private, and protected. Each modifier imposes different access rights to other classes, either in the same or in external packages.
 
@@ -158,16 +352,16 @@ public class Student {
 
 ```
 
-## 7. What are the differences between Abstraction and Encapsulation?
+### 7. What are the differences between Abstraction and Encapsulation?
 > Abstraction and encapsulation are complementary concepts. On the one hand, abstraction focuses on the behavior of an object. On the other hand, encapsulation focuses on the implementation of an object’s behavior. Encapsulation is usually achieved by hiding information about the internal state of an object and thus, can be seen as a strategy used in order to provide abstraction.
 
-## 8. What is Polymorphism?
+### 8. What is Polymorphism?
 >`Polymorphism` is the ability of programming languages to present the same interface for differing underlying data types. A polymorphic type is a type whose operations can also be applied to values of some other type.
 
 You can see the example below where Vehicle interface has the method increaseVelocity. Truck, Train and Aeroplane implement the Vehicle Interface and the method increases the velocity to the appropriate velocity related to the vehicle type.
 ![img.png](img.png)
 
-## 9. What are the types of Polymorphism?
+### 9. What are the types of Polymorphism?
 >There are two types of Polymorphism in Java:
 > - **Compile-time** polymorphism (`Static binding`) – Method overloading
 > - **Runtime** polymorphism (`Dynamic binding`) – Method overriding
@@ -236,7 +430,7 @@ public class Rectangle extends Shape {
 }
 ```
 
-## 10. What is Inheritance?
+### 10. What is Inheritance?
 > Inheritance provides an object with the ability to acquire the fields and methods of another class, called base class. Inheritance provides reusability of code and can be used to add additional features to an existing class, without modifying it.
 
 Sample class Mammal is shown below which has a constructor.
@@ -272,7 +466,7 @@ public class TestInheritance {
 }
 ```
 
-## 11. What is composition?
+### 11. What is composition?
 > Composition is exactly like Aggregation except that the lifetime of the ‘part’ is controlled by the ‘whole’. This control may be direct or transitive. That is, the ‘whole’ may take direct responsibility for creating or destroying the ‘part’, or it may accept an already created part, and later pass it on to some other whole that assumes responsibility for it.
 
 Sample class Car is shown below to demonstrate Composition of tires, doors, windows and steering.
@@ -303,10 +497,10 @@ class Window {
 }
 ```
 
-## 12. What is an association?
+### 12. What is an association?
 > Association represents the ability of one instance to send a message to another instance. This is typically implemented with a pointer or reference instance variable, although it might also be implemented as a method argument or the creation of a local variable.
 
-## 13. What is aggregation?
+### 13. What is aggregation?
 > Aggregation is the typical whole/part relationship. This is exactly the same as an association with the exception that instances cannot have cyclic aggregation relationships.
 
 Sample class Person is shown below to demonstrate Aggregation relationship with Address.
