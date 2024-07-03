@@ -20,8 +20,26 @@ To start developing in Java, follow these steps:
 1. **Install the JDK**: Download and install the latest JDK from the [official Oracle website](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) or use [OpenJDK](https://openjdk.java.net/).
 2. **Set Up Environment Variables**: Configure the `JAVA_HOME` and `PATH` environment variables to point to your JDK installation directory.
 3. **Choose an Integrated Development Environment (IDE)**: Popular IDEs for Java development include [IntelliJ IDEA](https://www.jetbrains.com/idea/), [Eclipse](https://www.eclipse.org/), and [NetBeans](https://netbeans.apache.org/).
-4. **Write Your First Java Program**: Create a simple "Hello, World!" program to verify your setup.
 
+## Core Java Concepts
+Core Java refers to the standard edition of Java (Java SE) and consists of the basic features of the Java programming language.
+
+## Table Of Contents
+- [A. Introduction to Java](#a-introduction-to-java)
+- [B. Internal Working in Java](#b-internal-working-in-java)
+- [C. Object Oriented Programming (OOP)](#c-object-oriented-programming-oop)
+- [C. Java Threads](#c-java-threads)
+- [D. Java Collections](#d-java-collections)
+- [E. Garbage Collectors](#e-garbage-collectors)
+- [F. Exception Handling](#f-exception-handling)
+- [G. Java Applets](#g-java-applets)
+- [H. Swing](#h-swing)
+- [I. JDBC](#i-jdbc)
+- [J. Remote Method Invocation (RMI)](#j-remote-method-invocation-rmi)
+- [K. Servlets](#k-servlets)
+- [L. JSP](#l-jsp)
+
+## <a name="a-introduction-to-java">A. Introduction to Java</a>
 ### What is Java?
 Java is a computer programming language that is concurrent, class-based, and object-oriented. The advantages of object-oriented software development are shown below:
 
@@ -50,25 +68,7 @@ public class FirstProgram{
 }
 ```
 
-## Core Java Concepts
-Core Java refers to the standard edition of Java (Java SE) and consists of the basic features of the Java programming language.
-
-## Table Of Contents
-- [A. How java Code Executes](#how-java-code-executes)
-- [B. Object Oriented Programming (OOP)](#b-general-questions-about-java)
-- [C. Java Threads](#c-java-threads)
-- [D. Java Collections](#d-java-collections)
-- [E. Garbage Collectors](#e-garbage-collectors)
-- [F. Exception Handling](#f-exception-handling)
-- [G. Java Applets](#g-java-applets)
-- [H. Swing](#h-swing)
-- [I. JDBC](#i-jdbc)
-- [J. Remote Method Invocation (RMI)](#j-remote-method-invocation-rmi)
-- [K. Servlets](#k-servlets)
-- [L. JSP](#l-jsp)
-
-
-## <a name="how-java-code-executes">How java Code Executes</a>
+## <a name="b-internal-working-in-java">B. Internal Working in Java</a>
 
 ![alt](/Java%20Intro.png)
 
@@ -90,20 +90,20 @@ Core Java refers to the standard edition of Java (Java SE) and consists of the b
 
 
 
-## <a name="b-object-oriented-programming-oop">B. Object Oriented Programming (OOP)</a>
+## <a name="c-object-oriented-programming-oop">C. Object Oriented Programming (OOP)</a>
 
 ### What are the concepts of OOP?
 Object-Oriented Programming (OOP) includes:
->- Abstraction
->- Encapsulation
->- Polymorphism
->- Inheritance
->- Predefined types must be objects
->- User-defined types must be objects
->- Operations must be performed by sending messages to objects
+- Abstraction
+- Encapsulation
+- Polymorphism
+- Inheritance
+- Predefined types must be objects
+- User-defined types must be objects
+- Operations must be performed by sending messages to objects
 
 ### Is Java 100% Object-oriented?
->Not 100%. Java does not satisfy all the OOP conditions because it uses eight primitive data types (Boolean, byte, char, int, float, double, long, short) which are not objects.
+Not 100%. Java does not satisfy all the OOP conditions because it uses eight primitive data types (Boolean, byte, char, int, float, double, long, short) which are not objects.
 
 ### Classes And Objects
 
@@ -113,17 +113,29 @@ A class creates a new data type that can be used to create objects. \
 When you declare an object of a class, you are creating an instance of that class.
 
 - a class is a **logical construct**
-- An object has **physical reality**. ( That is, an object occupies space in memory )
+- An object has **physical reality** ( That is, an object occupies space in memory )
 
 Objects are characterized by three essential properties: state, identity, and behavior.
 - The `state` of an object is a `value` from its data type. 
-- The `identity` of an object `distinguishes` one object from another. It is useful to think of an object’s identity as the `place` where its value is stored in memory.
+- The `identity` of an object `distinguishes` one object from another. 
 - The `behavior` of an object is the `effect` of data-type operations.
 
 **`Instance variable`** are variables inside an Object `( s1.roll )`
 
+**`Local variable`** - Local variable is declared inside a method or constructor. It can be declared within a block.
+
+**`Volatile variable`** - Volatile variable values can be modified by different threads. They will never have the chance to block and hold a lock.
+```java
+public volatile int count = 0;
+```
+
+**`Transient variable`** - A transient variable would not be serialized even if the class to which it belongs is serialized.
+```java
+private transient int version = 1;
+```
+
 ### How to access instance variable?
-Using dot `.` operator - which `links` the name of the object with the name of an instance variable named as `separator`.
+Using dot `.` operator named as `separator` - which `links` the name of the object with the name of an instance variable.
 
 ### How to create an Object
 Using `new` keyword - it dynamically allocates ( that is, allocates at run time ) memory for an object & returns a reference to it.
@@ -139,20 +151,28 @@ s1.roll;
 
 ### Constructors and keywords
 
-`this` - is always a `reference` to the object on which the method was `invoked`. 
+**`this`** - is always a `reference` to the object on which the method was `invoked`. 
 
-`final` - A field can be declared as final. Doing so `prevents` its contents from being` modified`, making it, essentially, a `constant`.
+**`final`** - A field can be declared as final. Doing so `prevents` its contents from being` modified`, making it, essentially, a `constant`.
 
 ```java
 final int FILE_OPEN = 2;
 ```
 
-`Constructor` is a `special function` that runs when we create an object and allocate some variables.
+**`Constructor`** is a `special function` that runs when we create an object and allocate some variables.
 
 
 ### Constructor Overloading
+Different constructors can be created for a single class. Each constructor must have its own unique parameter list. \
 - `Student ( )` -> defines what happens when object is created. Default data will come.
 - `Student ( args )` -> here the data sent will come.
+
+### Copy-Constructor
+Java does support copy constructors like C++, but the difference lies in the fact that Java does not create a default copy constructor if you do not write your own.
+
+### pass by reference and pass by value
+When an object is `passed by value`, this means that a copy of the object is passed. Thus, even if changes are made to that object, it does not affect the original value. \
+When an object is `passed by reference`, this means that the actual object is not passed, rather a reference of the object is passed. Thus, any changes made by the external method, are also reflected in all places
 
 **`Default` Constructor**
 ```java
@@ -278,7 +298,6 @@ b = 12
   - Static methods are resolved at compile time.
 - **Static interface methods are not inherited** by implementing classes or sub-interfaces.
 
-## Example Code
 
 ```java
 public class Static {
@@ -311,38 +330,24 @@ public class Static {
 
 
 ```java
-public class Singleton {
-    private static Singleton instance;
-
-    // Private constructor to prevent instantiation
-    private Singleton() {}
-
-    // Public method to provide access to the instance
-    public static Singleton getInstance() {
+public class DoubleCheckedSingleton {
+    private static volatile DoubleCheckedSingleton instance;
+    public static DoubleCheckedSingleton getInstance() {
         if (instance == null) {
-            instance = new Singleton();
+            synchronized (DoubleCheckedSingleton .class) {
+                if (instance == null) {
+                    instance = new DoubleCheckedSingleton();
+                }
+            }
         }
         return instance;
     }
-
-    public void showMessage() {
-        System.out.println("Hello, this is a Singleton instance!");
-    }
-
-    public static void main(String[] args) {
-        // Get the only object available
-        Singleton singleInstance = Singleton.getInstance();
-
-        // Show the message
-        singleInstance.showMessage();
-    }
+  
 }
 ```
-`Private Constructor`: Prevents the instantiation of the class from other classes.
-
-`Static Method (getInstance)`: Returns the single instance, creating it if necessary.
-
-`Global Access`: Ensures only one instance of the class exists, providing a single point of access.
+Private Constructor: Prevents the instantiation of the class from other classes. \
+Static Method (getInstance): Returns the single instance, creating it if necessary. \
+Global Access: Ensures only one instance of the class exists, providing a single point of access.
 
 ### Inheritance
 Inheritance provides an object with the ability to access the fields and methods of another class.The one whose properties are inherited is called the `Super class` and who is inheriting the property is called the `Sub class`. \
@@ -409,7 +414,7 @@ class BoxWeight extends Box {
 2. **Multilevel Inheritance** - A class inherits from another class, which in turn inherits from another class.
 3. **Hierarchical Inheritance** - Multiple classes inherit from a single superclass.
 4. **Multiple Inheritance** - A class inherits from more than one class. Java does not support this directly due to the "diamond problem". ( Can be achieved using interfaces )
-5. **Hybrid Inheritance** - Combination of two or more types of inheritance. Java does not support this directly. ( Can be achieved using interfaces )
+5. **Hybrid Inheritance** - Combination of two or more types of inheritance. Java does not support this directly. ( Can be achieved using interfaces ) \
 ![alt](/OIP.jpeg)
 
 ### `is-A` Relationship
@@ -481,7 +486,6 @@ public class TestComposition {
 ### What is an `association`?
 Association represents the ability of one instance to send a message to another instance. This is typically implemented using a pointer or reference instance variable, a method argument, or a local variable.
 
-### Example:
 ```java
 public class Driver {
     private Car car;  // Driver has a Car (association)
