@@ -11,9 +11,6 @@ Java platforms are categorized into different editions, each serving different t
 - **`Java Micro Edition (Java ME)`**: This edition is designed for resource-constrained devices such as embedded systems, mobile devices, and IoT devices.
 - **`JavaFX`**: A platform for creating rich internet applications using a lightweight user interface API.
 
-### Java Development Kit (JDK)
-The JDK is a software development kit used to develop Java applications. It includes the Java Runtime Environment (JRE), an interpreter/loader (Java), a compiler (javac), an archiver (jar), a documentation generator (Javadoc), and other tools needed for Java development.
-
 ## Getting Started with Java Development
 To start developing in Java, follow these steps:
 
@@ -24,23 +21,53 @@ To start developing in Java, follow these steps:
 ## Core Java Concepts
 Core Java refers to the standard edition of Java (Java SE) and consists of the basic features of the Java programming language.
 
-## Table Of Contents
-- [A. Introduction to Java](#a-introduction-to-java)
-- [B. Internal Working in Java](#b-internal-working-in-java)
-- [C. Object Oriented Programming (OOP)](#c-object-oriented-programming-oop)
-- [C. Java Threads](#c-java-threads)
-- [D. Java Collections](#d-java-collections)
-- [E. Garbage Collectors](#e-garbage-collectors)
-- [F. Exception Handling](#f-exception-handling)
-- [G. Java Applets](#g-java-applets)
-- [H. Swing](#h-swing)
-- [I. JDBC](#i-jdbc)
-- [J. Remote Method Invocation (RMI)](#j-remote-method-invocation-rmi)
-- [K. Servlets](#k-servlets)
-- [L. JSP](#l-jsp)
+## Table of Contents
 
-## <a name="a-introduction-to-java">A. Introduction to Java</a>
-### What is Java?
+- [Introduction to Java](#introduction-to-java)
+  - [1. What is Java](#1-what-is-java)
+  - [2. Features of Java](#2-features-of-java)
+- [Internal Working of Java](#internal-working-of-java)
+- [Object-Oriented Programming (OOP) Concepts](#object-oriented-programming-oop-concepts)
+    - [A. What are the concepts of OOP](#a-what-are-the-concepts-of-oop)
+    - [B. Is Java 100% Object-oriented](#b-is-java-100-object-oriented)
+    - [C. Classes and Objects](#c-classes-and-objects)
+        - [1. Instance variable](#1-instance-variable)
+        - [2. Local variable](#2-local-variable)
+        - [3. Volatile variable](#3-volatile-variable)
+        - [4. Transient variable](#4-transient-variable)
+        - [5. How to access instance variable](#5-how-to-access-instance-variable)
+        - [6. How to create an Object](#6-how-to-create-an-object)
+    - [D. Constructors and Keywords](#d-constructors-and-keywords)
+        - [1. this](#1-this)
+        - [2. final](#2-final)
+        - [3. Constructor](#3-constructor)
+        - [4. Constructor Overloading](#4-constructor-overloading)
+        - [5. Copy-Constructor](#5-copy-constructor)
+        - [6. pass by reference and pass by value](#6-pass-by-reference-and-pass-by-value)
+    - [E. AutoBoxing and UnBoxing](#e-autoboxing-and-unboxing)
+        - [1. Wrapper classes](#1-wrapper-classes)
+    - [F. Packages](#f-packages)
+    - [G. Static](#g-static)
+    - [H. Singleton Class](#h-singleton-class)
+    - [I. Inheritance](#i-inheritance)
+        - [1. super](#1-super)
+        - [2. Types of Inheritance](#2-types-of-inheritance)
+        - [3. is-A, has-A](#3-is-a-has-a)
+        - [4. association, aggregation, composition](#4-association-aggregation-composition)
+    - [J. Polymorphism](#j-polymorphism)
+        - [1. Dynamic Method Dispatch](#1-dynamic-method-dispatch)
+    - [K. Interfaces](#k-interfaces)
+    - [L. Abstraction](#l-abstraction)
+        - [1. Abstract Classes](#1-abstract-classes)
+        - [2. Abstract Class vs Interface](#2-abstract-class-vs-interface)
+    - [M. Encapsulation](#m-encapsulation)
+        - [1. Access Modifiers](#1-access-modifiers)
+        - [2. Abstraction vs Encapsulation](#2-abstraction-vs-encapsulation)
+
+
+## <a name="introduction-to-java">Introduction to Java</a>
+
+### <a name="1-what-is-java">What is Java?</a>
 Java is a computer programming language that is concurrent, class-based, and object-oriented. The advantages of object-oriented software development are shown below:
 
 - Modular development of code, which leads to easy maintenance and modification.
@@ -48,7 +75,7 @@ Java is a computer programming language that is concurrent, class-based, and obj
 - Improved reliability and flexibility of code.
 - Increased understanding of code.
 
-### Features of Java
+### <a name="2-features-of-java">Features of Java</a>
 Some of the features which play an important role in the popularity of Java are as follows:
 
 - Object-Oriented
@@ -68,8 +95,9 @@ public class FirstProgram{
 }
 ```
 
-## <a name="b-internal-working-in-java">B. Internal Working in Java</a>
+## <a name="internal-working-of-java">Internal Working of Java</a>
 
+### How a program runs
 ![alt](/Java%20Intro.png)
 
 ### Arrays in Java
@@ -90,9 +118,9 @@ public class FirstProgram{
 
 
 
-## <a name="c-object-oriented-programming-oop">C. Object Oriented Programming (OOP)</a>
+## <a name="object-oriented-programming-oop-concepts">Object Oriented Programming (OOP)</a>
 
-### What are the concepts of OOP?
+### <a name="1-what-are-the-concepts-of-oop">What are the concepts of OOP?</a>
 Object-Oriented Programming (OOP) includes:
 - Abstraction
 - Encapsulation
@@ -102,10 +130,10 @@ Object-Oriented Programming (OOP) includes:
 - User-defined types must be objects
 - Operations must be performed by sending messages to objects
 
-### Is Java 100% Object-oriented?
+### <a name="2-is-java-100-object-oriented">Is Java 100% Object-oriented?</a>
 Not 100%. Java does not satisfy all the OOP conditions because it uses eight primitive data types (Boolean, byte, char, int, float, double, long, short) which are not objects.
 
-### Classes And Objects
+## <a name="classes-and-objects">Classes And Objects</a>
 
 A class is a `template` for an object, and an object is an `instance` of a class. 
 
@@ -120,6 +148,10 @@ Objects are characterized by three essential properties: state, identity, and be
 - The `identity` of an object `distinguishes` one object from another. 
 - The `behavior` of an object is the `effect` of data-type operations.
 
+<a name="1-instance-variable"></a>
+<a name="2-local-variable"></a>
+<a name="3-volatile-variable"></a>
+<a name="4-transient-variable"></a>
 **`Instance variable`** are variables inside an Object `( s1.roll )`
 
 **`Local variable`** - Local variable is declared inside a method or constructor. It can be declared within a block.
@@ -134,10 +166,10 @@ public volatile int count = 0;
 private transient int version = 1;
 ```
 
-### How to access instance variable?
+### <a name="5-how-to-access-instance-variable">How to access instance variable?</a>
 Using dot `.` operator named as `separator` - which `links` the name of the object with the name of an instance variable.
 
-### How to create an Object
+### <a name="6-how-to-create-an-object">How to create an Object</a>
 Using `new` keyword - it dynamically allocates ( that is, allocates at run time ) memory for an object & returns a reference to it.
 ```java
 Student s1; // declaration
@@ -149,9 +181,13 @@ s1.roll;
 >Student student = new Student(); \
 >`lhs` ( reference i.e. student ) is looked by `compiler` & `rhs` ( object i.e. new Student() ) is looked by `jvm`
 
-### Constructors and keywords
+## <a name="d-constructors-and-keywords">Constructors and keywords</a>
+
+<a name="1-this"></a>
 
 **`this`** - is always a `reference` to the object on which the method was `invoked`. 
+
+<a name="2-final"></a>
 
 **`final`** - A field can be declared as final. Doing so `prevents` its contents from being` modified`, making it, essentially, a `constant`.
 
@@ -159,18 +195,18 @@ s1.roll;
 final int FILE_OPEN = 2;
 ```
 
+<a name="3-constructor"></a>
 **`Constructor`** is a `special function` that runs when we create an object and allocate some variables.
 
-
-### Constructor Overloading
+### <a name="4-constructor-overloading">Constructor Overloading</a>
 Different constructors can be created for a single class. Each constructor must have its own unique parameter list. \
 - `Student ( )` -> defines what happens when object is created. Default data will come.
 - `Student ( args )` -> here the data sent will come.
 
-### Copy-Constructor
+### <a name="5-copy-constructor">Copy-Constructor</a>
 Java does support copy constructors like C++, but the difference lies in the fact that Java does not create a default copy constructor if you do not write your own.
 
-### pass by reference and pass by value
+### <a name="6-pass-by-reference-and-pass-by-value">pass by reference and pass by value</a>
 When an object is `passed by value`, this means that a copy of the object is passed. Thus, even if changes are made to that object, it does not affect the original value. \
 When an object is `passed by reference`, this means that the actual object is not passed, rather a reference of the object is passed. Thus, any changes made by the external method, are also reflected in all places
 
@@ -206,7 +242,12 @@ Student( ) {
 
 Any class will have a `default` constructor, does not matter if we declare it in the class or not. *If we inherit a class, then the derived class must call its super class constructor*. It is done by `default` in derived class.
 
-### Wrapper classes 
+
+## <a name="e-autoboxing-and-unboxing">AutoBoxing and UnBoxing</a>
+What is Autoboxing and Unboxing?
+Autoboxing is the automatic conversion made by the Java compiler between the primitive types and their corresponding object wrapper classes. For example, the compiler converts an int to an Integer, a double to a Double, and so on. If the conversion goes the other way, this operation is called unboxing.
+
+### <a name="1-wrapper-classes">Wrapper classes</a> 
 Wrapper classes in Java are used to convert primitive data types into objects. Java provides wrapper classes for each of the primitive data types. For example, int has the corresponding wrapper class `Integer`, char has `Character`, and so on.
 
 ```java
@@ -217,7 +258,7 @@ System.out.println(a + " " + b); // 10 20
 // will not swap as Integers are final
 ```
 
-### Packages
+## <a name="f-packages">Packages</a>
 Packages are containers for classes. They are used to keep the class name space compartmentalized.
 
 *The package is both a `naming` and a `visibility control mechanism`*
@@ -227,7 +268,7 @@ Packages are containers for classes. They are used to keep the class name space 
 When a package is imported, only those items within the package declared as `public` will be available to `non-subclasses`
 in the importing code.
 
-### Static
+## <a name="g-static">Static</a>
 When a member is declared `static`, it can be accessed before any objects of its class are created, and without reference to any object. 
 
 Static method in Java is a method which `belongs to` the `class` and `not` to the `object`.
@@ -324,7 +365,7 @@ public class Static {
 
 `Instance Independence`: `Test` does not have an instance of `Static`, and vice versa. Both can have instances of each other.
 
-### Singleton Class
+## <a name="h-singleton-class">Singleton Class</a>
 **Singleton Pattern** ensures a class has only one instance and provides a global point of access to it. 
 - Useful for scenarios where a single instance is sufficient to coordinate actions across the system.
 
@@ -349,7 +390,7 @@ Private Constructor: Prevents the instantiation of the class from other classes.
 Static Method (getInstance): Returns the single instance, creating it if necessary. \
 Global Access: Ensures only one instance of the class exists, providing a single point of access.
 
-### Inheritance
+## <a name="i-inheritance">Inheritance</a>
 Inheritance provides an object with the ability to access the fields and methods of another class.The one whose properties are inherited is called the `Super class` and who is inheriting the property is called the `Sub class`. \
 Inheritance provides reusability of code and can be used to add additional features to an existing class, without modifying it.
 
@@ -368,8 +409,8 @@ SUPERCLASS ref = new SUBCLASS();
 
 *It is important to understand that it is the type of the `reference variable` and `not` the type of the `object` that it refers to that determines what members can be accessed*
 
-### super
-Whenever a `subclass` needs to `refer` to its `immediate superclass`, it can do so by use of the keyword `super.`
+### <a name="1-super">super</a>
+Whenever a `subclass` needs to refer to its `immediate superclass`, it can do so by use of the keyword `super.`
 
 **Two General Forms**:
   1. Calling the superclass' constructor.
@@ -408,7 +449,7 @@ class BoxWeight extends Box {
 
 >`super()` always refers to the constructor in the closest superclass.
 
-### Types of Inheritace
+### <a name="2-types-of-inheritance">Types of Inheritace</a>
 
 1. **Single Inheritance** - A class inherits from one superclass.
 2. **Multilevel Inheritance** - A class inherits from another class, which in turn inherits from another class.
@@ -416,6 +457,11 @@ class BoxWeight extends Box {
 4. **Multiple Inheritance** - A class inherits from more than one class. Java does not support this directly due to the "diamond problem". ( Can be achieved using interfaces )
 5. **Hybrid Inheritance** - Combination of two or more types of inheritance. Java does not support this directly. ( Can be achieved using interfaces ) \
 ![alt](/OIP.jpeg)
+
+
+
+
+<a name="3-is-a-has-a"></a>
 
 ### `is-A` Relationship
 - Represents `inheritance` or `implementation`.
@@ -483,6 +529,8 @@ public class TestComposition {
 ```
 > Demonstrates `object references` and `whole/part` relationships.
 
+<a name="4-association-aggregation-composition"></a>
+
 ### What is an `association`?
 Association represents the ability of one instance to send a message to another instance. This is typically implemented using a pointer or reference instance variable, a method argument, or a local variable.
 
@@ -542,7 +590,7 @@ public class Window {
 }
 ```
 
-### Polmorphism
+## <a name="j-polymorphism">Polmorphism</a>
 Polymorphism is the ability of programming languages to present the same interface for different underlying data types. A polymorphic type is a type whose operations can also be applied to values of some other type. 
 
 `poly` - many & `morphism` - ways to represent
@@ -551,7 +599,7 @@ Polymorphism is the ability of programming languages to present the same interfa
 There are two types of Polymorphism in Java: 
 
 **Compile-time polymorphism** ( Static binding ) – `Method Overloading`  \
-Methods of a class have the same name but differ in the `number`, `type`, or `order of parameters` or `return type` of method. Java determines which method will be called at `Compile time`.
+Methods of a class have the same name but differ in the number, type, or order of parameters or return type of method. Java determines which method will be called at `Compile time`.
 
 ```java
 // Calculator Class
@@ -587,7 +635,8 @@ public class Shape {
 ```
 
 Rectangle class overrides getArea. \
-`Override annotation` is used to indicate to the compiler that the method is overridden. Readability of the code is improved using the annotation.
+
+**`Override annotation`** is used to indicate to the compiler that the method is overridden. Readability of the code is improved using the annotation.
 
 ```java
 // Rectangle class
@@ -610,254 +659,249 @@ public class Rectangle extends Shape{
 ```
 
 **`Dynamic Method Dispatch`**
-Dynamic method dispatch is the mechanism by which a call to an `overridden method is resolved at runtime, rather than compile time. This is how Java implements runtime polymorphism. Java determines which version of that method to execute based on the type of the object 
+Dynamic method dispatch is the mechanism by which a call to an `overridden method is resolved at runtime, rather than compile time. This is how Java implements runtime polymorphism. Java determines which version of that method to execute based on the type of the object.
 
 
-### 3. What is Abstraction?
->Abstraction is the process of separating ideas from specific instances and thus, developing classes in terms of their own functionality, instead of their implementation details. Java supports the creation and existence of abstract classes that expose interfaces, without including the actual implementation of all methods. The abstraction technique aims to separate the implementation details of a class from its behavior.
 
-`Abstract Class Person`
 
+## <a name="k-interfaces">Interfaces</a>
+Interfaces are defined using the `interface` keyword.
+- **Abstract Methods:** By default, methods in an interface are public and abstract.
+- **Constants:** Variables in an interface are final and static by default.
+- **Specification:** Interfaces specify what a class must do, not how it does it.
+- **Multiple Implementation:** A class can implement multiple interfaces.
+- **Dynamic Method Resolution:** Interfaces support dynamic method resolution at runtime.
+
+A class implements an interface using the `implements` keyword and must provide concrete implementations for all the abstract methods defined in the interface.
+
+```java
+public interface Animal {
+    void eat();
+    void sleep();
+}
+
+public class Dog implements Animal {
+    @Override
+    public void eat() {
+        System.out.println("Dog eats");
+    }
+
+    @Override
+    public void sleep() {
+        System.out.println("Dog sleeps");
+    }
+}
+```
+
+**Default Methods**
+Starting with JDK 8, interfaces can include default methods 
+```java
+public interface Animal {
+    void eat();
+    void sleep();
+
+    default void makeSound() {
+        System.out.println("Animal makes sound");
+    }
+}
+```
+
+**Static Methods**
+Interfaces can also have static methods
+```java
+public interface Animal {
+    void eat();
+    void sleep();
+
+    static void description() {
+        System.out.println("Animals have various behaviors.");
+    }
+}
+```
+
+**Nested Interfaces**
+An interface can be declared inside a class or another interface
+```java
+public class OuterClass {
+    public interface NestedInterface {
+        void nestedMethod();
+    }
+}
+```
+
+**Extending  Interfaces**
+An interface can extend another interface using the extends keyword. Class implementing such an interface must provide implementations for all methods.
+```java
+public interface Mammal extends Animal {
+    void walk();
+}
+
+public class Cat implements Mammal {
+    @Override
+    public void eat() {
+        System.out.println("Cat eats");
+    }
+
+    @Override
+    public void sleep() {
+        System.out.println("Cat sleeps");
+    }
+
+    @Override
+    public void walk() {
+        System.out.println("Cat walks");
+    }
+}
+```
+
+## <a name="l-abstraction">Abstraction</a>
+Abstraction is the process of separating ideas from specific instances and thus, develop classes in terms of their own functionality, instead of their implementation details.
+
+### <a name="1-abstract-classes">Abstract Classes</a>
+Abstract classes are defined using the `abstract` keyword.
+- **Abstract Methods:** Methods that are declared without an implementation (without a body). They must be `overridden` by subclasses.
+- **Abstract Class:** A class that cannot be instantiated and must contain at least one abstract method. It can also contain concrete methods.
+- **Inheritance:** Any subclass of an abstract class must either implement all the abstract methods of the superclass or be declared abstract itself.
+- **Concrete Methods:** Abstract classes can include methods with implementations.
+- **Constructors:** Abstract classes can have constructors, which are used for subclass initialization.
+- **Static Methods:** Abstract classes can have static methods, but they cannot be abstract.
 ```java
 public abstract class Person {  
     public abstract String getName(); 
 }
-```
 
-Employee class extends the Abstract class Person. The method getName returns the name attribute of the employee.
-
-`Employee Class`
-
-```java
 public class Employee extends Person {  
     private String name;
      
     public Employee(String name) {
-        this.name = name;
+      this.name = name;
     }
     public String getName() {
-        return this.name;
+       return this.name;
     }
-    public static void main (String[] args) {  
-        Employee employee = new Employee("John Wilson");
+    public static void main (String args[]) {  
+        Employee employee = new Employee("Aditya");
+         
         System.out.println("Employee's Name "+ employee.getName()); 
          
-        Person person = new Employee("Thomas Smith");
+        Person person = new Employee("Rahul");
+         
         System.out.println("Employee-Person's Name "+ person.getName());
     }  
 }
 ```
 
-### 6. What is Encapsulation?
->
-> Encapsulation provides objects with the ability to hide their internal characteristics and behavior. Each object provides a number of methods, which can be accessed by other objects and change its internal data. In Java, there are three access modifiers: public, private, and protected. Each modifier imposes different access rights to other classes, either in the same or in external packages.
 
-> Some advantages of using encapsulation are:
-> - The internal state of every object is protected by hiding its attributes.
-> - It increases usability and maintenance of code, because the behavior of an object can be independently changed or extended.
-> - It improves modularity by preventing objects to interact with each other in an undesired way.
+### <a name="2-abstract-class-vs-interface">Abstract Class vs Interface</a>
 
-`Student Class`
+| Feature                           | Abstract Class                                             | Interface                                               |
+|-----------------------------------|------------------------------------------------------------|---------------------------------------------------------|
+| **Type of Methods**               | Can have both abstract and non-abstract methods. From Java 8, it can also have default and static methods. | Can have only abstract methods (prior to Java 8). From Java 8, can have default and static methods. |
+| **Final Variables**               | May contain non-final variables.                           | Variables are by default final.                         |
+| **Type of Variables**             | Can have final, non-final, static, and non-static variables. | Only has static and final variables.                    |
+| **Implementation**                | Can provide the implementation of an interface.            | Cannot provide the implementation of an abstract class. |
+| **Inheritance vs Abstraction**    | Can be extended using the `extends` keyword.               | Can be implemented using the `implements` keyword.      |
+| **Multiple Implementation**       | Can extend another Java class and implement multiple Java interfaces. | Can extend another Java interface only.                 |
+| **Accessibility of Data Members** | Can have private, protected, and public members.           | Members are public by default.                          |
+| **Instantiation**                 | Cannot be instantiated directly.                           | Cannot be instantiated directly.                        |
+| **Constructors**                  | Can have constructors.                                     | Cannot have constructors.                               |
+| **Static Methods**                | Can have static methods (but not abstract static methods). | Can have static methods.                                |
+| **Use Case**                      | Used to define a common base class with shared code and partial implementation. | Used to define a contract that classes must follow, without providing any implementation. |
+
+
+
+
+
+
+
+## <a name="m-encapsulation">Encapsulation</a>
+Encapsulation provides objects with the ability to hide their internal characteristics and behavior. Each object provides a number of methods, which can be accessed by other objects and change its internal data.
+
 ```java
-public class Student {  
-    private int id;  
-    private String name;  
-    
+public class Student {
+    private int id;
+    private String name;
+
     public void setId(int id) {
         this.id = id;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
-    
+
     public int getId() {
         return this.id;
     }
-    
+
     public String getName() {
         return this.name;
     }
-    
-    public static void main(String args[]) {  
-        Student student = new Student();  
-        student.setId(1034);
-        student.setName("David Smith");
-        
-        System.out.println("Student id "+ student.getId());
-        System.out.println("Student name "+ student.getName());
-    }  
-}  
 
-```
+    public static void main(String args[]) {
+        Student student = new Student();
+        student.setId(1085);
+        student.setName("Aditya Shukla");
 
-### 7. What are the differences between Abstraction and Encapsulation?
-> Abstraction and encapsulation are complementary concepts. On the one hand, abstraction focuses on the behavior of an object. On the other hand, encapsulation focuses on the implementation of an object’s behavior. Encapsulation is usually achieved by hiding information about the internal state of an object and thus, can be seen as a strategy used in order to provide abstraction.
+        System.out.println("Student id " + student.getId());
+        System.out.println("Student name " + student.getName());
 
-### 8. What is Polymorphism?
->`Polymorphism` is the ability of programming languages to present the same interface for differing underlying data types. A polymorphic type is a type whose operations can also be applied to values of some other type.
-
-You can see the example below where Vehicle interface has the method increaseVelocity. Truck, Train and Aeroplane implement the Vehicle Interface and the method increases the velocity to the appropriate velocity related to the vehicle type.
-![img.png](img.png)
-
-### 9. What are the types of Polymorphism?
->There are two types of Polymorphism in Java:
-> - **Compile-time** polymorphism (`Static binding`) – Method overloading
-> - **Runtime** polymorphism (`Dynamic binding`) – Method overriding
-We can perform polymorphism by Method Overloading and Method Overriding.
-
-### Compile-time vs. Runtime Polymorphism
-
-| Feature                                      | Compile Time                                   | Runtime                                   |
-|----------------------------------------------|-----------------------------------------------|-------------------------------------------|
-| Methods                                      | Methods of a class have the same name. Each method has a different number of parameters. It can have parameters with different types and order. | The subclass has a method with the name as of a superclass method. It has the number of parameters, type of parameters, and the return type as of a superclass method. |
-| Method Behavior                              | Method Overloading is to add to the method’s behavior. It can be extending the method’s behavior. | Method Overriding is to modify the method’s behavior. |
-| Method Signatures                            | Overloaded methods will not have the same signature. | Overridden methods will have exactly the same signature. |
-| Inheritance Requirement                      | Inheritance is not needed in this case. | Inheritance is required. |
-
-Sample code for overloading method subtract of Calculator Class is shown below:
-
-`Calculator Class`
-```java
-public class Calculator {
- 
-    public int subtract(int a, int b) {
-        return a - b;
-    }
-    
-    public double subtract(double a, double b) {
-        return a - b;
-    }
- 
-    public static void main(String[] args) {
-        Calculator calculator = new Calculator();
-        System.out.println("Difference of 150 and 12 is " + calculator.subtract(150, 12));
-        System.out.println("Difference of 15.5 and 15.4 is " + calculator.subtract(15.50, 15.40));
     }
 }
 ```
 
-Method overriding is shown below in Shape class. Shape has a method getArea.
+### <a name="1-access-modifiers">Access Modifiers</a>
 
-`Shape Class`
-```java
-public class Shape {
-    public void getArea() {
-        System.out.println("Shape Area");
-    }  
-}
-```
+| Modifier   | Class | Package | Subclass (same pkg) | Subclass (diff pkg) | World (diff pkg & not subclass) |
+|------------|:-----:|:-------:|:-------------------:|:-------------------:|:-------------------------------:|
+| `public`   |   +   |    +    |          +          |          +          |                +                |
+| `protected`|   +   |    +    |          +          |          +          |                                 |
+| `default`  |   +   |    +    |          +          |                     |                                 |
+| `private`  |   +   |         |                     |                     |                                 |
 
-Rectangle class overrides getArea method and the implementation of the method is specific to Rectangle. Override annotation is used to indicate to the compiler that the method is overridden. Readability of the code is improved using the annotation.
+**`public`**
+- **Class:** Accessible.
+- **Package:** Accessible.
+- **Subclass (same pkg):** Accessible.
+- **Subclass (diff pkg):** Accessible.
+- **World (diff pkg & not subclass):** Accessible.
+- **OOP Concept:** Provides maximum visibility, allowing members to be accessed from any other class.
 
-`Rectangle Class`
-```java
-public class Rectangle extends Shape {
-   
-    @Override
-    public void getArea() {
-        System.out.println("Rectangle Area");
-    }
-   
-    public static void main(String[] args) {
-        Shape shape = new Shape();
-        shape.getArea();
-     
-        Rectangle rectangle = new Rectangle();  
-        rectangle.getArea();  
-    }
-}
-```
+**`protected`**
+- **Class:** Accessible.
+- **Package:** Accessible.
+- **Subclass (same pkg):** Accessible.
+- **Subclass (diff pkg):** Accessible.
+- **World (diff pkg & not subclass):** Not accessible.
+- **OOP Concept:** Allows members to be accessed within the same package and by subclasses. Supports inheritance by allowing subclasses to use superclass members.
 
-### 10. What is Inheritance?
-> Inheritance provides an object with the ability to acquire the fields and methods of another class, called base class. Inheritance provides reusability of code and can be used to add additional features to an existing class, without modifying it.
+**`default`** (no modifier)
+- **Class:** Accessible.
+- **Package:** Accessible.
+- **Subclass (same pkg):** Accessible.
+- **Subclass (diff pkg):** Not accessible.
+- **World (diff pkg & not subclass):** Not accessible.
+- **OOP Concept:** Package-private access, which restricts visibility to within the same package. Useful for grouping related classes.
 
-Sample class Mammal is shown below which has a constructor.
+**`private`**
+- **Class:** Accessible.
+- **Package:** Not accessible.
+- **Subclass (same pkg):** Not accessible.
+- **Subclass (diff pkg):** Not accessible.
+- **World (diff pkg & not subclass):** Not accessible.
+- **OOP Concept:** Provides the most restrictive access, allowing members to be accessed only within the defining class. Enforces encapsulation by hiding implementation details.
 
-`Mammal Class`
-```java
-public class Mammal {
-    public Mammal() {
-        System.out.println("Mammal created");
-    }
-}
-```
 
-Man class extends Mammal which has a default constructor. The sample code is shown below.
 
-`Man Class`
-```java
-public class Man extends Mammal {
-    public Man() {
-        System.out.println("Man is created");
-    }
-}
-```
 
-Inheritance is tested by creating an instance of Man using default constructor. The sample code is shown to demonstrate the inheritance.
+### <a name="2-abstraction-vs-encapsulation">Abstraction Vs Encapsulation</a>
 
-`TestInheritance`
-```java
-public class TestInheritance {
-    public static void main(String[] args) {
-        Man man = new Man();
-    }
-}
-```
-
-### 11. What is composition?
-> Composition is exactly like Aggregation except that the lifetime of the ‘part’ is controlled by the ‘whole’. This control may be direct or transitive. That is, the ‘whole’ may take direct responsibility for creating or destroying the ‘part’, or it may accept an already created part, and later pass it on to some other whole that assumes responsibility for it.
-
-Sample class Car is shown below to demonstrate Composition of tires, doors, windows and steering.
-
-`Car Class`
-```java
-public class Car {
-    private Tire[] tires;
-    private Door[] doors;
-    private Steering steering;
-    private Window[] windows;
-}
-
-class Tire {
-    // Tire properties and methods can be added here
-}
-
-class Door {
-    // Door properties and methods can be added here
-}
-
-class Steering {
-    // Steering properties and methods can be added here
-}
-
-class Window {
-    // Window properties and methods can be added here
-}
-```
-
-### 12. What is an association?
-> Association represents the ability of one instance to send a message to another instance. This is typically implemented with a pointer or reference instance variable, although it might also be implemented as a method argument or the creation of a local variable.
-
-### 13. What is aggregation?
-> Aggregation is the typical whole/part relationship. This is exactly the same as an association with the exception that instances cannot have cyclic aggregation relationships.
-
-Sample class Person is shown below to demonstrate Aggregation relationship with Address.
-
-`Person Class`
-```java
-public class Person {
-    private Address address;
-}
-
-class Address {
-    private String city;
-    private String state;
-    private String country;
-    private String line1;
-    private String line2;
-    
-    // Address properties and methods can be added here
-}
-
-```
+| Abstraction                                                                                   | Encapsulation                                                                                       |
+|-----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| Abstraction is a feature of OOPs that hides the unnecessary detail but shows the essential information. | Encapsulation is also a feature of OOPs. It hides the code and data into a single entity or unit so that the data can be protected from the outside world. |
+| It solves an issue at the design level.                                                       | Encapsulation solves an issue at the implementation level.                                          |
+| It focuses on the external lookout.                                                           | It focuses on internal working.                                                                     |
+| It can be implemented using abstract classes and interfaces.                                  | It can be implemented by using the access modifiers (private, public, protected).                   |
+| It is the process of gaining information.                                                     | It is the process of containing the information.                                                    |
+| In abstraction, we use abstract classes and interfaces to hide the code complexities.         | We use the getters and setters methods to hide the data.                                            |
+| The objects are encapsulated which helps to perform abstraction.                              | The object need not be abstract which results in encapsulation.                                     |
