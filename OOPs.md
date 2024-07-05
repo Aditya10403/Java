@@ -526,23 +526,20 @@ Methods of a class have the same name but differ in the number, type, or order o
 
 ```java
 // Calculator Class
-public class Calculator {
- 
-public int subtract(int a, int b)
-{
-   return a-b;
+public class Calculator { 
+    public int subtract(int a, int b) {
+      return a-b;
+    }
+    public double subtract( double a, double b) {
+        return a-b;
+    }
+     
+    public static void main(String args[]) {
+      Calculator calculator = new Calculator();
+      System.out.println("Difference of 150 and 12 is " +calculator.subtract(150,12));
+      System.out.println("Difference of 15.5 and 15.4 is " +calculator.subtract(15.50,15.40));
+    }
 }
-public double subtract( double a, double b)
-{
- return a-b;
-}
- 
-public static void main(String args[])
-{
-  Calculator calculator = new Calculator();
-  System.out.println("Difference of 150 and 12 is " +calculator.subtract(150,12));
-  System.out.println("Difference of 15.5 and 15.4 is " +calculator.subtract(15.50,15.40));
-}}
 ```
 
 **`Runtime polymorphism`** ( Dynamic binding ) – `Method Overriding` \
@@ -557,9 +554,9 @@ public class Shape {
 }
 ```
 
-Rectangle class overrides getArea \
-**`Override annotation`** is used to indicate to the compiler that the method is overridden. Readability of the code is improved using the annotation.
 
+**`Override annotation`** is used to indicate to the compiler that the method is overridden. Readability of the code is improved using the annotation.\
+Rectangle class overrides getArea
 ```java
 // Rectangle class
 public class Rectangle extends Shape{
@@ -581,8 +578,8 @@ public class Rectangle extends Shape{
 ```
 
 ### `Dynamic Method Dispatch`
-Dynamic method dispatch is the mechanism by which a call to an `overridden method is resolved at runtime, rather than compile time. This is how Java implements runtime polymorphism. Java determines which version of that method to execute based on the type of the object.
-
+Dynamic method dispatch is the mechanism by which a call to an `overridden method is resolved at runtime, rather than compile time. This is how Java implements runtime polymorphism. Java determines which version of that method to execute based on the type of the object. \
+<img src="images/img_3.png" height="100">
 
 
 
