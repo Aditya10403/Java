@@ -166,7 +166,7 @@ public class HashSetExample {
 }
 ```
 
-## <a name="treeset">LinkedList</a>
+## <a name="treeset">TreeSet</a>
 
 
 The `TreeSet` class is part of the Java Collection Framework and implements the `NavigableSet` interface.
