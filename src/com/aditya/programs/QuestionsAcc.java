@@ -3,7 +3,7 @@ package com.aditya.programs;
 import java.util.*;
 
 public class QuestionsAcc {
-    static int max = Integer.MIN_VALUE;
+//    static int max = Integer.MIN_VALUE;
     public static void main(String[] args) {
 //        int[] nums = { 4, 0, 7, 9, 6, 4, 2 };
 //        System.out.println(oddevensum(nums));
@@ -76,10 +76,191 @@ public class QuestionsAcc {
 //        String s = "scissors";
 //        System.out.println(rps(s));
 
-        String s = "abaabbcc";
-        System.out.println(stringtransform(s));
+//        String s = "abaabbcc";
+//        System.out.println(stringtransform(s));
+
+//        String s = "naman";
+//        System.out.println(ispalindrome(s));
+
+//        String s = "cxbxd";
+//        System.out.println(longestpalindromesubstring(s));
+
+//        int[] nums = { 4, 5, 2, 25 };
+//        System.out.println(Arrays.toString(nextGreatest(nums)));
+
+//        int[] nums = { 1, 0, 1, 1, 1, 0, 0};
+//        System.out.println(equalnoof0and1(nums));
+
+//        Scanner sc = new Scanner(System.in);
+//        int a = sc.nextInt();
+//        int b = sc.nextInt();
+//        System.out.println((a / b) + (a % b));
+
+//        int[][] obstacleGrid = {{ 0,0,0 }, { 0,1,0 },  { 0,0,0 }};
+//        System.out.println(uniquePathsWithObstacles(obstacleGrid));
+
+//        int[] nums = { 1,2,3 };
+//        System.out.println(subarraySum(nums, 3));
+
+        int[] nums = { 1, 3, 5, 7, 3 };
+        System.out.println(arrayEquilibrium(nums));
+
 
     }
+
+    private static int arrayEquilibrium(int[] nums) {
+        int sum = 0;
+        for (int num: nums) {
+            sum += num;
+        }
+        sum = sum / 2;
+        int i = 0;
+        while (sum != 0) {
+            sum -= nums[i];
+            i++;
+        }
+        return i != 0 ? i : -1;
+    }
+
+    private static int subarraySum(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        int sum = 0, count = 0;
+        for (int num: nums) {
+            sum += num;
+            if (map.containsKey(sum - k)) {
+                count += map.get(sum - k);
+            }
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
+        return count;
+    }
+
+    private static int equalnoof0and1(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, -1);
+
+        int maxLength = 0;
+        int sum = 0;
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            sum += nums[i] == 1 ? 1 : -1;
+            if (map.containsKey(sum)) {
+                int start = map.get(sum);
+                maxLength = Math.max(maxLength, i - start);
+            } else {
+                map.put(sum, i);
+            }
+        }
+        return maxLength;
+    }
+
+    private static int uniquePathsWithObstacles(int[][] grid) {
+        if (grid == null || grid.length == 0 || grid[0].length == 0 || grid[0][0] == 1) return 0;
+        int n = grid[0].length;
+        int[] previous = new int[n];
+        int[] current = new int[n];
+        previous[0] = 1;
+        for (int[] num : grid) {
+            current[0] = num[0] == 1 ? 0 : previous[0];
+            for (int j = 1; j < n; j++) {
+                current[j] = num[j] == 1 ? 0 : current[j - 1] + previous[j];
+            }
+            previous = Arrays.copyOfRange(current, 0, n);
+        }
+        return previous[n-1];
+    }
+
+//    private static int equalnoof0and1(int[] nums) {
+//        int maxLength = Integer.MIN_VALUE;
+//        int n = nums.length;
+//        ArrayList<Integer> list;
+//        for (int i = 0; i < (1 << n); i++) {
+//            list = new ArrayList<>();
+//            for (int j = 0; j < n; j++) {
+//                if ((i & (1 << j)) > 0) {
+//                    list.add(nums[j]);
+//                }
+//            }
+//            System.out.println(list);
+//            int zeroes = 0;
+//            int ones = 0;
+//            for (int no: list) {
+//                if (no == 0) zeroes++;
+//                else ones++;
+//            }
+//            if (zeroes == ones && list.size() > maxLength) {
+//                maxLength = list.size();
+//            }
+//        }
+//        return maxLength;
+//    }
+
+    private static int[] nextGreatest(int[] nums) {
+        if (nums.length == 0) return nums;
+        int n = nums.length;
+        int[] res = new int[n];
+        Stack<Integer> stack = new Stack<>();
+        for (int i = n-1; i >= 0; i--) {
+            if (stack.isEmpty()) {
+                res[i] = -1;
+            } else if (stack.peek() > nums[i])  {
+                res[i] = stack.peek();
+            } else {
+                while (!stack.isEmpty() && stack.peek() <= nums[i]) {
+                    stack.pop();
+                }
+                if (stack.isEmpty()) res[i] = -1;
+                else res[i] = stack.peek();
+            }
+            stack.push(nums[i]);
+        }
+        return res;
+    }
+
+    private static String longestpalindromesubstring(String s) {
+        if (s.length() <= 1) return s;
+        int maxLength = 1;
+        int n = s.length(), left, right, start = 0;
+
+        for (int i = 0; i < n; i++) {
+            left = right = i;
+            while (left >= 0 && right < n && s.charAt(left) == s.charAt(right)) {
+                left--;
+                right++;
+            }
+            int length = right - left - 1;
+            if (length > maxLength) {
+                maxLength = length;
+                start = left + 1;
+            }
+
+            left = i;
+            right = i + 1;
+            while (left >= 0 && right < n && s.charAt(left) == s.charAt(right)) {
+                left--;
+                right++;
+            }
+            length = right - left - 1;
+            if (length > maxLength) {
+                maxLength = length;
+                start = left + 1;
+            }
+        }
+
+        return s.substring(start, start + maxLength);
+    }
+
+    private static boolean ispalindrome(String s) {
+        int i = 0, j = s.length()-1;
+        while (i <= j) {
+            if (s.charAt(i) != s.charAt(j)) return false;
+            i++;
+            j--;
+        }
+        return true;
+    }
+
 
     private static String stringtransform(String s) {
         char[] c = s.toCharArray();
@@ -157,6 +338,7 @@ public class QuestionsAcc {
         return true;
     }
 
+    public static int max = Integer.MIN_VALUE;
     private static void LongestSets(int[] nums, ArrayList<Integer> temp, int index, int k) {
         if (index == nums.length) {
             if (max < temp.size()) max = temp.size();
