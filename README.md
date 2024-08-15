@@ -30,6 +30,9 @@ Core Java refers to the standard edition of Java (Java SE) and consists of the b
 - [Data Structures and Algorithms](/DSA.md)
 - [Object-Oriented Programming (OOP) Concepts](/OOPs.md)
 - [Collection Framework](/CF.md)
+- [Java Thread](/Th.md)
+- [Garbage Collection](/GC.md)
+- [Exception Handling](/EH.md)
 
 ## <a name="introduction-to-java">Introduction to Java</a>
 

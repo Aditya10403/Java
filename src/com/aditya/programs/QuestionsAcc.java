@@ -1,6 +1,8 @@
 package com.aditya.programs;
 
 import java.util.*;
+import java.util.stream.Collectors;
+
 
 public class QuestionsAcc {
 //    static int max = Integer.MIN_VALUE;
@@ -102,10 +104,125 @@ public class QuestionsAcc {
 //        int[] nums = { 1,2,3 };
 //        System.out.println(subarraySum(nums, 3));
 
-        int[] nums = { 1, 3, 5, 7, 3 };
-        System.out.println(arrayEquilibrium(nums));
+//        int[] nums = { 1, 3, 5, 7, 3 };
+//        System.out.println(arrayEquilibrium(nums));
+
+//        String s = "A0_1fg";
+//        System.out.println(checkpassword(s));
+
+//        String s = "1C0C1C1A0B1";
+//        System.out.println(OperationsBinary(s));
+
+//        int[] nums = { 1,2,3 };
+//        System.out.println(longestsubsequence(nums, -7));
+
+//        int[] nums = { 1, 2, 3, 4, 5 };
+//        System.out.println(minSubArrayLen(11, nums));
+
+//        String s = "9999900000";
+//        System.out.println(CountpalidromeSubsequence(s));
+
+//        TreeNode root = new TreeNode();
+//        System.out.println(pathSum(root, 8));
+        int r = 3, n = 4;
+        int answer = 4/2 + (2*5 + (4-1)*3);
+        System.out.println(answer);
+    }
+
+    public static int pathSum(TreeNode root, int target) {
+        HashMap<Long, Integer> map = new HashMap<>();
+        return pathSum(root, target, 0, map);
+    }
+
+    private static int pathSum(TreeNode root, int target, long sum, HashMap<Long, Integer> map) {
+        if (root == null) return 0;
+        sum += root.val;
+        int res = map.getOrDefault(sum - target, 0);
+        if (sum == target) res++;
+        map.put(sum, map.getOrDefault(sum, 0) + 1);
+        res += pathSum(root.left, target, sum, map) + pathSum(root.right, target, sum, map);
+        map.put(sum, map.get(sum) - 1);
+        return res;
+    }
+
+    private static int CountpalidromeSubsequence(String s) {
+        int[][] dp = new int[s.length()][s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            Arrays.fill(dp[i], -1);
+        }
+        return helper(s, 0, s.length()-1, dp);
+    }
+
+    private static int helper(String s, int i, int j, int[][] dp) {
+        if (i == j) return 1;
+        if (i > j || j-i < 5) return 0;
+        if (dp[i][j] != -1) return dp[i][j];
+        if (s.charAt(i) == s.charAt(j)) {
+            return dp[i][j] = 1 + helper(s, i+1, j, dp) + helper(s, i, j-1, dp);
+        } else {
+            int l = helper(s, i+1, j, dp);
+            int r = helper(s, i, j-1, dp);
+            return dp[i][j] = l + r - helper(s, i+1, j-1, dp);
+        }
+    }
+
+    private static int minSubArrayLen(int target, int[] nums) {
+        if (nums.length == 0) return 0;
+        int i = 0, j = 0, sum = 0, minLength = Integer.MAX_VALUE;
+        while (i < nums.length) {
+            sum += nums[i++];
+            while (sum >= target) {
+                minLength = Math.min(minLength, i - j);
+                sum -= nums[j++];
+            }
+        }
+        return minLength == Integer.MAX_VALUE ? 0 : minLength;
+    }
 
 
+    private static int longestsubsequence(int[] nums, int goal) {
+        Set<Integer> allSum = new HashSet<>();
+        allSum.add(0);
+        for (int num: nums) {
+            Set<Integer> currentSum = new HashSet<>(allSum);
+            for (int sum: allSum) {
+                currentSum.add(sum + num);
+            }
+            allSum = currentSum;
+        }
+        int res = Integer.MAX_VALUE;
+        for (int num: allSum) {
+            res = Math.min(res, Math.abs(num - goal));
+        }
+        return res;
+    }
+
+    private static int OperationsBinary(String s) {
+        if (s.isEmpty()) return 0;
+        int i = 0, res = 0;
+        while (i <  s.length()) {
+            char c = s.charAt(i);
+            if (c <= '0' || c >= '9') {
+                if (c == 'A') res &= s.charAt(++i) - '0';
+                else if (c == 'B') res |= s.charAt(++i) - '0';
+                else res ^= s.charAt(++i) - '0';
+            }
+            i++;
+        }
+        return res;
+    }
+
+    private static boolean checkpassword(String s) {
+        if (Character.isDigit(s.charAt(0)) || s.length() < 4) return false;
+
+        boolean isCapital = false, isNumeric = false;
+        char[] charArray = s.toCharArray();
+        for (char c: charArray) {
+            if (String.valueOf(c).equals(" ") || String.valueOf(c).equals("/")) return false;
+            else if (c >= '0' && c <= '9') isNumeric = true;
+            else if (c >= 'A' && c <= 'Z') isCapital = true;
+        }
+        return isCapital && isNumeric;
     }
 
     private static int arrayEquilibrium(int[] nums) {
@@ -450,21 +567,21 @@ public class QuestionsAcc {
         return res;
     }
 
-    private static boolean checkpassword(String s) {
-        if (s.length() < 4 || Character.isDigit(s.charAt(0))) return false;
-
-        boolean d = false, c = false;
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == '/' || s.charAt(i) == ' ') {
-                return false;
-            } else if (s.charAt(i) > '0' && s.charAt(i) < '9') {
-                d = true;
-            } else if (s.charAt(i) > 'A' && s.charAt(i) < 'Z') {
-                c = true;
-            }
-        }
-        return c && d ;
-    }
+//    private static boolean checkpassword(String s) {
+//        if (s.length() < 4 || Character.isDigit(s.charAt(0))) return false;
+//
+//        boolean d = false, c = false;
+//        for (int i = 0; i < s.length(); i++) {
+//            if (s.charAt(i) == '/' || s.charAt(i) == ' ') {
+//                return false;
+//            } else if (s.charAt(i) > '0' && s.charAt(i) < '9') {
+//                d = true;
+//            } else if (s.charAt(i) > 'A' && s.charAt(i) < 'Z') {
+//                c = true;
+//            }
+//        }
+//        return c && d ;
+//    }
 
     private static int oddevensum(int[] nums) {
         int[] odd = new int[nums.length/2+1];
