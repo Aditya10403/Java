@@ -124,10 +124,37 @@ public class QuestionsAcc {
 
 //        TreeNode root = new TreeNode();
 //        System.out.println(pathSum(root, 8));
-        int r = 3, n = 4;
-        int answer = 4/2 + (2*5 + (4-1)*3);
-        System.out.println(answer);
+//        int r = 3, n = 4;
+//        int answer = 4/2 + (2*5 + (4-1)*3);
+//        System.out.println(answer);
+
+//        int[] nums = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+//        System.out.println(primeSum(nums));
+
+        int D = 5;
+        int a = (int) (3.14 * Math.pow(D, 2));
+        System.out.println(a);
+
     }
+
+    private static int primeSum(int[] nums) {
+        if (nums.length == 0) return 0;
+        int i = 0, sum = 0;
+        while (i < nums.length) {
+            if (isPrime(i)) sum += nums[i];
+            i++;
+        }
+        return sum;
+    }
+
+    private static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+
 
     public static int pathSum(TreeNode root, int target) {
         HashMap<Long, Integer> map = new HashMap<>();

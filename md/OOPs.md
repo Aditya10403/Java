@@ -378,7 +378,7 @@ class BoxWeight extends Box {
 3. **Hierarchical Inheritance** - Multiple classes inherit from a single superclass.
 4. **Multiple Inheritance** - A class inherits from more than one class. Java does not support this directly due to the "diamond problem". ( Can be achieved using interfaces )
 5. **Hybrid Inheritance** - Combination of two or more types of inheritance. Java does not support this directly. ( Can be achieved using interfaces ) \
-![alt](images/img_1.png)
+![alt](../images/img_1.png)
 
 
 
@@ -414,7 +414,7 @@ public class TestInheritance {
 ```
 > Demonstrates `subclassing` and method `inheritance`
 
-<img src="images/img_2.png" width="400" height="250" align="center">
+<img src="../images/img_2.png" width="400" height="250" align="center">
 
 ### `has-A` Relationship
 - Represents `composition` or `aggregation`.
