@@ -75,11 +75,15 @@ Java Collections Framework provides a well-designed set of interfaces and classe
 
 ## Collection Interface
 
+The root interface in the collection hierarchy. A collection represents a group of objects, known as its elements. Some collections allow duplicate elements(like `ArrayList`, `LinkedList` and `Vector`) and others do not(`Set`, `HashSet` and `TreeSet`). Some are ordered(`PriorityQueue` and `Deque`), and others are unordered(`Map Interface`). The JDK does not provide any direct implementations of this interface: it provides implementations of more specific subinterfaces like `Set` and `List`. 
 
-The `Collection` interface is the root interface in the Java Collection Framework. It represents a group of objects known as elements. The `Collection` interface provides basic operations to manipulate collections, such as adding, removing, and checking elements.
+Collections that have a defined encounter order are generally subtypes of the `SequencedCollection` interface.
+
+`SequencedCollection` - A collection that has a well-defined encounter order, that supports operations at both ends, and that is reversible.
+
+- extends the `Iterable` interface.
 - Provides basic operations for manipulating collections.
 - Serves as the foundation for more specific collection interfaces like `List`, `Set`, and `Queue`.
-- Does not define methods for sorting or accessing elements by index.
 
 ### Common Methods
 
@@ -102,9 +106,10 @@ Collection<String> collection = new ArrayList<>();
 
 ## <a name="list-interface">List Interface</a>
 
+An ordered collection, where the user has precise control over where in the list each element is inserted. The user can access elements by their integer index (position in the list), and search for elements in the list.
 
-The `List` interface is part of the Java Collection Framework and provides a way to store an ordered collection of elements. The `List` interface is implemented by various classes such as `ArrayList`, `LinkedList`, `Vector`, and `Stack`.
-- Extends the `Collection` interface.
+The `List` interface is implemented by various classes such as `ArrayList`, `LinkedList`, `Vector`, and `Stack`.
+- extends the `SequencedCollection` interface.
 - Allows duplicate elements.
 - Maintains the insertion order of elements.
 - Provides positional access and insertion of elements.
@@ -132,10 +137,10 @@ List<String> list = new ArrayList<>();
 
 ## <a name="linkedlist">LinkedList</a>
 
+The `LinkedList` class is the `Doubly-linked list` implementation of the `List` and `Deque` interfaces. Implements all optional list operations, and permits all elements (including `null`).
 
-The `LinkedList` class in Java is a part of the Java Collections Framework and implements the `List` and `Deque` interfaces. It is a doubly linked list implementation, providing both list and queue operations.
-- Doubly linked list implementation.
-- Allows null elements.
+- extends `AbstractSequentialList`
+- implements `List`, `Deque`.
 - Maintains insertion order.
 - Not synchronized, so not thread-safe.
 - Can be used as a list, stack, or queue.
@@ -170,9 +175,9 @@ public class LinkedListExample {
 
 ## <a name="set-interface">Set Interface</a>
 
+A collection that contains no duplicate elements. More formally, sets contain no pair of elements `e1` and `e2` such that `e1.equals(e2)`, and at most one null element. As implied by its name, this interface models the mathematical set abstraction.
 
-
-The `Set` interface is part of the Java Collection Framework and represents a collection that does not allow duplicate elements. It models the mathematical set abstraction and extends the `Collection` interface. The `Set` interface is implemented by various classes such as `HashSet`, `LinkedHashSet`, and `TreeSet`.
+The `Set` interface is implemented by various classes such as `HashSet`, `LinkedHashSet`, and `TreeSet`.
 - Extends the `Collection` interface.
 - Does not allow duplicate elements.
 - Allows at most one `null` element (except for `TreeSet`).
@@ -190,13 +195,14 @@ The `Set` interface is part of the Java Collection Framework and represents a co
 
 ## <a name="hashset">HashSet</a>
 
+This class implements the `Set` interface, backed by a hash table (actually a `HashMap` instance). It makes no guarantees as to the iteration order of the set; in particular, it does not guarantee that the order will remain constant over time. This class permits the `null` element.
 
-
-The `HashSet` class is part of the Java Collection Framework and implements the `Set` interface. 
+- extends `AbstractSet`
+- implements `Set`
 - Backed by a hash table (actually a `HashMap` instance).
 - Does not allow duplicate elements.
-- Provides constant time performance for basic operations like add, remove, contains, and size.
-- Allows null elements.
+- Provides constant time performance for basic operations like `add`, `remove`, `contains`, and `size`.
+- Allows `null` elements.
 
 ### Common Methods
 
@@ -224,11 +230,26 @@ public class HashSetExample {
 }
 ```
 
+## <a name="sortedset">SortedSet Interface</a>
+
+A `Set` that further provides a total ordering on its elements. The elements are ordered using their <u>natural ordering</u>, or by a `Comparator` typically provided at sorted set creation time. The set's iterator will traverse the set in ascending element order. Several additional operations are provided to take advantage of the ordering. (This interface is the set analogue of `SortedMap`.)
+
+- extends `Set`, `SequencedSet` interface.
+
+## <a name="navigableset">NavigableSet Interface</a>
+
+A `SortedSet` extended with navigation methods reporting closest matches for given search targets. Methods `lower`, `floor`, `ceiling`, and `higher` return elements respectively less than, less than or equal, greater than or equal, and greater than a given element, returning `null` if there is no such element.
+
+- extends `SortedSet` interface.
+
 ## <a name="treeset">TreeSet</a>
 
+A `NavigableSet` implementation based on a `TreeMap`. The elements are ordered using their <u>natural ordering</u>, or by a `Comparator` provided at set creation time, depending on which constructor is used.
 
 The `TreeSet` class is part of the Java Collection Framework and implements the `NavigableSet` interface.
-- Implements the `NavigableSet` interface.
+
+- extends `AbstractSet`
+- implements the `NavigableSet` interface.
 - Backed by a `TreeMap`.
 - Sorted in ascending order by default.
 - Provides guaranteed log(n) time cost for the basic operations (`add`, `remove`, and `contains`).
@@ -261,14 +282,31 @@ public class TreeSetExample {
 }
 ```
 
+## <a name="vector">Vector</a>
+
+The `Vector` class implements a growable array of objects. Like an array, it contains components that can be accessed using an integer index. However, the size of a `Vector` can grow or shrink as needed to accommodate adding and removing items after the `Vector` has been created.
+
+- extends `AbstractList`
+- implements the `List` interface.
+- Vector is synchronized. 
+
+If a thread-safe implementation is not needed, it is recommended to use `ArrayList` in place of `Vector`.
+
 ## <a name="stack">Stack</a>
 
-The `Stack` class in Java is part of the Java Collection Framework and represents a last-in, first-out (LIFO) stack of objects.
+The `Stack` class represents a last-in-first-out (LIFO) stack of objects. It extends class `Vector` with five operations that allow a vector to be treated as a stack. The usual `push` and `pop` operations are provided, as well as a method to `peek` at the top item on the stack, a method to test for whether the stack is `empty`, and a method to `search` the stack for an item and discover how far it is from the top.
+
 - Extends `Vector`.
 - Represents a LIFO stack of objects.
 - Provides methods to push, pop, peek, and search elements.
 - Can store duplicate elements.
 - Not synchronized, hence not thread-safe.
+
+> A more complete and consistent set of LIFO stack operations is provided by the `Deque` interface and its implementations, which should be used in preference to this class. For example: 
+
+```java
+Deque<Integer> stack = new ArrayDeque<Integer>();
+```
 
 ### Common Methods
 
@@ -298,10 +336,11 @@ public class StackExample {
 
 ## <a name="queue-interface">Queue Interface</a>
 
+A collection designed for holding elements prior to processing. Besides basic `Collection` operations, queues provide additional insertion, extraction, and inspection operations. 
 
-The `Queue` interface is part of the Java Collection Framework and represents a collection designed for holding elements prior to processing.
-- Extends the `Collection` interface.
-- Designed for holding elements prior to processing.
+Queues typically, but do not necessarily, order elements in a FIFO (first-in-first-out) manner.
+
+- extends the `Collection` interface.
 - Supports FIFO ordering (in most implementations).
 - Provides methods for insertion, removal, and inspection of elements.
 
@@ -337,9 +376,10 @@ public class QueueExample {
 
 ## <a name="priorityqueue">PriorityQueue</a>
 
+An unbounded priority <u>queue based</u> on a priority heap. The elements of the priority queue are ordered according to their <u>natural ordering</u>, or by a `Comparator` provided at queue construction time, depending on which constructor is used.
 
 The `PriorityQueue` class in Java is part of the Java Collection Framework and represents a priority queue.  It is an unbounded queue based on a priority heap.
-- Implements the `Queue` interface.
+- implements the `Queue` interface.
 - Does not permit `null` elements.
 - Elements are ordered based on their natural ordering or by a comparator.
 - Not thread-safe.
@@ -370,15 +410,15 @@ public class PriorityQueueExample {
 ```
 
 
-## <a name="deque">Deque</a>
+## <a name="deque">Deque Interface</a>
 
+A linear collection that supports element insertion and removal at both ends. The name deque is short for "double ended queue" and is usually pronounced "deck". 
+This interface defines methods to access the elements at both ends of the deque.
 
-
-The `Deque` (Double Ended Queue) interface is part of the Java Collection Framework and represents a linear collection that supports element insertion and removal at both ends. It extends the `Queue` interface and provides more flexible operations than a regular queue.
-- Extends the `Queue` interface.
+- extends the `Queue`, `SequencedCollection` interface.
 - Supports insertion and removal at both ends.
 - Can be used as a stack (LIFO) or queue (FIFO).
-- Does not permit `null` elements.
+- permits `null`. (But not recommended to do so.)
 
 ### Common Methods
 
@@ -414,10 +454,12 @@ public class DequeExample {
 
 ## <a name="map-interface">Map Interface</a>
 
+An object that maps keys to values. A map cannot contain duplicate keys; each key can map to at most one value.
+This interface takes the place of the `Dictionary` class, which was a totally abstract class rather than an interface.
 
+The `Map` interface provides three collection views, which allow a map's contents to be viewed as a set of keys, collection of values, or set of key-value mappings.
 
-
-The `Map` interface is part of the Java Collection Framework and represents a collection of key-value pairs. Each key maps to exactly one value. The `Map` interface is not a subtype of the `Collection` interface and has a different set of methods to manipulate elements.The `Map` interface is implemented by various classes such as `HashMap`, `LinkedHashMap`, and `TreeMap`.
+The `Map` interface is implemented by various classes such as `HashMap`, `LinkedHashMap`, and `TreeMap`.
 - Maps unique keys to values.
 - Does not allow duplicate keys.
 - Allows one `null` key and multiple `null` values (implementation-dependent).
@@ -437,9 +479,45 @@ The `Map` interface is part of the Java Collection Framework and represents a co
 Map<String, Integer> map = new HashMap<>();
 ```
 
+## <a name="hashtable">HashTable</a>
+
+This class implements a hash table, which maps keys to values. Any `non-null` object can be used as a key or as a value.
+To successfully store and retrieve objects from a hashtable, the objects used as keys must implement the `hashCode` method and the `equals` method.
+
+*`Object.hashCode()`* - Returns a hash code value for this object. This method is supported for the benefit of hash tables such as those provided by `java.util.HashMap`.
+
+*`Object.equals(Object)`* - Indicates whether some other object is "equal to" this one. 
+Returns `true` if this object is the same as the obj argument; `false` otherwise.
+
+An instance of `Hashtable` has two parameters that affect its performance: <i>initial capacity</i>(number of buckets) and <i>load factor</i>.
+
+- extends `Dictionary` abstract class.
+- implements `Map` interface.
+- Does not allow duplicate keys.
+- Allows one `null` key and multiple `null` values (implementation-dependent).
+
+### Implementation
+```java
+// This example creates a hashtable of numbers. It uses the names of the numbers as keys:
+Hashtable<String, Integer> numbers = new Hashtable<String, Integer>(); 
+numbers.put("one", 1);
+numbers.put("two", 2);
+numbers.put("three", 3);
+
+// To retrieve a number, use the following code:
+Integer n = numbers.get("two");
+if (n != null) {   
+    System. out. println("two = " + n);
+}
+```
+
 ## <a name="hashmap">HashMap</a>
 
-The `HashMap` class in Java is part of the Java Collection Framework and implements the `Map` interface. It uses a hash table to store key-value pairs, providing constant-time performance for the basic operations (get and put), assuming the hash function disperses the elements properly among the buckets.
+Hash table based implementation of the `Map` interface. This implementation provides all of the optional map operations, and permits `null` values and the `null` key. (The `HashMap` class is roughly equivalent to `Hashtable`, except that it is unsynchronized and permits nulls.)
+
+This implementation provides constant-time performance for the basic operations (`get` and `put`), assuming the hash function disperses the elements properly among the buckets.
+
+- extends `AbstractMap` abstarct class.
 - Implements the `Map` interface.
 - Allows `null` values and the `null` key.
 - Unordered collection, does not guarantee any specific order of keys.
@@ -477,12 +555,27 @@ public class HashMapExample {
 }
 ```
 
+## <a name="sortedmap">SortedMap Interface</a>
+
+A `Map` that further provides a total ordering on its keys. The map is ordered according to the <u>natural ordering</u> of its keys, or by a `Comparator` typically provided at sorted map creation time. This order is reflected when iterating over the sorted map's collection views (returned by the `entrySet`, `keySet` and `values` methods). Several additional operations are provided to take advantage of the ordering. (This interface is the map analogue of `SortedSet`.)
+
+- extends `SequencedMap` interface
+
+## <a name="navigablemap">NavigableMap Interface</a>
+
+A `SortedMap` extended with navigation methods returning the closest matches for given search targets. Methods `lowerEntry`, `floorEntry`, `ceilingEntry`, and `higherEntry` return `Map.Entry` objects associated with keys respectively less than, less than or equal, greater than or equal, and greater than a given key, returning `null` if there is no such key.
+
+- extends `SortedMap` interface.
+
+
 ## <a name="treemap">TreeMap</a>
 
+A Red-Black tree based `NavigableMap` implementation. The map is sorted according to the <u>natural ordering</u> of its keys, or by a `Comparator` provided at map creation time, depending on which constructor is used. 
 
+This implementation provides guaranteed log(n) time cost for the `containsKey`, `get`, `put` and `remove` operations.
 
-The `TreeMap` class in Java is part of the Java Collection Framework and implements the `NavigableMap` interface. It uses a red-black tree to store key-value pairs, guaranteeing that the map will be in ascending key order, sorted according to the natural ordering of its keys or by a comparator provided at map creation time.
-- Implements the `NavigableMap` interface.
+- extends `AbstractMap` abstarct class.
+- implements the `NavigableMap` interface.
 - Sorted map, maintains ascending order of keys.
 - Allows `null` values but does not permit `null` keys.
 - Not synchronized, hence not thread-safe.

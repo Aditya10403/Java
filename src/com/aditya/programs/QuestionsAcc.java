@@ -131,10 +131,29 @@ public class QuestionsAcc {
 //        int[] nums = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
 //        System.out.println(primeSum(nums));
 
-        int D = 5;
-        int a = (int) (3.14 * Math.pow(D, 2));
-        System.out.println(a);
+//        int D = 5;
+//        int a = (int) (3.14 * Math.pow(D, 2));
+//        System.out.println(a);
 
+        String s = "10111011";
+        System.out.println(stringDecoder(s));
+
+    }
+
+    private static String stringDecoder(String s) {
+        if (s.isEmpty()) return "";
+        Map<String, Character> map = new HashMap<>();
+        StringBuilder ones = new StringBuilder();
+        StringBuilder decoded = new StringBuilder();
+        for (int i = 0; i < 26; i++) {
+            ones.append("1");
+            map.put(ones.toString(), (char) ('A' + i));
+        }
+        String[] arr = s.split("0");
+        for (String val: arr) {
+            decoded.append(map.get(val)).append(" ");
+        }
+        return decoded.toString();
     }
 
     private static int primeSum(int[] nums) {
