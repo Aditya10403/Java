@@ -8,20 +8,27 @@
   - [2.2 LinkedList](#linkedlist)
 - [3. Set Interface](#set-interface)
   - [3.1 HashSet](#hashset)
+  - [3.2 SortedSet](#sortedset-interface)
+  - [3.3 NavigableSet](#navigableset-interface)
   - [3.2 TreeSet](#treeset)
-- [4. Stack](#stack)
-- [5. Queue Interface](#queue-interface)
-  - [5.1 PriorityQueue](#priorityqueue)
-  - [5.2 Deque](#deque)
-- [6. Map Interface](#map-interface)
-  - [6.1 HashMap](#hashmap)
-  - [6.2 TreeMap](#treemap)
-- [7. Iterators and Comparators](#iterators-and-comparators)
-  - [7.1 Iterator](#iterator)
-  - [7.2 ListIterator](#listiterator)
-  - [7.3 Enumeration](#enumeration)
-  - [7.4 Comparable](#comparable)
-  - [7.5 Comparator](#comparator)
+- [4. Vector](#vector)
+- [5. Stack](#stack)
+- [6. Queue Interface](#queue-interface)
+  - [6.1 PriorityQueue](#priorityqueue)
+  - [6.2 Deque](#deque-interface)
+- [7. Map Interface](#map-interface)
+  - [7.1 HashTable](#hashtable)
+  - [7.2 HashMap](#hashmap)
+  - [7.3 SortedMap](#sortedmap-interface)
+  - [7.4 NavigableMap](#navigablemap-interface)
+  - [7.5 TreeMap](#treemap)
+- [8. Iterable and Comparable](#iterable-and-comparable)
+  - [8.1 Iterable](#iterable-interface)
+  - [8.2 Iterator](#iterator-interface)
+  - [8.3 ListIterator](#listiterator-interface)
+  - [8.4 Enumeration](#enumeration-interface)
+  - [8.5 Comparable](#comparable-interface)
+  - [8.6 Comparator](#comparator-interface)
 
 ## <a name="introduction-to-collection-framework">Introduction to Collection Framework</a>
 
@@ -230,13 +237,13 @@ public class HashSetExample {
 }
 ```
 
-## <a name="sortedset">SortedSet Interface</a>
+## <a name="sortedset-interface">SortedSet Interface</a>
 
 A `Set` that further provides a total ordering on its elements. The elements are ordered using their <u>natural ordering</u>, or by a `Comparator` typically provided at sorted set creation time. The set's iterator will traverse the set in ascending element order. Several additional operations are provided to take advantage of the ordering. (This interface is the set analogue of `SortedMap`.)
 
 - extends `Set`, `SequencedSet` interface.
 
-## <a name="navigableset">NavigableSet Interface</a>
+## <a name="navigableset-interface">NavigableSet Interface</a>
 
 A `SortedSet` extended with navigation methods reporting closest matches for given search targets. Methods `lower`, `floor`, `ceiling`, and `higher` return elements respectively less than, less than or equal, greater than or equal, and greater than a given element, returning `null` if there is no such element.
 
@@ -410,7 +417,7 @@ public class PriorityQueueExample {
 ```
 
 
-## <a name="deque">Deque Interface</a>
+## <a name="deque-interface">Deque Interface</a>
 
 A linear collection that supports element insertion and removal at both ends. The name deque is short for "double ended queue" and is usually pronounced "deck". 
 This interface defines methods to access the elements at both ends of the deque.
@@ -555,13 +562,13 @@ public class HashMapExample {
 }
 ```
 
-## <a name="sortedmap">SortedMap Interface</a>
+## <a name="sortedmap-interface">SortedMap Interface</a>
 
 A `Map` that further provides a total ordering on its keys. The map is ordered according to the <u>natural ordering</u> of its keys, or by a `Comparator` typically provided at sorted map creation time. This order is reflected when iterating over the sorted map's collection views (returned by the `entrySet`, `keySet` and `values` methods). Several additional operations are provided to take advantage of the ordering. (This interface is the map analogue of `SortedSet`.)
 
 - extends `SequencedMap` interface
 
-## <a name="navigablemap">NavigableMap Interface</a>
+## <a name="navigablemap-interface">NavigableMap Interface</a>
 
 A `SortedMap` extended with navigation methods returning the closest matches for given search targets. Methods `lowerEntry`, `floorEntry`, `ceilingEntry`, and `higherEntry` return `Map.Entry` objects associated with keys respectively less than, less than or equal, greater than or equal, and greater than a given key, returning `null` if there is no such key.
 
@@ -611,11 +618,15 @@ public class TreeMapExample {
 }
 ```
 
-## <a name="iterator">Iterator</a>
+## <a name="iterable-interface">Iterable Interface</a>
+
+Implementing this interface allows an object to be the target of the enhanced `for` statement (sometimes called the "for-each loop" statement).
 
 
+## <a name="iterator-interface">Iterator Interface</a>
 
-The `Iterator` interface is part of the Java Collection Framework and provides a way to traverse a collection, obtain or remove elements. It is a universal iterator as it can be used with any collection, not just lists.
+An iterator over a collection. `Iterator` takes the place of `Enumeration` in the Java Collections Framework.
+
 - Supports forward direction traversal.
 - Provides methods to check the existence of next elements and to remove elements.
 - Simplifies iteration over collections.
@@ -646,15 +657,15 @@ while (iterator.hasNext()) {
 }
 ```
 
-## <a name="listiterator">ListIterator</a>
+## <a name="listiterator-interface">ListIterator Interface</a>
 
+An iterator for lists that allows the programmer to traverse the list in either direction, modify the list during iteration, and obtain the iterator's current position in the list. A `ListIterator` has no current element; its cursor position always lies between the element that would be returned by a call to `previous()` and the element that would be returned by a call to `next()`. An iterator for a list of length `n` has `n+1` possible cursor positions, as illustrated by the carets (`^`) below:
+                       Element(0)   Element(1)   Element(2)   ... Element(n-1)
+  cursor positions:  ^            ^            ^            ^                  ^
 
-
-The `ListIterator` interface extends the `Iterator` interface and provides additional methods for traversing and manipulating lists. It allows bidirectional iteration and provides methods to add, remove, and replace elements.
 - Extends the `Iterator` interface.
-- Supports bidirectional traversal (both forward and backward).
+- It allows bidirectional iteration and provides methods to add, remove, and replace elements.
 - Allows modification of the list during iteration.
-- Can traverse the list in both directions.
 
 ### Common Methods
 
@@ -714,11 +725,16 @@ public class ListIteratorExample {
 }
 ```
 
-## <a name="enumeration">Enumeration</a>
+## <a name="enumeration-interface">Enumeration Interface</a>
 
+An object that implements the Enumeration interface generates a series of elements, one at a time. Successive calls to the `nextElement` method return successive elements of the series.
 
+For example, to print all elements of a `Vector<E>` v:
+```java
+for (Enumeration<E> e = v. elements(); e. hasMoreElements();)
+    System. out. println(e. nextElement());
+```
 
-The `Enumeration` interface is a legacy interface from the Java 1.0 and is part of the Java Collection Framework. It provides methods for iterating over a collection of elements, but with fewer capabilities compared to modern iterators such as `Iterator` and `ListIterator`.
 - Part of the original Java 1.0.
 - Provides methods for basic iteration.
 - More limited than modern iterators (`Iterator`, `ListIterator`).
@@ -756,11 +772,11 @@ public class EnumerationExample {
 }
 ```
 
-## <a name="comparable">Comparable</a>
+## <a name="comparable-interface">Comparable Interface</a>
 
+This interface imposes a total ordering on the objects of each class that implements it. This ordering is referred to as the class's natural ordering, and the class's `compareTo` method is referred to as its natural comparison method.
+Lists (and arrays) of objects that implement this interface can be sorted automatically by `Collections.sort` (and `Arrays.sort`). Objects that implement this interface can be used as keys in a <u>sorted map</u> or as elements in a <u>sorted set</u>, without the need to specify a <u>comparator</u>.
 
-
-The `Comparable` interface in Java is used to define the natural ordering of objects. It allows objects of a class to be compared with each other, which is essential for sorting and ordering operations.
 - Defines the natural ordering of objects.
 - Used by Java's sorting utilities like `Collections.sort()` and `Arrays.sort()`.
 - Enables a class to be compared and sorted based on a specific attribute.
@@ -818,11 +834,11 @@ public class ComparableDemo implements Comparable<ComparableDemo> {
 }
 ```
 
-## <a name="comparator">Comparator</a>
+## <a name="comparator-interface">Comparator Interface</a>
 
+A comparison function, which imposes a total ordering on some collection of objects. Comparators can be passed to a sort method (such as `Collections.sort` or `Arrays.sort`) to allow precise control over the sort order. Comparators can also be used to control the order of certain data structures (such as <u>sorted sets</u> or <u>sorted maps</u>), or to provide an ordering for collections of objects that don't have a <u>natural ordering</u>.
+The ordering imposed by a comparator `c` on a set of elements `S` is said to be consistent with equals if and only if `c.compare(e1, e2)==0` has the same boolean value as `e1.equals(e2)` for every `e1` and `e2` in `S`.
 
-
-The `Comparator` interface in Java is used to define custom sorting orders for objects. Unlike the `Comparable` interface, which defines a natural ordering, `Comparator` allows you to specify multiple different ways to compare objects.
 - Provides custom sorting logic.
 - Can be used to create various sorting orders for the same class.
 - Offers flexibility in sorting by allowing different comparison strategies.
@@ -924,8 +940,8 @@ public class StringComparatorDemo {
         System.out.println("Sorted List by Length: " + list);
     }
 }
-
 ``` 
+
 ### Comparing List of Integers
 ```java
 import java.util.ArrayList;
