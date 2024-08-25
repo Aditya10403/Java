@@ -218,7 +218,6 @@ This class implements the `Set` interface, backed by a hash table (actually a `H
 | `boolean add(E e)`                    | `boolean remove(Object o)`            |
 | `void clear()`                        | `int size()`                          |
 | `boolean contains(Object o)`          | `boolean isEmpty()`              |
-|
 
 ### Implementation
 ```java
@@ -658,8 +657,10 @@ while (iterator.hasNext()) {
 ## <a name="listiterator-interface">ListIterator Interface</a>
 
 An iterator for lists that allows the programmer to traverse the list in either direction, modify the list during iteration, and obtain the iterator's current position in the list. A `ListIterator` has no current element; its cursor position always lies between the element that would be returned by a call to `previous()` and the element that would be returned by a call to `next()`. An iterator for a list of length `n` has `n+1` possible cursor positions, as illustrated by the carets (`^`) below:
+```txt
                        Element(0)   Element(1)   Element(2)   ... Element(n-1)
   cursor positions:  ^            ^            ^            ^                  ^
+```
 
 - Extends the `Iterator` interface.
 - It allows bidirectional iteration and provides methods to add, remove, and replace elements.
