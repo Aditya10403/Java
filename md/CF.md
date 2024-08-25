@@ -253,8 +253,6 @@ A `SortedSet` extended with navigation methods reporting closest matches for giv
 
 A `NavigableSet` implementation based on a `TreeMap`. The elements are ordered using their <u>natural ordering</u>, or by a `Comparator` provided at set creation time, depending on which constructor is used.
 
-The `TreeSet` class is part of the Java Collection Framework and implements the `NavigableSet` interface.
-
 - extends `AbstractSet`
 - implements the `NavigableSet` interface.
 - Backed by a `TreeMap`.
