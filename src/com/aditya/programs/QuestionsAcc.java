@@ -135,9 +135,57 @@ public class QuestionsAcc {
 //        int a = (int) (3.14 * Math.pow(D, 2));
 //        System.out.println(a);
 
-        String s = "10111011";
-        System.out.println(stringDecoder(s));
+//        String s = "10111011";
+//        System.out.println(stringDecoder(s));
 
+//        String s = "aits rsms";
+//        System.out.println(replace(s, 'a', 's'));
+
+//        int[] nums = { 1,2,3,3,4,4 };
+//        System.out.println(secondLargest(nums));
+
+        String s = "dfa12321afd";
+        System.out.println(secondHighest(s));
+
+    }
+
+    private static int secondHighest(String s) {
+        if (s.isEmpty()) return -1;
+        char[] c = s.toCharArray();
+        Arrays.sort(c);
+        int i = c.length-1;
+        while (i >= 0 && c[i] >= 'a' && c[i] <= 'z') i--;
+        if (i < 0) return -1;
+        int max = c[i];
+        while (i >= 0 && c[i] == max) i--;
+        if (i < 0) return -1;
+        int secondMax = c[i];
+        return secondMax - '0';
+    }
+
+    private static int secondLargest(int[] nums) {
+        int max = nums[nums.length-1];
+        int secondMax = Integer.MIN_VALUE;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            if (num >= secondMax && num < max) {
+                secondMax = num;
+                map.put(secondMax, map.getOrDefault(secondMax, 0) + 1);
+            }
+        }
+        return map.getOrDefault(secondMax, 0);
+    }
+
+    private static String replace(String s, char a, char b) {
+        if (s.isEmpty()) return "";
+        char[] c = s.toCharArray();
+        StringBuilder ans = new StringBuilder();
+        for (char ch : c) {
+            if (ch == a) ans.append(b);
+            else if (ch == b) ans.append(a);
+            else ans.append(ch);
+        }
+        return ans.toString();
     }
 
     private static String stringDecoder(String s) {
