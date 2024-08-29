@@ -43,4 +43,45 @@ public class LinkedListQuestions {
         i.next = evenStart;
         return head;
     }
+
+    /**
+     * Input: head = [5,4,2,1] <br>
+     * Output: 6
+     */
+    public static int pairSum(ListNode head) {
+        if (head == null) return 0;
+        ListNode middle = findMiddle(head);
+        ListNode next = middle.next;
+        reverseMiddle(head ,middle);
+        int max = 0;
+        while (middle != null && next != null) {
+            max = Math.max(middle.val + next.val, max);
+            middle = middle.next;
+            next = next.next;
+        }
+        return max;
+    }
+
+    private static void reverseMiddle(ListNode head, ListNode middle) {
+        ListNode prev = null, current = head, next = head.next;
+        while (current != middle.next) {
+            current.next = prev;
+            prev = current;
+            current = next;
+            if (next.next != middle.next) {
+                next = next.next;
+            }
+        }
+    }
+
+    private static ListNode findMiddle(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
 }

@@ -27,7 +27,7 @@ Core Java refers to the standard edition of Java (Java SE) and consists of the b
   - [1. What is Java](#1-what-is-java)
   - [2. Features of Java](#2-features-of-java)
 - [Internal Working of Java](#internal-working-of-java)
-- [Data Structures and Algorithms](/md/DSA.pdf)
+- [Data Structures and Algorithms](/md/DSA.md)
 - [Object-Oriented Programming (OOP) Concepts](/md/OOPs.md)
 - [Collection Framework](/md/CF.md)
 - [Java Thread](/md/Th.md)
