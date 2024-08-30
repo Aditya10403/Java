@@ -71,7 +71,7 @@ Two main criteria for judging algorithms are:
 - **Efficiency:** How much resources (memory and time) does it take to execute?
 
 <p align="center">
-  <img src="image-1.png" width=500 alt="Algorithms">
+  <img src="image-1.png" alt="Algorithms">
 </p>
 
 ### <a name="types-of-analysis"></a>1.5 Types of Analysis of an Algorithm
@@ -95,7 +95,7 @@ This notation gives the tight upper bound of the given function, generally repre
 For example, if `f(n) = n^4 + 100n^2 + 10n + 50`, then `g(n)` would be `n^4`.
 
 <p align="center">
-  <img src="image-2.png" alt="bigO">
+  <img src="image-2.png" width=500 alt="bigO">
 </p>
 
 - **Big-O Visualization:**  
@@ -108,7 +108,7 @@ Similar to Big-O, this notation gives the tighter lower bound of the given algor
 For example, if `f(n) = 100n^2 + 10n + 50`, then `g(n)` is `Ω(n^2)`.
 
 <p align="center">
-  <img src="image-3.png" alt="omega">
+  <img src="image-3.png" width=500 alt="omega">
 </p>
 
 ### <a name="theta-notation"></a>1.9 Theta (&#952;) Notation
@@ -116,7 +116,7 @@ For example, if `f(n) = 100n^2 + 10n + 50`, then `g(n)` is `Ω(n^2)`.
 Theta notation decides whether the upper and lower bounds of a given function (algorithm) are the same. It represents the average running time of an algorithm, which is always between the lower bound and the upper bound.
 
 <p align="center">
-  <img src="image-4.png" alt="theta">
+  <img src="image-4.png" width=500 alt="theta">
 </p>
 
 > For analysis (best case, worst case, and average), the upper bound (O), lower bound (Ω), and average running time (&#952;) are given.
@@ -140,7 +140,7 @@ else return (some work and then a recursive call)
 ```
 
 <p align="center">
-  <img src="image-5.png" alt="recursion">
+  <img src="image-5.png" width=650 alt="recursion">
 </p>
 
 ### <a name="recursion-vs-iteration"></a>2.2 Recursion versus Iteration
@@ -177,7 +177,7 @@ A linked list is a data structure used for storing collections of data. A linked
 - Does not waste memory space (but takes some extra memory for pointers). It allocates memory as the list grows.
 
 <p align="center">
-  <img src="image-6.png" alt="Linked List Diagram">
+  <img src="image-6.png" width=700 alt="Linked List Diagram">
 </p>
 
 ### <a name="linked-lists-adt"></a>3.2 Linked Lists ADT
@@ -209,7 +209,7 @@ The linked list consists of a series of structures called nodes. Each node has t
 The link of the last node in the list is NULL, which indicates the end of the list.
 
 <p align="center">
-  <img src="image-6.png" alt="Singly Linked List Diagram">
+  <img src="image-6.png" width=700 alt="Singly Linked List Diagram">
 </p>
 
 ### <a name="doubly-linked-lists"></a>3.4 Doubly Linked Lists
@@ -221,7 +221,7 @@ The *advantage* of a doubly linked list (also called a *two-way linked list*) is
 - The insertion or deletion of a node takes a bit longer (more pointer operations).
 
 <p align="center">
-  <img src="image-7.png" alt="Doubly Linked List Diagram">
+  <img src="image-7.png" width=600 alt="Doubly Linked List Diagram">
 </p>
 
 ### <a name="circular-linked-lists"></a>3.5 Circular Linked Lists
@@ -229,7 +229,7 @@ The *advantage* of a doubly linked list (also called a *two-way linked list*) is
 In singly linked lists and doubly linked lists, the end of the list is indicated with a NULL value. In contrast, circular linked lists do not have an end; instead, the last node points to the head of the list.
 
 <p align="center">
-  <img src="image-8.png" alt="Circular Linked List Diagram">
+  <img src="image-8.png" width=650 alt="Circular Linked List Diagram">
 </p>
 
 ## <a name="stacks"></a>STACKS
@@ -278,7 +278,7 @@ When an element is inserted into a queue, the concept is called *EnQueue*. When 
 *DeQueueing* an empty queue is called *underflow*, and *EnQueueing* an element into a full queue is called *overflow*.
 
 <p align="center">
-  <img src="image-10.png" alt="Queue Diagram">
+  <img src="image-10.png" width=600 alt="Queue Diagram">
 </p>
 
 ### <a name="queue-adt"></a>5.2 Queue ADT
