@@ -21,6 +21,7 @@
    - [3.3 Singly Linked Lists](#singly-linked-lists)
    - [3.4 Doubly Linked Lists](#doubly-linked-lists)
    - [3.5 Circular Linked Lists](#circular-linked-lists)
+   - [3.6 Performance and Limitations](#performance-limitations-linked-lists)
 4. [Stacks](#stacks)
    - [4.1 What is a Stack?](#what-is-a-stack)
    - [4.2 Stack ADT](#stack-adt)
@@ -29,6 +30,11 @@
    - [5.1 What is a Queue?](#what-is-a-queue)
    - [5.2 Queue ADT](#queue-adt)
    - [5.3 Performance and Limitations](#performance-limitations-queues)
+6. [What is a Tree?](#what-is-a-tree)
+    - [Binary Trees](#binary-trees)
+    - [Types of Binary Trees](#types-of-binary-trees)
+    - [Properties of Binary Trees](#properties-of-binary-trees)
+    - [Structure of Binary Trees](#structure-of-binary-trees)
 
 ## <a name="introduction"></a>INTRODUCTION
 
@@ -185,13 +191,13 @@ A linked list is a data structure used for storing collections of data. A linked
 The following operations make linked lists an ADT:
 
 **Main Linked Lists Operations**  
-- **Insert:** Inserts an element into the list.
-- **Delete:** Removes and returns the specified position element from the list.
+- `Insert:` Inserts an element into the list.
+- `Delete:` Removes and returns the specified position element from the list.
 
 **Auxiliary Linked Lists Operations**  
-- **Delete List:** Removes all elements of the list (disposes the list).
-- **Count:** Returns the number of elements in the list.
-- **Find n<sup>2</sup> node from the end of the list.**
+- `Delete List:` Removes all elements of the list (disposes the list).
+- `Count:` Returns the number of elements in the list.
+- `Find` n<sup>th</sup> node from the end of the list.
 
 **Advantages**
 - Linked lists can be *expanded* in constant time.
@@ -232,6 +238,19 @@ In singly linked lists and doubly linked lists, the end of the list is indicated
   <img src="image-8.png" width=650 alt="Circular Linked List Diagram">
 </p>
 
+### <a name="performance-limitations-linked-lists"></a>3.6 Performance and Limitations
+
+**Performance**  
+- Space Complexity (for *n* nodes): `O(n)`
+- Time Complexity of `Insert()` (at a known position): `O(1)`
+- Time Complexity of `Delete()` (at a known position): `O(1)`
+- Time Complexity of `Search()` or `Find()`: `O(n)`
+
+**Limitations**  
+- Slower access time for individual elements compared to arrays: `O(n)`
+- Additional memory is required for pointers in each node.
+
+
 ## <a name="stacks"></a>STACKS
 
 ### <a name="what-is-a-stack"></a>4.1 What is a Stack?
@@ -241,7 +260,7 @@ A *stack* is an ordered list in which insertion and deletion are done at one end
 When an element is inserted in a stack, the concept is called *push*, and when an element is removed from the stack, the concept is called *pop*. Trying to pop out an empty stack is called *underflow* and trying  to push an element in a full stack is called *overflow*.
 
 <p align="center">
-  <img src="image-9.png" alt="Stack Diagram">
+  <img src="image-9.png" width=500 alt="Stack Diagram">
 </p>
 
 ### <a name="stack-adt"></a>4.2 Stack ADT
@@ -273,9 +292,7 @@ The following operations make a stack an ADT. For simplicity, assume the data is
 
 A *queue* is an ordered list in which insertions are done at one end (*rear*) and deletions are done at the other end (*front*). The first element to be inserted is the first one to be deleted. Hence, it is called First In, First Out (FIFO) or Last In, Last Out (LILO) list.
 
-When an element is inserted into a queue, the concept is called *EnQueue*. When an element is removed from the queue, the concept is called *DeQueue*. 
-
-*DeQueueing* an empty queue is called *underflow*, and *EnQueueing* an element into a full queue is called *overflow*.
+When an element is inserted into a queue, the concept is called *EnQueue*. When an element is removed from the queue, the concept is called *DeQueue*. *DeQueueing* an empty queue is called *underflow*, and *EnQueueing* an element into a full queue is called *overflow*.
 
 <p align="center">
   <img src="image-10.png" width=600 alt="Queue Diagram">
@@ -304,3 +321,91 @@ The following operations make a queue an ADT. Insertions and deletions in the qu
 
 **Limitations**  
 - The maximum size of the queue must be defined beforehand and cannot be changed. Trying to *Enqueue* a new element into a full queue causes an implementation-specific exception (commonly known as *overflow*).
+
+
+## <a name="trees"></a>TREES
+
+
+### <a name="what-is-a-tree"></a>6.1 What is a Tree?
+
+A *tree* is a data structure similar to a linked list, but instead of each node pointing to the next node in a linear fashion, each node points to a number of nodes. A tree is an example of a non-linear data structure. A tree structure is a way of representing the hierarchical nature of a structure in a graphical form.
+
+<p align="center">
+  <img src="image-11.png" alt="Tree Diagram">
+</p>
+
+- The *root* of a tree is the node with no parents. There can be at most one `root` node in a tree (node *A* in the above example).
+- An *edge* refers to the link from parent to child (all links in the figure).
+- A node with no children is called a `leaf node` (*E, J, K, H,* and *I*).
+- Children of the same parent are called `siblings` (*B, C,* and *D* are siblings of *A,* and *E, F* are the siblings of *B*).
+- A node `p` is an `ancestor` of node `q` if there exists a path from the `root` to `q` and `p` appears on the path. The node `q` is called a `descendant` of `p`. For example, *A, C,* and *G* are the ancestors of *K*.
+- The set of all nodes at a given depth is called the `level` of the tree (*B, C,* and *D* are on the same level). The `root` node is at level zero.
+
+<p align="center">
+  <img src="image-12.png" width=500 alt="Tree Levels Diagram">
+</p>
+
+- The `depth` of a node is the length of the path from the `root` to the node (the depth of *G* is 2, *A – C — G*).
+- The `height` of a `node` is the length of the path from that node to the deepest node. The `height` of a `tree` is the length of the path from the `root` to the deepest node in the tree. A (rooted) tree with only one node (the root) has a height of zero. In the previous example, the height of *B* is 2 (*B — F — J*).
+- The `height of the tree` is the maximum height among all the nodes in the tree, and `depth of the tree` is the maximum depth among all the nodes in the tree. For a given tree, depth and height return the same value. But for individual nodes, we may get different results.
+- The `size` of a node is the number of descendants it has, including itself (the size of the subtree *C* is 3).
+- If every node in a tree has only one child (except leaf nodes), then we call such trees `skew trees`. If every node has only a left child, then we call them *left-skewed trees*. Similarly, if every node has only a right child, then we call them *right-skewed trees*.
+
+<p align="center">
+  <img src="image-13.png" width=700 alt="Skewed Trees Diagram">
+</p>
+
+### <a name="binary-trees"></a>6.2 Binary Trees
+
+A tree is called a `binary tree` if each node has zero children, one child, or two children. An empty tree is also a valid `binary tree`. We can visualize a `binary tree` as consisting of a root and two disjoint binary trees, called the left and right subtrees of the root.
+
+<p align="center">
+  <img src="image-14.png" width=650 alt="Binary Tree Diagram">
+</p>
+
+### <a name="types-of-binary-trees"></a>6.3 Types of Binary Trees
+
+**Strict Binary Tree:** A binary tree is called a `strict binary tree` if each node has exactly two children or no children.
+
+<p align="center">
+  <img src="image-15.png" width=400 alt="Strict Binary Tree Diagram">
+</p>
+
+**Full Binary Tree:** A binary tree is called a `full binary tree` if each node has exactly two children, and all leaf nodes are at the same level.
+
+<p align="center">
+  <img src="image-16.png" width=400 alt="Full Binary Tree Diagram">
+</p>
+
+**Complete Binary Tree:** Before defining the `complete binary tree`, let us assume that the height of the binary tree is ℎ.
+
+A binary tree is called a `complete binary tree` if all leaf nodes are at height ℎ or ℎ−1 and also without any missing number in the sequence.
+
+<p align="center">
+  <img src="image-17.png" width=400 alt="Complete Binary Tree Diagram">
+</p>
+
+### <a name="properties-of-binary-trees"></a>6.4 Properties of Binary Trees
+
+For the following properties, let us assume that the height of the tree is ℎ. Also, assume that the `root` node is at height zero.
+
+<p align="center">
+  <img src="image-18.png" width=700 alt="Binary Tree Properties Diagram 1">
+</p>
+<p align="center">
+  <img src="image-19.png" width=700 alt="Binary Tree Properties Diagram 2">
+</p>
+
+From the diagrams, we can infer the following properties:
+- The number of nodes `n` in a `full binary tree` is 2<sup>*h+1*</sup> - 1. Since there are *h* levels, we need to add all nodes at each level [2<sup>*0*</sup> + 2<sup>*1*</sup> + 2<sup>*2*</sup> + ... + 2<sup>*h*</sup> = 2<sup>*h+1*</sup> - 1].
+- The number of nodes `n` in a `complete binary tree` is between 2<sup>*h*</sup> (minimum) and 2<sup>*h+1*</sup> − 1 (maximum).
+- The number of `leaf nodes` in a `full binary tree` is 2<sup>*n*</sup>.
+- The number of `None` links (wasted pointers) in a `complete binary tree` of `n` nodes is `n` + 1.
+
+### <a name="structure-of-binary-trees"></a>6.5 Structure of Binary Trees
+
+One way to represent a node (which contains data) is to have two links that point to the left and right children along with data fields, as shown below:
+
+<p align="center">
+  <img src="image-20.png" width=600 alt="Binary Tree Node Structure Diagram">
+</p>
