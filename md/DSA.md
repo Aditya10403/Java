@@ -11,6 +11,10 @@
    - [1.7 Big-O Notation](#big-o-notation)
    - [1.8 Omega (Ω) Notation](#omega-notation)
    - [1.9 Theta (&#952;) Notation](#theta-notation)
+2. [Recursion and Backtracking](#recursion-backtracking)
+   - [2.1 What is Recursion?](#what-is-recursion)
+   - [2.2 Recursion versus Iteration](#recursion-vs-iteration)
+   - [2.3 What is Backtracking?](#what-is-backtracking)
 
 ## <a name="introduction"></a>INTRODUCTION
 
@@ -144,3 +148,5 @@ else return (some work and then a recursive call)
 Backtracking is an improvement on the brute force approach. It systematically searches for a solution to a problem among all available options.
 
 In backtracking, we start with one possible option out of many available options and try to solve the problem. If we can solve the problem with the selected move, we print the solution; otherwise, we backtrack and select another option. If none of the options work, we conclude that there is no solution to the problem.
+
+##
