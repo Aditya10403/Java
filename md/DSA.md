@@ -15,6 +15,20 @@
    - [2.1 What is Recursion?](#what-is-recursion)
    - [2.2 Recursion versus Iteration](#recursion-vs-iteration)
    - [2.3 What is Backtracking?](#what-is-backtracking)
+3. [Linked Lists](#linked-lists)
+   - [3.1 What is a Linked List?](#what-is-linked-list)
+   - [3.2 Linked Lists ADT](#linked-lists-adt)
+   - [3.3 Singly Linked Lists](#singly-linked-lists)
+   - [3.4 Doubly Linked Lists](#doubly-linked-lists)
+   - [3.5 Circular Linked Lists](#circular-linked-lists)
+4. [Stacks](#stacks)
+   - [4.1 What is a Stack?](#what-is-a-stack)
+   - [4.2 Stack ADT](#stack-adt)
+   - [4.3 Performance & Limitations](#performance-limitations)
+5. [Queues](#queues)
+   - [5.1 What is a Queue?](#what-is-a-queue)
+   - [5.2 Queue ADT](#queue-adt)
+   - [5.3 Performance and Limitations](#performance-limitations-queues)
 
 ## <a name="introduction"></a>INTRODUCTION
 
@@ -149,4 +163,144 @@ Backtracking is an improvement on the brute force approach. It systematically se
 
 In backtracking, we start with one possible option out of many available options and try to solve the problem. If we can solve the problem with the selected move, we print the solution; otherwise, we backtrack and select another option. If none of the options work, we conclude that there is no solution to the problem.
 
-##
+## <a name="linked-lists"></a>LINKED LISTS
+
+### <a name="what-is-linked-list"></a>3.1 What is a Linked List?
+
+A linked list is a data structure used for storing collections of data. A linked list has the following properties:
+
+- A linked list is a linear dynamic data structure.
+- Successive elements are connected by pointers.
+- The last element points to NULL.
+- Can grow or shrink in size during execution of a program.
+- Can be made just as long as required (until system memory is exhausted).
+- Does not waste memory space (but takes some extra memory for pointers). It allocates memory as the list grows.
+
+<p align="center">
+  <img src="image-6.png" alt="Linked List Diagram">
+</p>
+
+### <a name="linked-lists-adt"></a>3.2 Linked Lists ADT
+
+The following operations make linked lists an ADT:
+
+**Main Linked Lists Operations**  
+- **Insert:** Inserts an element into the list.
+- **Delete:** Removes and returns the specified position element from the list.
+
+**Auxiliary Linked Lists Operations**  
+- **Delete List:** Removes all elements of the list (disposes the list).
+- **Count:** Returns the number of elements in the list.
+- **Find n<sup>2</sup> node from the end of the list.**
+
+**Advantages**
+- Linked lists can be *expanded* in constant time.
+
+**Disadvantages**
+- The main disadvantage of linked lists is *access time* to individual elements. Linked lists take `O(n)` for access to an element in the list in the worst case.
+- Linked lists waste memory in terms of extra reference points.
+
+### <a name="singly-linked-lists"></a>3.3 Singly Linked Lists
+
+The linked list consists of a series of structures called nodes. Each node has two parts:
+- A *data* field that stores the data.
+- A *next* field that is a pointer used to link one node to the next node.
+
+The link of the last node in the list is NULL, which indicates the end of the list.
+
+<p align="center">
+  <img src="image-6.png" alt="Singly Linked List Diagram">
+</p>
+
+### <a name="doubly-linked-lists"></a>3.4 Doubly Linked Lists
+
+The *advantage* of a doubly linked list (also called a *two-way linked list*) is that given a node in the list, we can navigate in both directions.
+
+**Primary Disadvantages**  
+- Each node requires an extra pointer, requiring more space.
+- The insertion or deletion of a node takes a bit longer (more pointer operations).
+
+<p align="center">
+  <img src="image-7.png" alt="Doubly Linked List Diagram">
+</p>
+
+### <a name="circular-linked-lists"></a>3.5 Circular Linked Lists
+
+In singly linked lists and doubly linked lists, the end of the list is indicated with a NULL value. In contrast, circular linked lists do not have an end; instead, the last node points to the head of the list.
+
+<p align="center">
+  <img src="image-8.png" alt="Circular Linked List Diagram">
+</p>
+
+## <a name="stacks"></a>STACKS
+
+### <a name="what-is-a-stack"></a>4.1 What is a Stack?
+
+A *stack* is an ordered list in which insertion and deletion are done at one end, called the *top*. The last element inserted is the first one to be deleted. Hence, it is called the Last In, First Out (LIFO) or First In, Last Out (FILO) list.
+
+When an element is inserted in a stack, the concept is called *push*, and when an element is removed from the stack, the concept is called *pop*. Trying to pop out an empty stack is called *underflow* and trying  to push an element in a full stack is called *overflow*.
+
+<p align="center">
+  <img src="image-9.png" alt="Stack Diagram">
+</p>
+
+### <a name="stack-adt"></a>4.2 Stack ADT
+
+The following operations make a stack an ADT. For simplicity, assume the data is of integer type.
+
+**Main Stack Operations**  
+- `void push(int data)`: Inserts `data` onto the stack.
+- `int pop()`: Removes and returns the last inserted element from the stack.
+
+**Auxiliary Stack Operations**  
+- `int top()`: Returns the last inserted element without removing it.
+- `int size()`: Returns the number of elements stored in the stack.
+- `boolean isEmpty()`: Indicates whether any elements are stored in the stack or not.
+- `boolean isFull()`: Indicates whether the stack is full or not.
+
+### <a name="performance-limitations"></a>4.3 Performance & Limitations
+
+**Performance**  
+- Space complexity (for *n* push operations): `O(n)`
+- Time complexity of `push()` and `pop()`: `O(1)`
+
+**Limitations**  
+- The maximum size of the stack must be defined beforehand and cannot be changed. Trying to push a new element into a full stack causes an implementation-specific exception (commonly known as *overflow*).
+
+## <a name="queues"></a>QUEUES
+
+### <a name="what-is-a-queue"></a>5.1 What is a Queue?
+
+A *queue* is an ordered list in which insertions are done at one end (*rear*) and deletions are done at the other end (*front*). The first element to be inserted is the first one to be deleted. Hence, it is called First In, First Out (FIFO) or Last In, Last Out (LILO) list.
+
+When an element is inserted into a queue, the concept is called *EnQueue*. When an element is removed from the queue, the concept is called *DeQueue*. 
+
+*DeQueueing* an empty queue is called *underflow*, and *EnQueueing* an element into a full queue is called *overflow*.
+
+<p align="center">
+  <img src="image-10.png" alt="Queue Diagram">
+</p>
+
+### <a name="queue-adt"></a>5.2 Queue ADT
+
+The following operations make a queue an ADT. Insertions and deletions in the queue must follow the FIFO scheme. For simplicity, we assume the elements are integers.
+
+**Main Queue Operations**  
+- `void enQueue(int data)`: Inserts an element at the end of the queue (at rear).
+- `int deQueue()`: Removes and returns the element from the front of the queue.
+
+**Auxiliary Queue Operations**  
+- `int front()`: Returns the element at the front without removing it.
+- `int rear()`: Returns the element at the rear without removing it.
+- `int size()`: Returns the number of elements stored in the queue.
+- `boolean isEmpty()`: Indicates whether no elements are stored in the queue or not.
+
+### <a name="performance-limitations-queues"></a>5.3 Performance and Limitations
+
+**Performance**  
+- Space Complexity (for *n* enQueue operations): `O(n)`
+- Time Complexity of `enQueue()`: `O(1)`
+- Time Complexity of `deQueue()`: `O(1)`
+
+**Limitations**  
+- The maximum size of the queue must be defined beforehand and cannot be changed. Trying to *Enqueue* a new element into a full queue causes an implementation-specific exception (commonly known as *overflow*).
