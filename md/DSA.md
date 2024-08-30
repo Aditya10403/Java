@@ -71,7 +71,7 @@ Two main criteria for judging algorithms are:
 - **Efficiency:** How much resources (memory and time) does it take to execute?
 
 <p align="center">
-  <img src="image-1.png" alt="Algorithms">
+  <img src="image-1.png" width=500 alt="Algorithms">
 </p>
 
 ### <a name="types-of-analysis"></a>1.5 Types of Analysis of an Algorithm
