@@ -30,7 +30,7 @@
    - [5.1 What is a Queue?](#what-is-a-queue)
    - [5.2 Queue ADT](#queue-adt)
    - [5.3 Performance and Limitations](#performance-limitations-queues)
-6. [trees](#Trees)
+6. [Trees](#trees)
     - [What is a Tree?](#what-is-a-tree)
     - [Binary Trees](#binary-trees)
     - [Types of Binary Trees](#types-of-binary-trees)
