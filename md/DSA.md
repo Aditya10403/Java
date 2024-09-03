@@ -375,7 +375,7 @@ A tree is called a `binary tree` if each node has zero children, one child, or t
 **Full Binary Tree:** A binary tree is called a `full binary tree` if each node has exactly two children, and all leaf nodes are at the same level.
 
 <p align="center">
-  <img src="image-16.png" width=400 alt="Full Binary Tree Diagram">
+  <img src="image-21.png" width=400 alt="Full Binary Tree Diagram">
 </p>
 
 **Complete Binary Tree:** Before defining the `complete binary tree`, let us assume that the height of the binary tree is ℎ.

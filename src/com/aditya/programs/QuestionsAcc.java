@@ -144,9 +144,43 @@ public class QuestionsAcc {
 //        int[] nums = { 1,2,3,3,4,4 };
 //        System.out.println(secondLargest(nums));
 
-        String s = "dfa12321afd";
-        System.out.println(secondHighest(s));
+//        String s = "dfa12321afd";
+//        System.out.println(secondHighest(s));
 
+        String s = "snakewatergunwater";
+        System.out.println(SWG(s));
+
+    }
+
+    static int A = 0, B = 0;
+    private static Character SWG(String s) {
+        int a = 0, b = 0;
+        int i = 0, j = 1;
+        while (i < s.length()) {
+            char ch = s.charAt(i);
+            if (ch == 's') {
+                winner(ch, s.charAt(i+5));
+                i = i + 5;
+            } else if (s.charAt(i) == 'w') {
+                winner(ch, s.charAt(i+5));
+                i = i + 5;
+            } else {
+                winner(ch, s.charAt(i+3));
+                i = i + 3;
+            }
+        }
+        return A > B ? 'A' : 'B';
+    }
+
+    public static void winner(char a, char b) {
+        if (a == b) return;
+        if (a == 's') {
+            if (b == 'w') A++; else B++;
+        } else if (a == 'g') {
+            if (b == 's') A++; else B++;
+        } else {
+            if (b == 'g') A++; else B++;
+        }
     }
 
     private static int secondHighest(String s) {
