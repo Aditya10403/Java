@@ -31,11 +31,15 @@
    - [5.2 Queue ADT](#queue-adt)
    - [5.3 Performance and Limitations](#performance-limitations-queues)
 6. [Trees](#trees)
-    - [What is a Tree?](#what-is-a-tree)
-    - [Binary Trees](#binary-trees)
-    - [Types of Binary Trees](#types-of-binary-trees)
-    - [Properties of Binary Trees](#properties-of-binary-trees)
-    - [Structure of Binary Trees](#structure-of-binary-trees)
+    - [6.1 What is a Tree?](#61-what-is-a-tree)
+    - [6.2 Binary Trees](#62-binary-trees)
+    - [6.3 Types of Binary Trees](#63-types-of-binary-trees)
+    - [6.4 Binary Tree Traversals](#64-binary-tree-traversals)
+    - [6.5 Properties of Binary Trees](#65-properties-of-binary-trees)
+    - [6.6 Binary Search Trees (BSTs)](#66-binary-search-trees-bsts)
+    - [6.7 Balanced Binary Search](#67-balanced-binary-search-trees)
+    - [6.8 AVL (Adelson-Velskii and Landis) Trees](#68-avl-adelson-velskii-and-landis-trees)
+    - [6.9 Other Variations on Trees](#69-other-variations-on-trees)
 
 # Data Structure Operations Cheat Sheet
 
@@ -67,6 +71,8 @@
 | **Counting Sort**          | `O(n + k)` | `O(n + k)`   | `O(n + k)`   | `O(k)`   | Yes | Linear     | Where `k` is the range of the non-negative key values. |
 | **Bucket Sort**            | `O(n + k)` | `O(n + k)`   | `O(n + k)`   | `O(n)`   | Yes | Linear     | Bucket sort is stable, if the underlying sorting algorithm is stable. |
 | **Radix Sort**             | `O(dn)`    | `O(dn)`      | `O(dn)`      | `O(d + n)` | Yes | Linear   | Radix sort is stable, if the underlying sorting algorithm is stable. |
+
+#
 
 ## <a name="introduction"></a>INTRODUCTION
 
@@ -357,7 +363,6 @@ The following operations make a queue an ADT. Insertions and deletions in the qu
 
 ## <a name="trees"></a>TREES
 
-
 ### <a name="what-is-a-tree"></a>6.1 What is a Tree?
 
 A *tree* is a data structure similar to a linked list, but instead of each node pointing to the next node in a linear fashion, each node points to a number of nodes. A tree is an example of a non-linear data structure. A tree structure is a way of representing the hierarchical nature of a structure in a graphical form.
@@ -417,7 +422,27 @@ A binary tree is called a `complete binary tree` if all leaf nodes are at height
   <img src="image-17.png" width=400 alt="Complete Binary Tree Diagram">
 </p>
 
-### <a name="properties-of-binary-trees"></a>6.4 Properties of Binary Trees
+### <a name="binary-tree-traversals"></a>6.4 Binary Tree Traversals 
+
+In order to process trees, we need a mechanism for traversing them, and that forms the subject of this section. The process of visiting all nodes 
+of a tree is called *tree traversal*.
+
+#### Classifying the Traversals 
+
+The classification is based on the order in which current node is processed. That means, if we are classifying based on current node (`D`) and if `D` comes in the middle then it does not matter whether `L` is on left side of `D` or `R` is on left side of `D`.  
+
+Similarly, it does not matter whether `L` is on right side of D or `R` is on right side of D. Due to this, the total 6 possibilities are reduced to 3 and 
+these are: 
+
+- Preorder (`DLR`) Traversal 
+- Inorder (`LDR`) Traversal 
+- Postorder (`LRD`) Traversal 
+
+There is another traversal method which does not depend on the above orders and it is: 
+
+- Level Order Traversal: This method is inspired from Breadth First Traversal (`BFS` of Graph algorithms).
+
+### <a name="properties-of-binary-trees"></a>6.5 Properties of Binary Trees
 
 For the following properties, let us assume that the height of the tree is ℎ. Also, assume that the `root` node is at height zero.
 
@@ -434,10 +459,90 @@ From the diagrams, we can infer the following properties:
 - The number of `leaf nodes` in a `full binary tree` is 2<sup>*n*</sup>.
 - The number of `None` links (wasted pointers) in a `complete binary tree` of `n` nodes is `n` + 1.
 
-### <a name="structure-of-binary-trees"></a>6.5 Structure of Binary Trees
+#### Structure of Binary Trees
 
 One way to represent a node (which contains data) is to have two links that point to the left and right children along with data fields, as shown below:
 
 <p align="center">
   <img src="image-20.png" width=600 alt="Binary Tree Node Structure Diagram">
 </p>
+
+
+
+
+### <a name="binary-search-trees"></a> 6.6 Binary Search Trees (BSTs) 
+
+#### Why Binary Search Trees?
+
+To search for an element we need to check both in left subtree and in right subtree. Due to this, the worst case complexity of search operation is `O(n)`.
+
+To get rid of this Binary Search Trees (BSTs) were introduced. As the name  suggests,  the  main  use  of  this representation is for *searching*. In this representation we impose restriction on the kind of data a node can contain. As a result, it reduces 
+the worst case average search operation to `O(logn)`.
+
+#### Binary Search Tree Property
+
+- The left subtree of a node contains only nodes with keys less than the nodes key. 
+- The right subtree of a node contains only nodes with keys greater than the nodes key. 
+- Both the left and right subtrees must also be binary search trees. 
+
+<p align="center">
+  <img src="image-22.png" height=250 width=400 alt="Binary Tree Node Structure Diagram">
+  <img src="image-23.png" height=250 width=400 alt="Binary Tree Node Structure Diagram">
+</p>
+
+### <a name="balanced-binary-search-trees"></a> 6.7 Balanced Binary Search Trees 
+
+In BST's the worst case complexity is `O(n)` when  the trees are skew trees. 
+
+In  this  section  we  will  try  to  reduce  this  worst case complexity to `O(log n)` by imposing  restrictions  on the heights. 
+
+In  general, the  height balanced trees  are  represented  with *HB(`k`)*,  where `k` is  the  difference  between  left  subtree  height  and  right  subtree height. Sometimes `k` is called balance factor.
+
+#### Full Balanced Binary Search Trees
+
+In *HB(`k`)*, if `k` =  0 (if balance factor is zero), then we call such binary search trees as *full* balanced binary search trees. That means, in 
+*HB(0)* binary search tree, the difference between left subtree height and right subtree height should be at most zero. This ensures that the 
+tree is a full binary tree. For example, 
+
+<p align="center">
+  <img src="image-24.png" width=400 alt="Binary Tree Node Structure Diagram">
+</p>
+
+### <a name="balanced-binary-search-trees"></a> 6.8 AVL (Adelson-Velskii and Landis) Trees
+
+In *HB(`k`)*, if `k` =  1 (if balance factor is one), such a binary search tree is called an *AVL tree*. That means an AVL tree is a binary search 
+tree with a *balance* condition: the difference between left subtree height and right subtree height is at most 1.
+
+#### Properties of AVL Trees 
+
+A binary tree is said to be an AVL tree, if:  
+
+- It is a binary search tree, and 
+- For any node *X*, the height of left subtree of *X* and height of right subtree of *X* differ by at most 1.  
+
+As an example, among the above binary search trees, the left one is not an AVL tree, whereas the right binary search tree is an AVL tree. 
+  
+<p align="center">
+  <img src="image-25.png" width=650 alt="Binary Tree Node Structure Diagram">
+</p>
+
+### <a name="balanced-binary-search-trees"></a> 6.9 Other Variations on Trees
+
+#### Red-Black Trees 
+
+A Red-black tree is a binary search tree that satisfies the following properties: 
+- **Root Property**: the root is black 
+- **External Property**: every leaf is black 
+- **Internal Property**: the children of a red node are black 
+- **Depth Property**: all the leaves have the same black
+
+#### B-Trees
+
+B-Tree  is  like other  self-balancing trees  such  as  AVL  and Red-black  tree  such  that  it  maintains  its balance of  nodes  while  operations are performed against it. B-Tree has the following properties:  
+
+- Minimum degree `t` where, except root node, all other nodes must have no less than `t-1` keys.
+- Each node with `n` keys has `n + 1` children 
+- Keys in each node are lined up where *k<sub></sub> < k<sub>2</sub> <.. k<sub>n</sub>*.
+- Each node cannot have more than `2t-1` keys, thus `2t` children 
+- Root node at least must contain one key. There is no root node if the tree is empty. 
+- Tree grows in depth only when root node is split.
