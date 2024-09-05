@@ -22,7 +22,7 @@ public class LinkedListPrgm {
         System.out.println(list);
         System.out.println(list.get(0)+list.get(3));
 
-        ListIterator lt = list.listIterator();
+        ListIterator<Integer> lt = list.listIterator();
         while (lt.hasNext()){
             System.out.println(lt.next() + " ");
         }
