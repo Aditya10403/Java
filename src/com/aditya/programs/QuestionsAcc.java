@@ -1,8 +1,6 @@
 package com.aditya.programs;
 
 import java.util.*;
-import java.util.stream.Collectors;
-
 
 public class QuestionsAcc {
 //    static int max = Integer.MIN_VALUE;

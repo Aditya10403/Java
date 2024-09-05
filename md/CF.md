@@ -139,6 +139,10 @@ List<String> list = new ArrayList<>();
 ```
 
 ## <a name="arraylist">ArrayList</a>
+
+Resizable-array implementation of the `List` interface. Implements all optional list operations, and permits all elements, including `null`. In addition to implementing the `List` interface, this class provides methods to manipulate the size of the array that is used internally to store the list. (This class is roughly equivalent to `Vector`, except that it is `unsynchronized`.)
+
+The `size`, `isEmpty`, `get`, `set`, `getFirst`, `getLast`, `removeLast`, `iterator`, `listIterator`, and `reversed` operations run in constant time. The `add` and `addLast` operations runs in amortized constant time, that is, adding n elements requires `O(n)` time. All the other operations run in linear time (roughly speaking).
  
 ![alt](/images/arraylist.png)
 
