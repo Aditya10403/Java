@@ -491,7 +491,7 @@ Map<String, Integer> map = new HashMap<>();
 This class implements a hash table, which maps keys to values. Any `non-null` object can be used as a key or as a value.
 To successfully store and retrieve objects from a hashtable, the objects used as keys must implement the `hashCode` method and the `equals` method.
 
-`Hashtable` is synchronized`. If a thread-safe implementation is not needed, it is recommended to use `HashMap` in place of Hashtable.
+`Hashtable` is synchronized. If a thread-safe implementation is not needed, it is recommended to use `HashMap` in place of Hashtable.
 
 *`Object.hashCode()`* - Returns a hash code value for this object. This method is supported for the benefit of hash tables such as those provided by `java.util.HashMap`.
 
