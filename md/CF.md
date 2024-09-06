@@ -234,7 +234,7 @@ public class HashSetExample {
         set.add("Hanuman");
         set.add("Lakshman");
         set.add("Hanuman");  // Duplicate element, will not be added
-        set.remove("Lakshman")
+        set.remove("Lakshman");
         System.out.println("HashSet: " + set);
     }
 }
@@ -470,7 +470,6 @@ The `Map` interface provides three collection views, which allow a map's content
 The `Map` interface is implemented by various classes such as `HashMap`, `LinkedHashMap`, and `TreeMap`.
 - Maps unique keys to values.
 - Does not allow duplicate keys.
-- Allows one `null` key and multiple `null` values (implementation-dependent).
 
 ### Common Methods
 
@@ -492,6 +491,8 @@ Map<String, Integer> map = new HashMap<>();
 This class implements a hash table, which maps keys to values. Any `non-null` object can be used as a key or as a value.
 To successfully store and retrieve objects from a hashtable, the objects used as keys must implement the `hashCode` method and the `equals` method.
 
+`Hashtable` is synchronized`. If a thread-safe implementation is not needed, it is recommended to use `HashMap` in place of Hashtable.
+
 *`Object.hashCode()`* - Returns a hash code value for this object. This method is supported for the benefit of hash tables such as those provided by `java.util.HashMap`.
 
 *`Object.equals(Object)`* - Indicates whether some other object is "equal to" this one. 
@@ -501,22 +502,20 @@ An instance of `Hashtable` has two parameters that affect its performance: <i>in
 
 - extends `Dictionary` abstract class.
 - implements `Map` interface.
-- Does not allow duplicate keys.
-- Allows one `null` key and multiple `null` values (implementation-dependent).
 
 ### Implementation
 ```java
 // This example creates a hashtable of numbers. It uses the names of the numbers as keys:
-Hashtable<String, Integer> numbers = new Hashtable<String, Integer>(); 
-numbers.put("one", 1);
-numbers.put("two", 2);
-numbers.put("three", 3);
-
-// To retrieve a number, use the following code:
-Integer n = numbers.get("two");
-if (n != null) {   
-    System. out. println("two = " + n);
-}
+Hashtable<String, Integer> numbers = new Hashtable<>();
+    numbers.put("one", 1);
+    numbers.put("two", 2);
+    numbers.put("three", 3);
+    
+    // To retrieve a number, use the following code:
+    Integer n = numbers.get("two");
+    if (n != null) {   
+        System. out. println("two = " + n);
+    }
 ```
 
 ## <a name="hashmap">HashMap</a>
