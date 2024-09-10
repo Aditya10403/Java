@@ -148,9 +148,37 @@ public class QuestionsAcc {
 //        String s = "snakewatergunwater";
 //        System.out.println(SWG(s));
 
-        int n = 5;
-        System.out.println(n + "th element -> " + specialFibonacci(n));
+//        int n = 5;
+//        System.out.println(n + "th element -> " + specialFibonacci(n));
 
+//        int n = 15, c = 0;
+//        while (n > 0) {
+//            c += n & 1;
+//            n >>= 1;
+//        }
+//        System.out.println(c);
+
+        String goals = "TeamA TeamB TeamA TeamA TeamB TeamA";
+        System.out.println(winningTeam(goals));
+
+
+    }
+
+    private static String winningTeam(String g) {
+        if (g.isEmpty()) return "NoTeams";
+        int a = 0, b = 0, i = 4;
+        while (i < g.length()) {
+            if (g.charAt(i) == 'A') a++;
+            else b++;
+            i += 6;
+        }
+//        String[] goals = g.split(" ");
+//        for (String s: goals) {
+//            if (s.equals("TeamA")) a++;
+//            else b++;
+//        }
+        System.out.println(a + " - A : B - " + b);
+        return a > b ? "TeamA" : "TeamB";
     }
 
     private static int specialFibonacci(int n) {
