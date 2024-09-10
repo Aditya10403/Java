@@ -578,8 +578,8 @@ public class Rectangle extends Shape{
 ```
 
 ### `Dynamic Method Dispatch`
-Dynamic method dispatch is the mechanism by which a call to an `overridden method is resolved at runtime, rather than compile time. This is how Java implements runtime polymorphism. Java determines which version of that method to execute based on the type of the object. \
-<img src="images/img_3.png" height="100">
+Dynamic method dispatch is the mechanism by which a call to an `overridden method` is resolved at runtime, rather than compile time. This is how Java implements runtime polymorphism. Java determines which version of that method to execute based on the type of the object. \
+<img src="/images/img_3.png" height="100">
 
 
 
