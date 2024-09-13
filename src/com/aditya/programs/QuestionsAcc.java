@@ -389,7 +389,7 @@ public class QuestionsAcc {
         boolean isCapital = false, isNumeric = false;
         char[] charArray = s.toCharArray();
         for (char c: charArray) {
-            if (String.valueOf(c).equals(" ") || String.valueOf(c).equals("/")) return false;
+            if (c == ' ' || c == '/') return false;
             else if (c >= '0' && c <= '9') isNumeric = true;
             else if (c >= 'A' && c <= 'Z') isCapital = true;
         }
