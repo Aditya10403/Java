@@ -17,16 +17,10 @@ public class ShortestPalindrome {
      *         String p = "";
      *         while (idx > 0) {
      *             p = palindrome(s.substring(0, idx));
-     *             if (p != null) {
-     *                 break;
-     *             }
+     *             if (p != null) break;
      *             idx--;
      *         }
-     *         if (p == null || p.length() == 1) {
-     *             return sb.substring(0, n - 1) + s;
-     *         }
-     *         int l = n - p.length();
-     *         return sb.substring(0, l) + s;
+     *         return sb.substring(0, n - idx) + s;
      * }
      *
      * private static String palindrome(String s) {
