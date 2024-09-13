@@ -6,8 +6,6 @@ public class ShortestPalindrome {
         System.out.println(shortestPalindrome(s));
     }
 
-    // Brute
-
     /**
      * <pre>   {@code
      * private static String shortestPalindrome(String s) {
@@ -38,6 +36,8 @@ public class ShortestPalindrome {
      * }</pre>
      *
      */
+
+
     private static String shortestPalindrome(String s) {
         int n = s.length();
         int idx = 0;
