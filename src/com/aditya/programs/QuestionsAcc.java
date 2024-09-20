@@ -158,10 +158,53 @@ public class QuestionsAcc {
 //        }
 //        System.out.println(c);
 
-        String goals = "TeamA TeamB TeamA TeamA TeamB TeamA";
-        System.out.println(winningTeam(goals));
+//        String goals = "TeamA TeamB TeamA TeamA TeamB TeamA";
+//        System.out.println(winningTeam(goals));
+
+//        String s = "applesarefallingfromtheskies";
+//        System.out.println(deleteVowels(s));
+
+        int n = 19;
+        System.out.println(isHappy(n));
 
 
+    }
+
+    private static boolean isHappy(int n) {
+        int slow = n;
+        int fast = n;
+        do {
+            slow = sum(slow);
+            fast = sum(sum(fast));
+        } while (slow != fast);
+        return slow == 1;
+    }
+
+    private static int sum(int n) {
+        int res = 0;
+        while (n > 0) {
+            int r = n % 10;
+            res += r * r;
+            n /= 10;
+        }
+        return res;
+    }
+
+    private static String deleteVowels(String s) {
+        StringBuilder res = new StringBuilder();
+        char[] c = s.toCharArray();
+        int n = c.length;
+        res.append(c[0]);
+        for (int i = 1; i < n-1; i++) {
+            if (isVowel(c[i]) && !isVowel(c[i-1]) && !isVowel(c[i+1])) continue;
+            res.append(c[i]);
+        }
+        return res.toString() + c[n-1];
+    }
+
+    static Set<Character> set = new HashSet<>(Arrays.asList('a','e','i','o','u'));
+    private static boolean isVowel(char b) {
+        return set.contains(b);
     }
 
     private static String winningTeam(String g) {
