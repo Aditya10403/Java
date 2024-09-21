@@ -40,6 +40,15 @@
     - [6.7 Balanced Binary Search](#67-balanced-binary-search-trees)
     - [6.8 AVL (Adelson-Velskii and Landis) Trees](#68-avl-adelson-velskii-and-landis-trees)
     - [6.9 Other Variations on Trees](#69-other-variations-on-trees)
+7. [Priority Queues and Heaps](#priority-queues-and-heaps)
+    - [7.1 What is a Priority Queue?](#71-what-is-a-priority-queue)
+    - [7.2 Priority Queue ADT](#72-priority-queue-adt)
+    - [7.3 Priority Queue Implementations](#73-priority-queue-implementations)
+    - [7.4 Heaps and Binary Heaps](#74-heaps-and-binary-heaps)
+    - [7.6 Binary Heaps](#76binary-heaps)
+8. [Graph Algorithms](#graph-algorithms)
+    - [8.1 Graph?](#81-graph)
+    - [8.1 Depth First Search (DFS)](#82-depth-first-search-dfs)
 
 # Data Structure Operations Cheat Sheet
 
@@ -587,7 +596,7 @@ A  priority  queue  ADT  is  a  data  structure that  supports  the  operations 
 | Binary Heaps                   | logn            | logn                 | 1              |
 
 
-### <a name="Heaps and Binary Heaps"></a>7.5 Heaps and Binary Heaps
+### <a name="Heaps and Binary Heaps"></a>7.4 Heaps and Binary Heaps
 
 **What is a Heap?**  
 
@@ -623,7 +632,7 @@ Based on the property of a heap we can classify heaps into two types:
   <img src="image-30.png" width=300 alt="Priority Queue Diagram">
 </p>
 
-### <a name="binary-heaps"></a>7.6	BinaryHeaps
+### <a name="binary-heaps"></a>7.6	Binary Heaps
 
 In	binary	heap	each	node	may	have	up	to	two	children.	
 
@@ -712,7 +721,7 @@ of a graph is the union of spanning trees of its connected components.
 from `0` to ![alt text](image-43.png) (in undirected graph). This is because each node can connect to every other node. 
 
 
-### <a name="depth-first-search-dfs"></a>8.1 Depth First Search (DFS)
+### <a name="depth-first-search-dfs"></a>8.2 Depth First Search (DFS)
 
 
 
