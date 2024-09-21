@@ -546,3 +546,174 @@ B-Tree  is  like other  self-balancing trees  such  as  AVL  and Red-black  tree
 - Each node cannot have more than `2t-1` keys, thus `2t` children 
 - Root node at least must contain one key. There is no root node if the tree is empty. 
 - Tree grows in depth only when root node is split.
+
+
+## <a name="priority-queues-and-heaps"></a>PRIORITY QUEUES AND HEAPS
+
+### <a name="what-is-a-priority-queue"></a>7.1 What is a Priority Queue?
+
+A  priority  queue  ADT  is  a  data  structure that  supports  the  operations *Insert* and *DeleteMin*  (which returns and removes the minimum element) or *DeleteMax* (which returns and removes the maximum element).
+
+<p align="center">
+  <img src="image-26.png" width=300 alt="Priority Queue Diagram">
+</p>
+
+### <a name="priority-queue-adt"></a>7.2 Priority Queue ADT
+
+**Main Priority Queue Operations**  
+- `insert (key, data)`: Inserts data with *key* to the priority queue. Elements are ordered based on key. 
+
+- `deleteMin/deleteMax`: Removes and returns the element with the smallest/largest key.
+
+- `GetMinimum/getMaximum`: Return the element with the smallest/largest key without deleting it.
+
+**Auxiliary Queue Operations**  
+- `kth Smallest/kth − Largest`: Returns the kth Smallest/kth − Largest key in priority queue.
+
+- `Size`: Returns number of elements in priority queue. 
+
+- `Heap Sort`: Sorts the elements in the priority queue based on priority (key).
+
+### <a name="priority-queue-implementations"></a>7.3 Priority Queue Implementations 
+
+| Implementation                | Insertion       | Deletion (deleteMax) | Find Min       |
+|--------------------------------|-----------------|----------------------|----------------|
+| Unordered array                | 1               | n                    | n              |
+| Unordered list                 | 1               | n                    | n              |
+| Ordered array                  | n               | 1                    | 1              |
+| Ordered list                   | n               | 1                    | 1              |
+| Binary Search Trees            | logn (average)  | logn (average)       | logn (average) |
+| Balanced Binary Search Trees   | logn            | logn                 | logn           |
+| Binary Heaps                   | logn            | logn                 | 1              |
+
+
+### <a name="Heaps and Binary Heaps"></a>7.5 Heaps and Binary Heaps
+
+**What is a Heap?**  
+
+A heap is a tree with some special properties. The basic requirement of a heap is that the value of a node must be `≥` (or `≤`) than the values 
+of its children. This is called *heap property*. 
+
+A heap also has the additional property that all leaves should be at ℎ or ℎ  − 1 levels for some ℎ > 0 (*complete binary trees*). That means heap should form a *complete binary trees* (as shown 
+below). 
+
+<p align="center">
+  <img src="image-27.png" width=300 alt="Priority Queue Diagram">
+</p>
+ 
+In the examples below, the left tree is a heap (each element is greater than its children) and the right tree is not a heap (since 11 is greater than 2). 
+ 
+<p align="center">
+  <img src="image-28.png" width=600 alt="Priority Queue Diagram">
+</p>
+
+**Types of Heaps?**
+
+Based on the property of a heap we can classify heaps into two types:
+
+- `Min heap`: The value of a node must be less than or equal to the values of its children.
+
+<p align="center">
+  <img src="image-29.png" width=300 alt="Priority Queue Diagram">
+</p>
+
+- `Max heap`: The value of a node must be greater than or equal to the values of its children.
+ 
+<p align="center">
+  <img src="image-30.png" width=300 alt="Priority Queue Diagram">
+</p>
+
+### <a name="binary-heaps"></a>7.6	BinaryHeaps
+
+In	binary	heap	each	node	may	have	up	to	two	children.	
+
+**Representing Heaps**:
+
+One	possibility	is using arrays.	Since	heaps	are	forming	complete	binary	trees,	there will	not	be	any	wastage	of	locations.	For	the	discussion	below	let	us	assume	that	elements	are
+stored	in	arrays,	which	starts	at	index	0.	The	previous	max	heap	can	be	represented	as
+
+<p align="center">
+  <img src="image-31.png" width=450 alt="Priority Queue Diagram">
+</p>
+
+## <a name="graph-algorithms"></a>GRAPH ALGORITHMS
+
+### <a name="graph"></a>8.1 Graph?
+
+A  graph `G`  is  simply  a  way  of  encoding pairwise  relationships  among  a  set of objects:  it  consists  of  a  collection `V`  of nodes  and  a 
+collection `E` of edges, each of which `joins` two of the nodes. We thus represent an edge `e` in `E` as a two-element subset of `V: e = {u, v}` for some u, v in V, where we call u and v the ends of e.
+
+- `Vertices` and `Edges` are positions and store elements.
+- `Directed edge`: 
+  <p>  
+    <img src="image-32.png" width=200 alt="Priority Queue Diagram">
+  </p>
+
+- `UnDirected edge`: 
+  <p>  
+    <img src="image-33.png" width=200 alt="Priority Queue Diagram">
+  </p>
+- `Directed graph`: 
+  <p>  
+    <img src="image-34.png" width=200 alt="Priority Queue Diagram">
+  </p>
+- `UnDirected graph`: 
+  <p>  
+    <img src="image-35.png" width=300 alt="Priority Queue Diagram">
+  </p>
+
+- When an edge connects two vertices, the vertices are said to be adjacent to each other and the edge is incident on both vertices.  
+- A graph with no cycles is called a `tree`. A tree is an acyclic connected graph.
+  <p>  
+    <img src="image-36.png" width=300 alt="Priority Queue Diagram">
+  </p>
+- A self loop is an edge that connects a vertex to itself.
+  <p>  
+    <img src="image-37.png" width=100 alt="Priority Queue Diagram">
+  </p>
+- Two edges are parallel if they connect the same pair of vertices. 
+  <p>  
+    <img src="image-38.png" width=200 alt="Priority Queue Diagram">
+  </p>
+- The `degree` of a vertex is the number of edges incident on it.  
+- A `subgraph` is a subset of a graph’s edges (with associated vertices) that form a graph.
+
+- A `directed acyclic graph` (DAG) is a directed graph with no cycles.
+  <p>  
+    <img src="image-39.png" width=100 alt="Priority Queue Diagram">
+  </p>
+
+- In `weighted graphs` integers (*weights*) are assigned to each edge to represent (distances or costs).
+  <p>  
+    <img src="image-40.png" width=300 alt="Priority Queue Diagram">
+  </p>
+
+- A `forest` is a disjoint set of trees.  
+- A `spanning tree` of a connected graph is a subgraph that contains all of that graph’s vertices and is a single tree. A spanning forest 
+of a graph is the union of spanning trees of its connected components.  
+
+- A `bipartite graphs` is a graph whose vertices can be divided into two sets such that all edges connect a vertex in one set with a vertex in the other set.  
+  <p>  
+    <img src="image-41.png" width=300 alt="Priority Queue Diagram">
+  </p>
+ 
+ 
+- Graphs with all edges present are called `complete graphs`. 
+
+  <p>  
+    <img src="image-42.png" width=200 alt="Priority Queue Diagram">
+  </p>
+ 
+  
+- Graphs with relatively few edges (generally if it edges < `|V| log  |V|`) are called `sparse graphs`.
+- Graphs with relatively few of the possible edges missing are called `dense graphs`. 
+- Directed weighted graphs are sometimes called `network`. 
+- We will denote the number of vertices in a given graph by  `|V|`, and the number of edges by `|E|`. Note that `E` can range anywhere 
+from `0` to ![alt text](image-43.png) (in undirected graph). This is because each node can connect to every other node. 
+
+
+### <a name="depth-first-search-dfs"></a>8.1 Depth First Search (DFS)
+
+
+
+### 
