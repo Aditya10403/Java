@@ -164,10 +164,126 @@ public class QuestionsAcc {
 //        String s = "applesarefallingfromtheskies";
 //        System.out.println(deleteVowels(s));
 
-        int n = 19;
-        System.out.println(isHappy(n));
+//        int n = 19;
+//        System.out.println(isHappy(n));
 
+//        int a = 20, b = 30;
+//        System.out.println(LCM(a, b));
+//        System.out.println(GCD(a, b));
 
+        Scanner sc = new Scanner(System.in);
+//        System.out.print("Enter month: ");
+//        int m = sc.nextInt();
+//        Season(m);
+
+//        System.out.print("Enter no of Tickets: ");
+//        int t = sc.nextInt();
+//        total(t);
+
+//        System.out.print("Enter the positive integer: ");
+//        int n = sc.nextInt();
+//        factors(n);
+
+//        String s = "XYXXYXXY";
+//        System.out.println(minimumRemovals(s));
+
+        int n = 112;
+        System.out.println(getCount(n));
+
+    }
+
+    private static int getCount(int n) {
+        int count = 0;
+        for (int m = 1; m <= n; m++) {
+            int starSum = getStarSum(m);
+            count += starSum > n ? 1 : 0;
+        }
+        return count;
+    }
+
+    private static int getStarSum(int m) {
+        String num = String.valueOf(m);
+        int starSum = 0;
+        for (int i = 1; i <= num.length(); i++) {
+            String prefix = num.substring(0, i);
+            starSum += Integer.parseInt(prefix);
+        }
+        return starSum;
+    }
+
+    private static int minimumRemovals(String s) {
+        if (s.isEmpty()) return 0;
+        int removals = 0;
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == s.charAt(i-1)) removals++;
+        }
+        return removals;
+    }
+
+    private static void factors(int n) {
+        if (n == 0) {
+            System.out.println("No Factors");
+            return;
+        }
+        if (n < 0) n = n * -1;
+        ArrayList<Integer> factors = new ArrayList<>();
+        for (int i = 1; i <= n; i++) {
+            if (n % i == 0) factors.add(i);
+        }
+        System.out.print("Factors of " + n + " are: " + factors);
+
+    }
+
+    private static void total(int t) {
+        if (t < 5 || t > 40) {
+            System.out.print("Minimum 5 and a maximum of 40 tickets should be purchased");
+            return;
+        }
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Do you want to purchase any refreshments: ");
+        String ref = sc.next();
+        System.out.print("Do you have any coupon code: ");
+        String coupon = sc.next();
+        System.out.print("Enter the circle: ");
+        String c = sc.next();
+
+        double cost = 0.0;
+        cost += c.equals("A") ? t * 150 : t * 75;
+        cost -= t > 20 ? 0.1 * cost : 0;
+        cost -= coupon.equals("y") ? 0.02 * cost : 0;
+        cost += ref.equals("y") ? t * 50 : 0;
+
+        System.out.println("Total Ticket Cost: " + cost);
+    }
+
+    private static void Season(int m) {
+        switch (m) {
+            case 12: case 1: case 2:
+                System.out.println("Season: Winter");
+                break;
+            case 3: case 4: case 5:
+                System.out.println("Season: Spring");
+                break;
+            case 6: case 7: case 8:
+                System.out.println("Season: Summer");
+                break;
+            case 9: case 10: case 11:
+                System.out.println("Season: Autumn");
+                break;
+            default:
+                System.out.println("Invalid Month Entered");
+                break;
+        }
+    }
+
+    private static int GCD(int a, int b) {
+        if (b == 0) return a;
+        return GCD(b, a % b);
+    }
+
+    private static int LCM(int a, int b) {
+        return (a * b) / GCD(a, b);
     }
 
     private static boolean isHappy(int n) {
