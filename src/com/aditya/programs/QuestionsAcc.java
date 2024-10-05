@@ -187,9 +187,65 @@ public class QuestionsAcc {
 //        String s = "XYXXYXXY";
 //        System.out.println(minimumRemovals(s));
 
-        int n = 112;
-        System.out.println(getCount(n));
+//        int n = 112;
+//        System.out.println(getCount(n));
 
+//        int[] nums = { 8, 7, 1, 6, 5, 9 };
+//        System.out.println(Arrays.toString(rearrange(nums)));
+
+//        int[] nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+//        System.out.println(subarraySum2(nums));
+
+        int[] nums1 = { 1, 3 }, nums2 = { 2 };
+        System.out.println(findMedianSortedArrays(nums1, nums2));
+
+    }
+
+    private static double findMedianSortedArrays(int[] a, int[] b) {
+        // MERGE SORT
+        int n = a.length, m = b.length;
+        int i = 0, j = 0, k = 0;
+        int l = m+n;
+        int[] merge = new int[l];
+        while (i < n && j < m && k != l/2+1) {
+            if (a[i] <= b[j]) merge[k++] = a[i++];
+            else merge[k++] = b[j++];
+        }
+        while (i < n && k != l/2+1) merge[k++] = a[i++];
+        while (j < m && k != l/2+1) merge[k++] = b[j++];
+        System.out.println(k);
+        System.out.println(Arrays.toString(merge));
+        double ans;
+        if (l % 2 == 0) {
+            ans = (double) (merge[k - 2] + merge[k-1]) / 2;
+        } else ans = merge[k-1];
+        return ans;
+    }
+
+    private static int subarraySum2(int[] nums) {
+        // KADANE'S ALGO
+        int max = Integer.MIN_VALUE;
+        int sum = 0;
+        for (int num : nums) {
+            sum += num;
+            max = Math.max(max, sum);
+            if (sum < 0) sum = 0;
+        }
+        return max;
+    }
+
+    private static int[] rearrange(int[] nums) {
+        int n = nums.length;
+        int[] res = new int[n];
+        Arrays.sort(nums);
+        int idx = 0;
+        for (int i = 0; i < n/2; i++) {
+            res[idx++] = nums[i];
+        }
+        for (int i = n - 1; i >= n/2; i--) {
+            res[idx++] = nums[i];
+        }
+        return res;
     }
 
     private static int getCount(int n) {
@@ -277,15 +333,18 @@ public class QuestionsAcc {
         }
     }
 
+    //  HCF
     private static int GCD(int a, int b) {
         if (b == 0) return a;
         return GCD(b, a % b);
     }
 
+    // LCM
     private static int LCM(int a, int b) {
         return (a * b) / GCD(a, b);
     }
 
+    // LL - FAST AND SLOW POINTER(FUNC)
     private static boolean isHappy(int n) {
         int slow = n;
         int fast = n;
@@ -618,31 +677,6 @@ public class QuestionsAcc {
         return previous[n-1];
     }
 
-//    private static int equalnoof0and1(int[] nums) {
-//        int maxLength = Integer.MIN_VALUE;
-//        int n = nums.length;
-//        ArrayList<Integer> list;
-//        for (int i = 0; i < (1 << n); i++) {
-//            list = new ArrayList<>();
-//            for (int j = 0; j < n; j++) {
-//                if ((i & (1 << j)) > 0) {
-//                    list.add(nums[j]);
-//                }
-//            }
-//            System.out.println(list);
-//            int zeroes = 0;
-//            int ones = 0;
-//            for (int no: list) {
-//                if (no == 0) zeroes++;
-//                else ones++;
-//            }
-//            if (zeroes == ones && list.size() > maxLength) {
-//                maxLength = list.size();
-//            }
-//        }
-//        return maxLength;
-//    }
-
     private static int[] nextGreatest(int[] nums) {
         if (nums.length == 0) return nums;
         int n = nums.length;
@@ -802,12 +836,11 @@ public class QuestionsAcc {
     private static int minimizeBinary(int n) {
         char[] num = Integer.toBinaryString(n).toCharArray();
         Arrays.sort(num);
-        String s = String.copyValueOf(num);
+        String s = new String(num);
         return Integer.parseInt(s, 2); // ("0011", 2) -> 3
     }
 
     // subsequence
-
 //    private static int LongestSets(int[] nums, int k) {
 //        ArrayList<Integer> list;
 //        int maxLength = Integer.MIN_VALUE, sum = 0;
