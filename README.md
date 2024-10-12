@@ -1,7 +1,10 @@
 # Getting Started with Java 👨🏻‍💻
 
 ## Introduction to Java
-Java is a computer programming language that is concurrent, class-based and object-oriented.
+
+Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a general-purpose programming language intended to let programmers write once, run anywhere (WORA), meaning that compiled Java code can run on all platforms that support Java without the need to recompile.
+
+The Green Team, consisting of James Gosling, Mike Sheridan, and Patrick Naughton, initiated the Java language project in June 1991.
 
 ## Types of Java Platforms
 

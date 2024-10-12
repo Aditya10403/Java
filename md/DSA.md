@@ -724,5 +724,16 @@ from `0` to ![alt text](image-43.png) (in undirected graph). This is because eac
 ### <a name="depth-first-search-dfs"></a>8.2 Depth First Search (DFS)
 
 
+### <a name="breadth-first-search-dfs"></a>8.2 Breadth First Search (BFS)
+
 
 ### 
+
+## <a name="sorting"></a>SORTING
+
+### <a name="what-is-sorting"></a>9.1 What is Sorting?
+
+*Sorting* is an algorithm that arranges the elements of a list in a certain order [either *ascending* or *descending*]. The output is a permutation or reordering of the input.
+
+Sorting algorithms are classified based on the number of comparisons. For comparison based sorting algorithms, best case 
+behavior  is  *O(nlogn)* and  worst  case  behavior  is  *O(n^2)*.
