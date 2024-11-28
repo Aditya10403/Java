@@ -2,16 +2,16 @@ package com.aditya.DataStructureAndAlgorithm.DataStructures.customQueue;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        CircularQueue queue = new CircularQueue(5);
-        queue.insert(1);
-        queue.insert(2);
-        queue.insert(3);
-        queue.insert(4);
+        Queue queue = new Queue(5);
+        queue.enQueue(1);
+        queue.enQueue(2);
+        queue.enQueue(3);
+        queue.enQueue(4);
         queue.display();
-        System.out.println("Removed : " + queue.remove());
-        queue.insert(9);
-        System.out.println("Removed : " + queue.remove());
-        System.out.println("Front : " + queue.front());
+        System.out.println("Removed : " + queue.deQueue());
+        queue.enQueue(9);
+        System.out.println("Removed : " + queue.deQueue());
+        System.out.println("Front : " + queue.getFront());
         queue.display();
     }
 }

@@ -308,7 +308,7 @@ The `Stack` class represents a last-in-first-out (LIFO) stack of objects. It ext
 - Represents a LIFO stack of objects.
 - Provides methods to push, pop, peek, and search elements.
 - Can store duplicate elements.
-- Not synchronized, hence not thread-safe.
+- Synchronized
 
 > A more complete and consistent set of LIFO stack operations is provided by the `Deque` interface and its implementations, which should be used in preference to this class. For example: 
 

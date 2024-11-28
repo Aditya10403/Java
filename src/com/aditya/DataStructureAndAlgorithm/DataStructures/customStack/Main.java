@@ -2,6 +2,16 @@ package com.aditya.DataStructureAndAlgorithm.DataStructures.customStack;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        Stack stack = new Stack(5);
+//        stack.pop();
+        stack.push(4);
+        stack.push(3);
+        stack.push(2);
+        stack.push(1);
+        stack.push(5);
+        stack.status();
+        stack.push(5);
+        stack.status();
 //        Stack stack = new Stack(5);
 ////        stack.push(1);
 ////        stack.push(2);
@@ -61,6 +71,6 @@ public class Main {
 //            }
 //        } while (choice != 6);
 //        scanner.close();
-        System.out.println('c'-'a');
+//        System.out.println('c'-'a');
     }
 }

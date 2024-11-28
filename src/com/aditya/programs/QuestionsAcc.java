@@ -196,9 +196,53 @@ public class QuestionsAcc {
 //        int[] nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
 //        System.out.println(subarraySum2(nums));
 
-        int[] nums1 = { 1, 3 }, nums2 = { 2 };
-        System.out.println(findMedianSortedArrays(nums1, nums2));
+//        int[] nums1 = { 1, 3 }, nums2 = { 2 };
+//        System.out.println(findMedianSortedArrays(nums1, nums2));
 
+//        int n = 5;
+//        int[] price = { 6, 4, 1, 15, 5 };
+//        System.out.println(maxCandies(n, price));
+
+        String[] words = { "hello", "ccbc", "aaeiou" };
+        System.out.println(permutation(words));
+    }
+
+    private static int permutation(String[] words) {
+        if (words.length == 0) return 0;
+        int p = 0;
+        for (String w: words) {
+            int len = totalCons(w);
+            p = Math.max(factorial(len), p);
+        }
+        return p;
+    }
+
+    private static int factorial(int len) {
+        if (len == 0 || len == 1) return 1;
+        else return len * factorial(len-1);
+    }
+
+    private static int totalCons(String w) {
+        int count = 0;
+        HashSet<Character> set = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u'));
+        for (char c: w.toCharArray()) {
+            if (!set.contains(c)) count++;
+        }
+        return count;
+    }
+
+
+    private static int maxCandies(int n, int[] price) {
+        int count = 0;
+        Arrays.sort(price);
+        for (int p: price) {
+            if (p % 5 == 0) count++;
+            else if (p <= n) {
+                count++;
+                n -= p;
+            }
+        }
+        return count;
     }
 
     private static double findMedianSortedArrays(int[] a, int[] b) {

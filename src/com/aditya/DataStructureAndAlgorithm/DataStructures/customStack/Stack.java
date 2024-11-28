@@ -1,127 +1,55 @@
 package com.aditya.DataStructureAndAlgorithm.DataStructures.customStack;
 
 public class Stack {
-    int[] data;
-    int top = -1;
-    Stack(int size){
-        this.data = new int[size];
-    }
-    public boolean push(int val){
-        if (isFull()) {
-            System.out.println("Stack is full - Overflow!");
-            return false;
-        }
-        data[++top] = val;
-        return true;
-    }
-    public int pop() throws Exception{
-        if(isEmpty()) {
-            throw new Exception("Stack is empty - Underflow!");
-        }
-        return data[top--];
-    }
-    public int peek() throws Exception{
-        if(isEmpty()) {
-            throw new Exception("Stack is empty - Underflow!");
-        }
-        return data[top];
-    }
-    public void display(){
-        if (isEmpty()){
-            return;
-        }
-        System.out.println("Stack => ");
-        for (int i = 0; i <= top; i++) {
-            System.out.print(data[i] + " ");
-        }
-    }
-    public boolean isFull() {
-        return top == data.length - 1;
-    }
-    public boolean isEmpty() {
-        return top == - 1;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
     protected int[] data;
-    int top = -1;
+    private int top;
     private static final int DEFAULT_SIZE = 10;
-    public Stack() {
+
+    public Stack () {
         this(DEFAULT_SIZE);
     }
-    public Stack(int size){
+
+    public Stack(int size) {
         this.data = new int[size];
+        this.top = -1;
     }
-    public boolean push(int item) {
+
+    public void push(int val) {
         if (isFull()) {
-            System.out.println("Stack is Full - OverFlow!");
-            return false;
+            System.out.println("Stack Overflow!");
+            return;
         }
-        data[++top] = item;
-        return true;
+        data[++top] = val;
     }
-    public int pop() throws Exception {
+
+    public int pop() {
         if (isEmpty()) {
-            throw new Exception("Stack is Empty - UnderFlow!");
+            throw new RuntimeException("Stack is empty - Underflow!");
         }
         return data[top--];
     }
-    public int peek() throws Exception {
-        if (isEmpty()) {
-            throw new Exception("Stack is Empty - UnderFlow!");
-        }
+
+    public int peek() {
+        if (isEmpty()) throw new RuntimeException("Stack underflow");
         return data[top];
     }
-    public void display() {
-        if (isEmpty()) {
-            return;
+
+    public void status() {
+        if (isEmpty()) throw new RuntimeException("Stack underflow");
+        int i = 0;
+        System.out.print("Stack Status-> ");
+        while (i <= top) {
+            System.out.print(data[i++] + " ");
         }
-        int i = top;
-        System.out.println("Stack Status -> ");
-        while (i >= 0) {
-            System.out.print(data[i] + " ");
-            i--;
-        }
-        System.out.println();
+        System.out.print("End\n");
     }
-    public boolean isFull() {
-        return top == data.length - 1;
-    }
+
     public boolean isEmpty() {
-        return top == - 1;
-    }*/
+        return top == -1;
+    }
+
+    public boolean isFull() {
+        return top == data.length-1;
+    }
+
 }
