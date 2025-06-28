@@ -522,7 +522,7 @@ Polymorphism is the ability of programming languages to present the same interfa
 There are two types of Polymorphism in Java: 
 
 **`Compile-time polymorphism`** ( Static binding ) – `Method Overloading`  \
-Methods of a class have the same name but differ in the number, type, or order of parameters or return type of method. Java determines which method will be called at `Compile time`.
+Methods of a class have the same name but differ in the number, type, or order of parameters. Java determines which method will be called at `Compile time`.
 
 ```java
 // Calculator Class
